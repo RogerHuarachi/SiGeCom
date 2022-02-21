@@ -202,6 +202,28 @@
                         </a>
                     </li>
                 {{-- @endcan --}}
+
+                {{-- @can('works.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('works.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Bienes de Negocio
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
+
+                {{-- @can('families.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('families.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Bienes de Familia
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
             </ul>
         </nav>
     </div>

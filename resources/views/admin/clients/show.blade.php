@@ -19,6 +19,7 @@
     @include('admin.jobs.create')
     @include('admin.assets.create')
     @include('admin.passives.create')
+    @include('admin.works.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -543,6 +544,64 @@
                                         <th>Total Activos</th>
                                         <th>{{ $client->passives->sum('share') }}</th>
                                         <th>{{ $client->passives->sum('balace') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Bienes de Negocio
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#workCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->works)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Tipo de Bien</th>
+                                        <th>Cantidad</th>
+                                        <th>Descripción de Activo</th>
+                                        <th>Valor Comercial</th>
+                                        <th>Actividad</th>
+                                        <th>En Garantia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->works as $work)
+                                        <tr>
+                                            <td>{{ $work->type }}</td>
+                                            <td>{{ $work->amount }}</td>
+                                            <td>{{ $work->description }}</td>
+                                            <td>{{ $work->value }}</td>
+                                            <td>{{ $work->exercise }}</td>
+                                            <td>{{ $work->state }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>{{ $client->works->sum('value') }}</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </tfoot>
                             </table>

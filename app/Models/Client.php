@@ -61,6 +61,16 @@ class Client extends Model
         return $this->hasOne(Job::class);
     }
 
+    public function works()
+    {
+        return $this->hasMany(Work::class);
+    }
+
+    public function families()
+    {
+        return $this->hasMany(Familiy::class);
+    }
+
     public function primary(){
         $primary = $this->businesses()->where('level', 'PRIMARIA')->first();
         return $primary;

@@ -8,79 +8,42 @@ use Illuminate\Http\Request;
 
 class FamilyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $families = Fmily::paginate(10);
+        return view('admin.families.index', compact('families'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Fmily::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Family  $family
-     * @return \Illuminate\Http\Response
-     */
     public function show(Family $family)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Family  $family
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Family $family)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Family  $family
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Family $family)
     {
-        //
+        $family->update($request->all());
+        return back()->with('confirmation','Actualizado Correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Family  $family
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Family $family)
     {
-        //
+        $family->delete();
+        return back()->with('confirmation', 'Eliminado Correctamente');
     }
 }
