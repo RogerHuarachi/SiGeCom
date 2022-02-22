@@ -20,6 +20,8 @@ use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\FamilyController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\Admin\InventoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -240,5 +242,35 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:products.update');
     Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy')
         ->middleware('permission:products.destroy');
+
+    // Product
+    Route::get('items', [ItemController::class, 'index'])->name('items.index')
+        ->middleware('permission:items.index');
+    Route::post('items/store', [ItemController::class, 'store'])->name('items.store')
+        ->middleware('permission:items.store');
+    Route::put('items/{item}', [ItemController::class, 'update'])->name('items.update')
+        ->middleware('permission:items.update');
+    Route::delete('items/{item}', [ItemController::class, 'destroy'])->name('items.destroy')
+        ->middleware('permission:items.destroy');
+
+    // Inventory
+    Route::get('inventories', [InventoryController::class, 'index'])->name('inventories.index')
+        ->middleware('permission:inventories.index');
+    Route::post('inventories/store', [InventoryController::class, 'store'])->name('inventories.store')
+        ->middleware('permission:inventories.store');
+    Route::put('inventories/{inventory}', [InventoryController::class, 'update'])->name('inventories.update')
+        ->middleware('permission:inventories.update');
+    Route::delete('inventories/{inventory}', [InventoryController::class, 'destroy'])->name('inventories.destroy')
+        ->middleware('permission:inventories.destroy');
+
+    // Document
+    Route::get('documents', [DodumentController::class, 'index'])->name('documents.index')
+        ->middleware('permission:documents.index');
+    Route::post('documents/store', [DodumentController::class, 'store'])->name('documents.store')
+        ->middleware('permission:documents.store');
+    Route::put('documents/{document}', [DodumentController::class, 'update'])->name('documents.update')
+        ->middleware('permission:documents.update');
+    Route::delete('documents/{document}', [DodumentController::class, 'destroy'])->name('documents.destroy')
+        ->middleware('permission:documents.destroy');
 
 });

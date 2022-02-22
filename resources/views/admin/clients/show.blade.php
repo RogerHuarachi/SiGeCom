@@ -22,6 +22,7 @@
     @include('admin.works.create')
     @include('admin.families.create')
     @include('admin.products.create')
+    @include('admin.inventories.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -689,7 +690,8 @@
                                 <div class="card-header">
                                     <h3 class="card-title">
                                         Insumos de {{ $product->name }}
-                                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#productCreate"><i class="fas fa-plus"></i></button>
+                                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#itemCreate{{ $product->id }}"><i class="fas fa-plus"></i></button>
+                                        @include('admin.items.create')
                                     </h3>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -699,24 +701,40 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <dl class="row m-0">
-                                                <dt class="col-md-5">Nombre</dt>
-                                                <dd class="col-md-7">{{ $product->name }}</dd>
-                                            </dl>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <dl class="row m-0">
-                                                <dt class="col-md-5">Unidad</dt>
-                                                <dd class="col-md-7">{{ $product->unit }}</dd>
-                                            </dl>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <dl class="row m-0">
-                                                <dt class="col-md-5">Rendimiento</dt>
-                                                <dd class="col-md-7">{{ $product->performance }}</dd>
-                                            </dl>
-                                        </div>
+                                        <table class="table table-sm table-light">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Unidad</th>
+                                                    <th>Rendimiento</th>
+                                                    <th>Precio U</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($product->items as $item)
+                                                    <tr>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->amount }}</td>
+                                                        <td>{{ $item->unit }}</td>
+                                                        <td>{{ $item->performance }}</td>
+                                                        <td>{{ $item->price }}</td>
+                                                        <td>{{ $item->total }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Total</th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th>{{ $product->items->sum('total') }}</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -725,6 +743,136 @@
 
                     @endif
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Inventario
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#inventoryCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->inventories)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Tipo de Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Unidad</th>
+                                        <th>Producto</th>
+                                        <th>Precio de Compra</th>
+                                        <th>Precio de Venta</th>
+                                        <th>MB</th>
+                                        <th>% Avance</th>
+                                        <th>Valor Inventario MP</th>
+                                        <th>Valor Inventario PP</th>
+                                        <th>Valor Inventario PT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->inventories as $inventory)
+                                        <tr>
+                                            <td>{{ $inventory->type }}</td>
+                                            <td>{{ $inventory->amount }}</td>
+                                            <td>{{ $inventory->unit }}</td>
+                                            <td>{{ $inventory->name }}</td>
+                                            <td>{{ $inventory->buys }}</td>
+                                            <td>{{ $inventory->sale }}</td>
+                                            <td>{{ $inventory->mb }}</td>
+                                            <td>{{ $inventory->advance }}</td>
+                                            <td>{{ $inventory->vimp }}</td>
+                                            <td>{{ $inventory->vipp }}</td>
+                                            <td>{{ $inventory->vipt }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total Activos</th>
+                                        <th>{{ $client->inventories->sum('share') }}</th>
+                                        <th>{{ $client->inventories->sum('balace') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Inventario
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#inventoryCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->inventories)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Tipo de Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Unidad</th>
+                                        <th>Producto</th>
+                                        <th>Precio de Compra</th>
+                                        <th>Precio de Venta</th>
+                                        <th>MB</th>
+                                        <th>% Avance</th>
+                                        <th>Valor Inventario MP</th>
+                                        <th>Valor Inventario PP</th>
+                                        <th>Valor Inventario PT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->inventories as $inventory)
+                                        <tr>
+                                            <td>{{ $inventory->type }}</td>
+                                            <td>{{ $inventory->amount }}</td>
+                                            <td>{{ $inventory->unit }}</td>
+                                            <td>{{ $inventory->name }}</td>
+                                            <td>{{ $inventory->buys }}</td>
+                                            <td>{{ $inventory->sale }}</td>
+                                            <td>{{ $inventory->mb }}</td>
+                                            <td>{{ $inventory->advance }}</td>
+                                            <td>{{ $inventory->vimp }}</td>
+                                            <td>{{ $inventory->vipp }}</td>
+                                            <td>{{ $inventory->vipt }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total Activos</th>
+                                        <th>{{ $client->inventories->sum('share') }}</th>
+                                        <th>{{ $client->inventories->sum('balace') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

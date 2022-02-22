@@ -235,6 +235,39 @@
                         </a>
                     </li>
                 {{-- @endcan --}}
+
+                {{-- @can('items.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('items.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Insumos
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
+
+                {{-- @can('inventories.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('inventories.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Inventarios
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
+
+                {{-- @can('documents.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('documents.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Recepcion de Doc
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
             </ul>
         </nav>
     </div>

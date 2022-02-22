@@ -110,5 +110,20 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'products.store']);
         Permission::create(['name' => 'products.update']);
         Permission::create(['name' => 'products.destroy']);
+        //Items list
+        Permission::create(['name' => 'items.index']);
+        Permission::create(['name' => 'items.store']);
+        Permission::create(['name' => 'items.update']);
+        Permission::create(['name' => 'items.destroy']);
+        //Inventories list
+        Permission::create(['name' => 'inventories.index']);
+        Permission::create(['name' => 'inventories.store']);
+        Permission::create(['name' => 'inventories.update']);
+        Permission::create(['name' => 'inventories.destroy']);
+        //Document list
+        Permission::create(['name' => 'documents.index']);
+        Permission::create(['name' => 'documents.store']);
+        Permission::create(['name' => 'documents.update']);
+        Permission::create(['name' => 'documents.destroy']);
     }
 }
