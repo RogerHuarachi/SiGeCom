@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\FamilyController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\InventoryController;
+use App\Http\Controllers\Admin\DocumentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -264,13 +265,13 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:inventories.destroy');
 
     // Document
-    Route::get('documents', [DodumentController::class, 'index'])->name('documents.index')
+    Route::get('documents', [DocumentController::class, 'index'])->name('documents.index')
         ->middleware('permission:documents.index');
-    Route::post('documents/store', [DodumentController::class, 'store'])->name('documents.store')
+    Route::post('documents/store', [DocumentController::class, 'store'])->name('documents.store')
         ->middleware('permission:documents.store');
-    Route::put('documents/{document}', [DodumentController::class, 'update'])->name('documents.update')
+    Route::put('documents/{document}', [DocumentController::class, 'update'])->name('documents.update')
         ->middleware('permission:documents.update');
-    Route::delete('documents/{document}', [DodumentController::class, 'destroy'])->name('documents.destroy')
+    Route::delete('documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy')
         ->middleware('permission:documents.destroy');
 
 });

@@ -10,7 +10,7 @@ class DocumentController extends Controller
 {
     public function index()
     {
-        $documents = Docuement::paginate(10);
+        $documents = Document::paginate(10);
         return view('admin.documents.index', compact('documents'));
     }
 
@@ -21,7 +21,7 @@ class DocumentController extends Controller
 
     public function store(Request $request)
     {
-        Docuement::create($request->all());
+        Document::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
 
