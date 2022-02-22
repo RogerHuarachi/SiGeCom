@@ -20,6 +20,8 @@
     @include('admin.assets.create')
     @include('admin.passives.create')
     @include('admin.works.create')
+    @include('admin.families.create')
+    @include('admin.products.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -608,6 +610,121 @@
                         </div>
                     </div>
                 @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Bienes de Familia
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#familyCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->families)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Cantidad</th>
+                                        <th>Descripción de Activo</th>
+                                        <th>Valor Comercial</th>
+                                        <th>En Garantia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->families as $family)
+                                        <tr>
+                                            <td>{{ $family->amount }}</td>
+                                            <td>{{ $family->description }}</td>
+                                            <td>{{ $family->value }}</td>
+                                            <td>{{ $family->state }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>{{ $client->families->sum('value') }}</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Productos
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#productCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    @if ($client->products)
+                        @foreach ($client->products as $product)
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        Insumos de {{ $product->name }}
+                                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#productCreate"><i class="fas fa-plus"></i></button>
+                                    </h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <dl class="row m-0">
+                                                <dt class="col-md-5">Nombre</dt>
+                                                <dd class="col-md-7">{{ $product->name }}</dd>
+                                            </dl>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <dl class="row m-0">
+                                                <dt class="col-md-5">Unidad</dt>
+                                                <dd class="col-md-7">{{ $product->unit }}</dd>
+                                            </dl>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <dl class="row m-0">
+                                                <dt class="col-md-5">Rendimiento</dt>
+                                                <dd class="col-md-7">{{ $product->performance }}</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @endforeach
+
+                    @endif
+                </div>
             </div>
         </div>
     </div>

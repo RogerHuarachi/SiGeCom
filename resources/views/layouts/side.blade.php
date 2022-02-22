@@ -224,6 +224,17 @@
                         </a>
                     </li>
                 {{-- @endcan --}}
+
+                {{-- @can('products.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('products.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Productos
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
             </ul>
         </nav>
     </div>

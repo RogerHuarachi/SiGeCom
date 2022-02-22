@@ -68,7 +68,12 @@ class Client extends Model
 
     public function families()
     {
-        return $this->hasMany(Familiy::class);
+        return $this->hasMany(Family::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
     public function primary(){

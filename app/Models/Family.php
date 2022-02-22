@@ -10,7 +10,7 @@ class Family extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type', 'amount', 'description', 'value',
+        'amount', 'description', 'value', 'state',
         'client_id'
     ];
 

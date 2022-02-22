@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\ResidenceController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\FamilyController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -229,5 +230,15 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:families.update');
     Route::delete('families/{family}', [FamilyController::class, 'destroy'])->name('families.destroy')
         ->middleware('permission:families.destroy');
+
+    // Product
+    Route::get('products', [ProductController::class, 'index'])->name('products.index')
+        ->middleware('permission:products.index');
+    Route::post('products/store', [ProductController::class, 'store'])->name('products.store')
+        ->middleware('permission:products.store');
+    Route::put('products/{product}', [ProductController::class, 'update'])->name('products.update')
+        ->middleware('permission:products.update');
+    Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy')
+        ->middleware('permission:products.destroy');
 
 });

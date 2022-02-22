@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0">Bienes de Negocio</h1>
+        <h1 class="m-0">Bienes de Familia</h1>
     </div>
 @endsection
 @section('browser')
@@ -25,23 +25,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($works as $work)
+                            @foreach ($families as $family)
                                 <tr>
-                                    <td>{{ $work->id }}</td>
-                                    <td>{{ $work->client->name }}</td>
-                                    <td>{{ $work->description }}</td>
-                                    <td>{{ $work->value }}</td>
+                                    <td>{{ $family->id }}</td>
+                                    <td>{{ $family->client->name }}</td>
+                                    <td>{{ $family->description }}</td>
+                                    <td>{{ $family->value }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#workShow{{ $work->id }}"><i class="fas fa-eye"></i></button>
-                                            @include('admin.works.show')
-                                            @can('works.update')
-                                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#workEdit{{ $work->id }}"><i class="fas fa-pen"></i></button>
-                                                @include('admin.works.edit')
+                                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#familyShow{{ $family->id }}"><i class="fas fa-eye"></i></button>
+                                            @include('admin.families.show')
+                                            @can('families.update')
+                                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#familyEdit{{ $family->id }}"><i class="fas fa-pen"></i></button>
+                                                @include('admin.families.edit')
                                             @endcan
-                                            @can('works.destroy')
-                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#workDelete{{ $work->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                @include('admin.works.delete')
+                                            @can('families.destroy')
+                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#familyDelete{{ $family->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                @include('admin.families.delete')
                                             @endcan
                                         </div>
                                     </td>
@@ -49,7 +49,7 @@
                             @endforeach
                         </tfoot>
                     </table>
-                    {{ $works->links() }}
+                    {{ $families->links() }}
                 </div>
             </div>
         </div>

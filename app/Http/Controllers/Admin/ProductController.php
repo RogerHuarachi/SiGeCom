@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Family;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class FamilyController extends Controller
+class ProductController extends Controller
 {
     public function index()
     {
-        $families = Family::paginate(10);
-        return view('admin.families.index', compact('families'));
+        $products = Product::paginate(10);
+        return view('admin.products.index', compact('products'));
     }
 
     public function create()
@@ -21,29 +21,29 @@ class FamilyController extends Controller
 
     public function store(Request $request)
     {
-        Family::create($request->all());
+        Product::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
 
-    public function show(Family $family)
+    public function show(Product $product)
     {
         //
     }
 
-    public function edit(Family $family)
+    public function edit(Product $product)
     {
         //
     }
 
-    public function update(Request $request, Family $family)
+    public function update(Request $request, Product $product)
     {
-        $family->update($request->all());
+        $product->update($request->all());
         return back()->with('confirmation','Actualizado Correctamente');
     }
 
-    public function destroy(Family $family)
+    public function destroy(Product $product)
     {
-        $family->delete();
+        $product->delete();
         return back()->with('confirmation', 'Eliminado Correctamente');
     }
 }
