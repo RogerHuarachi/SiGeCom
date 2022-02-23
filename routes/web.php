@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\InventoryController;
 use App\Http\Controllers\Admin\DocumentController;
+use App\Http\Controllers\Admin\ChildController;
 
 /*
 |--------------------------------------------------------------------------
@@ -273,5 +274,15 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:documents.update');
     Route::delete('documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy')
         ->middleware('permission:documents.destroy');
+
+    // Child
+    Route::get('children', [ChildController::class, 'index'])->name('children.index')
+        ->middleware('permission:children.index');
+    Route::post('children/store', [ChildController::class, 'store'])->name('children.store')
+        ->middleware('permission:children.store');
+    Route::put('children/{child}', [ChildController::class, 'update'])->name('children.update')
+        ->middleware('permission:children.update');
+    Route::delete('children/{child}', [ChildController::class, 'destroy'])->name('children.destroy')
+        ->middleware('permission:children.destroy');
 
 });

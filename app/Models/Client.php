@@ -86,6 +86,11 @@ class Client extends Model
         return $this->hasMany(Document::class);
     }
 
+    public function children()
+    {
+        return $this->hasMany(Child::class);
+    }
+
     public function primary(){
         $primary = $this->businesses()->where('level', 'PRIMARIA')->first();
         return $primary;

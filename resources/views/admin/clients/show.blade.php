@@ -25,6 +25,7 @@
     @include('admin.inventories.create')
     @include('admin.propertys.create')
     @include('admin.vehicles.create')
+    @include('admin.children.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -819,7 +820,7 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         Recepcion de Documentos
-                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#propertyCreate">Inmueble</i></button>
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#propertyCreate">Inmueble</button>
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#vehicleCreate">Vehiculo</button>
                     </h3>
                     <div class="card-tools">
@@ -848,6 +849,54 @@
                                             <td>{{ $document->doc }}</td>
                                             <td>{{ $document->fojas }}</td>
                                             <td>{{ $document->obs }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Descripcion de la unidad familiar
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#childCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->children)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Edad</th>
+                                        <th>Sexo</th>
+                                        <th>Estudia</th>
+                                        <th>Donde</th>
+                                        <th>Tipo de Entidad</th>
+                                        <th>Otras Actividades</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->children as $child)
+                                        <tr>
+                                            <td>{{ $child->age }}</td>
+                                            <td>{{ $child->gender }}</td>
+                                            <td>{{ $child->student }}</td>
+                                            <td>{{ $child->where }}</td>
+                                            <td>{{ $child->type }}</td>
+                                            <td>{{ $child->other }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

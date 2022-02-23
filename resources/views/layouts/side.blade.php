@@ -268,6 +268,17 @@
                         </a>
                     </li>
                 {{-- @endcan --}}
+
+                {{-- @can('children.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('children.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Hijos
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
             </ul>
         </nav>
     </div>
