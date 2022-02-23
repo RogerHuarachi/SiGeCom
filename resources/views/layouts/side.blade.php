@@ -279,6 +279,39 @@
                         </a>
                     </li>
                 {{-- @endcan --}}
+
+                {{-- @can('payments.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('payments.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Comportamiento de Pago
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
+
+                {{-- @can('debts.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('debts.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Endedudamiento
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
+
+                {{-- @can('sales.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('sales.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Comportamiento de Ventas
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
             </ul>
         </nav>
     </div>

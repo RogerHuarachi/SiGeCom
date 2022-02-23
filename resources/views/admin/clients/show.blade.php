@@ -26,6 +26,11 @@
     @include('admin.propertys.create')
     @include('admin.vehicles.create')
     @include('admin.children.create')
+    @include('admin.payments.create')
+    @include('admin.debts.create')
+    @include('admin.days.create')
+    @include('admin.weeks.create')
+    @include('admin.months.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -902,6 +907,120 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Comportamiento de Pago
+                        @if (!$client->payment)
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#paymentCreate"><i class="fas fa-plus"></i></button>
+                        @endif
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->payment)
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dl class="row">
+                                    <dt class="col-md-5">Proeza Atrasos</dt>
+                                    <dd class="col-md-7">{{ $client->payment->proeza }}</dd>
+                                    <dt class="col-md-5">Razon</dt>
+                                    <dd class="col-md-7">{{ $client->payment->obs1 }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-8">
+                                <dl class="row">
+                                    <dt class="col-md-5">Observaciones BIC</dt>
+                                    <dd class="col-md-7">{{ $client->payment->bic }}</dd>
+                                    <dt class="col-md-5">Razon</dt>
+                                    <dd class="col-md-7">{{ $client->payment->obs2 }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Endeudamiento en otras instituciones
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#debtCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->debts)
+                    <div class="card-body">
+                        @foreach ($client->debts as $debt)
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <dl class="row">
+                                        <dt class="col-md-5">Entidad</dt>
+                                        <dd class="col-md-7">{{ $debt->entity }}</dd>
+                                    </dl>
+                                </div>
+                                <div class="col-md-8">
+                                    <dl class="row">
+                                        <dt class="col-md-5">Calificacion</dt>
+                                        <dd class="col-md-7">{{ $debt->qualification }}</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Comportamiento de Ventas
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#dayCreate">Diario</button>
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#weekCreate">Semanal</button>
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#monthCreate">Mensual</button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->sales)
+                    <div class="card-body">
+                            <div class="row">
+                        @foreach ($client->sales as $sale)
+                                <div class="col">
+                                    <dl class="row">
+                                        <dt class="col-md-5">{{ $sale->item }}</dt>
+                                        <dd class="col-md-7">{{ $sale->money }}</dd>
+                                    </dl>
+                                </div>
+                        @endforeach
+                            </div>
                     </div>
                 @endif
             </div>

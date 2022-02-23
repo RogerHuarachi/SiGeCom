@@ -91,6 +91,21 @@ class Client extends Model
         return $this->hasMany(Child::class);
     }
 
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
+    }
+
+    public function debts()
+    {
+        return $this->hasMany(Debt::class);
+    }
+
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
+
     public function primary(){
         $primary = $this->businesses()->where('level', 'PRIMARIA')->first();
         return $primary;

@@ -24,6 +24,9 @@ use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\InventoryController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\ChildController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\DebtController;
+use App\Http\Controllers\Admin\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -284,5 +287,35 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:children.update');
     Route::delete('children/{child}', [ChildController::class, 'destroy'])->name('children.destroy')
         ->middleware('permission:children.destroy');
+
+    // Payment
+    Route::get('payments', [PaymentController::class, 'index'])->name('payments.index')
+        ->middleware('permission:payments.index');
+    Route::post('payments/store', [PaymentController::class, 'store'])->name('payments.store')
+        ->middleware('permission:payments.store');
+    Route::put('payments/{payment}', [PaymentController::class, 'update'])->name('payments.update')
+        ->middleware('permission:payments.update');
+    Route::delete('payments/{payment}', [PaymentController::class, 'destroy'])->name('payments.destroy')
+        ->middleware('permission:payments.destroy');
+
+    // Debt
+    Route::get('debts', [DebtController::class, 'index'])->name('debts.index')
+        ->middleware('permission:debts.index');
+    Route::post('debts/store', [DebtController::class, 'store'])->name('debts.store')
+        ->middleware('permission:debts.store');
+    Route::put('debts/{debt}', [DebtController::class, 'update'])->name('debts.update')
+        ->middleware('permission:debts.update');
+    Route::delete('debts/{debt}', [DebtController::class, 'destroy'])->name('debts.destroy')
+        ->middleware('permission:debts.destroy');
+
+    // Sale
+    Route::get('sales', [SaleController::class, 'index'])->name('sales.index')
+        ->middleware('permission:sales.index');
+    Route::post('sales/store', [SaleController::class, 'store'])->name('sales.store')
+        ->middleware('permission:sales.store');
+    Route::put('sales/{sale}', [SaleController::class, 'update'])->name('sales.update')
+        ->middleware('permission:sales.update');
+    Route::delete('sales/{sale}', [SaleController::class, 'destroy'])->name('sales.destroy')
+        ->middleware('permission:sales.destroy');
 
 });

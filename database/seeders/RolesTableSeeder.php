@@ -142,6 +142,21 @@ class RolesTableSeeder extends Seeder
         	'children.store',
         	'children.update',
         	'children.destroy',
+
+            'payments.index',
+        	'payments.store',
+        	'payments.update',
+        	'payments.destroy',
+
+            'debts.index',
+        	'debts.store',
+        	'debts.update',
+        	'debts.destroy',
+
+            'sales.index',
+        	'sales.store',
+        	'sales.update',
+        	'sales.destroy',
         ]);
 
 		$EN = Role::create(['name' => 'Encargado Nacional']);
