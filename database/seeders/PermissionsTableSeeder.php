@@ -145,5 +145,15 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'sales.store']);
         Permission::create(['name' => 'sales.update']);
         Permission::create(['name' => 'sales.destroy']);
+        //mub list
+        Permission::create(['name' => 'mubs.index']);
+        Permission::create(['name' => 'mubs.store']);
+        Permission::create(['name' => 'mubs.update']);
+        Permission::create(['name' => 'mubs.destroy']);
+        //Gmv list
+        Permission::create(['name' => 'gmvs.index']);
+        Permission::create(['name' => 'gmvs.store']);
+        Permission::create(['name' => 'gmvs.update']);
+        Permission::create(['name' => 'gmvs.destroy']);
     }
 }

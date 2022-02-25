@@ -32,7 +32,7 @@
                                         <option>{{ $sale->type }}</option>
                                         <option>Diario</option>
                                         <option>Semanal</option>
-                                        <option>Mesual</option>
+                                        <option>Mensual</option>
                                     </select>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <label for="name">Monto</label>
                                     <input type="text" class="form-control form-control-border"
-                                    placeholder="Monto" name="money" required>
+                                    placeholder="Monto" name="money" value="{{ $sale->money }}" required>
                                 </div>
                             </div>
                         </div>

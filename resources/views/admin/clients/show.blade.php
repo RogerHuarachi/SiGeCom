@@ -31,6 +31,8 @@
     @include('admin.days.create')
     @include('admin.weeks.create')
     @include('admin.months.create')
+    @include('admin.mubs.create')
+    @include('admin.gmvs.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -1021,6 +1023,128 @@
                                 </div>
                         @endforeach
                             </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        MUB
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#mubCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->sales)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Detalle</th>
+                                        <th>Cantidad</th>
+                                        <th>Unidad</th>
+                                        <th>Frecuencia</th>
+                                        <th>Precio de Compra</th>
+                                        <th>Precio de Venta</th>
+                                        <th>Compra Mesual</th>
+                                        <th>Venta Mensual</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->mubs as $mub)
+                                        <tr>
+                                            <td>{{ $mub->detail }}</td>
+                                            <td>{{ $mub->amount }}</td>
+                                            <td>{{ $mub->unity }}</td>
+                                            <td>{{ $mub->frequency }}</td>
+                                            <td>{{ $mub->buy }}</td>
+                                            <td>{{ $mub->sale }}</td>
+                                            <td>{{ $mub->buysMonth }}</td>
+                                            <td>{{ $mub->saleMonth }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>{{ $client->mubs->sum('buysMonth') }}</th>
+                                        <th>{{ $client->mubs->sum('saleMonth') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Gastos y Mantenimiento de Vehiculos
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gmvCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->sales)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio Unitario</th>
+                                        <th>Total</th>
+                                        <th>Frecuencia</th>
+                                        <th>Total Mensual</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->gmvs as $gmv)
+                                        <tr>
+                                            <td>{{ $gmv->item }}</td>
+                                            <td>{{ $gmv->amount }}</td>
+                                            <td>{{ $gmv->price }}</td>
+                                            <td>{{ $gmv->total }}</td>
+                                            <td>{{ $gmv->frequency }}</td>
+                                            <td>{{ $gmv->totalmes }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th>{{ $client->gmvs->sum('total') }}</th>
+                                        <th></th>
+                                        <th>{{ $client->gmvs->sum('totalmes') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                 @endif
             </div>

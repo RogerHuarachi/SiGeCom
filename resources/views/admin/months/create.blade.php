@@ -28,7 +28,7 @@
                                     <label>Tipo de bien</label>
                                     <select class="custom-select form-control-border"
                                     name="type" required>
-                                        <option>Mesual</option>
+                                        <option>Mensual</option>
                                     </select>
                                 </div>
                             </div>

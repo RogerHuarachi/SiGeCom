@@ -27,6 +27,8 @@ use App\Http\Controllers\Admin\ChildController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\DebtController;
 use App\Http\Controllers\Admin\SaleController;
+use App\Http\Controllers\Admin\MubController;
+use App\Http\Controllers\Admin\GmvController;
 
 /*
 |--------------------------------------------------------------------------
@@ -317,5 +319,25 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:sales.update');
     Route::delete('sales/{sale}', [SaleController::class, 'destroy'])->name('sales.destroy')
         ->middleware('permission:sales.destroy');
+
+    // MUB
+    Route::get('mubs', [MubController::class, 'index'])->name('mubs.index')
+        ->middleware('permission:mubs.index');
+    Route::post('mubs/store', [MubController::class, 'store'])->name('mubs.store')
+        ->middleware('permission:mubs.store');
+    Route::put('mubs/{mub}', [MubController::class, 'update'])->name('mubs.update')
+        ->middleware('permission:mubs.update');
+    Route::delete('mubs/{mub}', [MubController::class, 'destroy'])->name('mubs.destroy')
+        ->middleware('permission:mubs.destroy');
+
+    // Gmv
+    Route::get('gmvs', [GmvController::class, 'index'])->name('gmvs.index')
+        ->middleware('permission:gmvs.index');
+    Route::post('gmvs/store', [GmvController::class, 'store'])->name('gmvs.store')
+        ->middleware('permission:gmvs.store');
+    Route::put('gmvs/{gmv}', [GmvController::class, 'update'])->name('gmvs.update')
+        ->middleware('permission:gmvs.update');
+    Route::delete('gmvs/{gmv}', [GmvController::class, 'destroy'])->name('gmvs.destroy')
+        ->middleware('permission:gmvs.destroy');
 
 });

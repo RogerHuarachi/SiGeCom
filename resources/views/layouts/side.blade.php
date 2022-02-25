@@ -312,6 +312,28 @@
                         </a>
                     </li>
                 {{-- @endcan --}}
+
+                {{-- @can('mubs.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('mubs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                MUB
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
+
+                {{-- @can('gmvs.index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('gmvs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Gastos y Mantenimineto de Vehiculo
+                            </p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
             </ul>
         </nav>
     </div>
