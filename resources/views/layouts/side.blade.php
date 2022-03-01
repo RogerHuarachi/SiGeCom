@@ -28,7 +28,7 @@
                     </li>
                 {{-- @endrole --}}
 
-                {{-- @can('permissions.index') --}}
+                @can('permissions.index')
                     <li class="nav-item">
                         <a href="{{ route('permissions.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-check"></i>
@@ -37,9 +37,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('roles.index') --}}
+                @can('roles.index')
                     <li class="nav-item">
                         <a href="{{ route('roles.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
@@ -48,8 +48,8 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
-                {{-- @can('cities.index') --}}
+                @endcan
+                @can('cities.index')
                     <li class="nav-item">
                         <a href="{{ route('cities.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -58,9 +58,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('agencies.index') --}}
+                @can('agencies.index')
                     <li class="nav-item">
                         <a href="{{ route('agencies.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-city"></i>
@@ -69,9 +69,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('users.index') --}}
+                @can('users.index')
                     <li class="nav-item">
                         <a href="{{ route('users.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
@@ -80,9 +80,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('folders.index') --}}
+                @can('folders.index')
                     <li class="nav-item">
                         <a href="{{ route('folders.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-folder"></i>
@@ -91,9 +91,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('clients.index') --}}
+                @can('clients.index')
                     <li class="nav-item">
                         <a href="{{ route('clients.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-users"></i>
@@ -102,9 +102,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('personals.index') --}}
+                @can('personals.index')
                     <li class="nav-item">
                         <a href="{{ route('personals.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-check"></i>
@@ -113,9 +113,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('commercials.index') --}}
+                @can('commercials.index')
                     <li class="nav-item">
                         <a href="{{ route('commercials.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -124,9 +124,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('caedecs.index') --}}
+                @can('caedecs.index')
                     <li class="nav-item">
                         <a href="{{ route('caedecs.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -135,9 +135,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('businesses.index') --}}
+                @can('businesses.index')
                     <li class="nav-item">
                         <a href="{{ route('businesses.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -146,9 +146,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('loans.index') --}}
+                @can('loans.index')
                     <li class="nav-item">
                         <a href="{{ route('loans.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -157,9 +157,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('residences.index') --}}
+                @can('residences.index')
                     <li class="nav-item">
                         <a href="{{ route('residences.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -168,9 +168,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('jobs.index') --}}
+                @can('jobs.index')
                     <li class="nav-item">
                         <a href="{{ route('jobs.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -179,9 +179,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('assets.index') --}}
+                @can('assets.index')
                     <li class="nav-item">
                         <a href="{{ route('assets.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -190,9 +190,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('passives.index') --}}
+                @can('passives.index')
                     <li class="nav-item">
                         <a href="{{ route('passives.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -201,9 +201,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('works.index') --}}
+                @can('works.index')
                     <li class="nav-item">
                         <a href="{{ route('works.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -212,9 +212,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('families.index') --}}
+                @can('families.index')
                     <li class="nav-item">
                         <a href="{{ route('families.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -223,9 +223,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('products.index') --}}
+                @can('products.index')
                     <li class="nav-item">
                         <a href="{{ route('products.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -234,9 +234,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('items.index') --}}
+                @can('items.index')
                     <li class="nav-item">
                         <a href="{{ route('items.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -245,9 +245,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('inventories.index') --}}
+                @can('inventories.index')
                     <li class="nav-item">
                         <a href="{{ route('inventories.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -256,9 +256,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('documents.index') --}}
+                @can('documents.index')
                     <li class="nav-item">
                         <a href="{{ route('documents.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -267,9 +267,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('children.index') --}}
+                @can('children.index')
                     <li class="nav-item">
                         <a href="{{ route('children.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -278,9 +278,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('payments.index') --}}
+                @can('payments.index')
                     <li class="nav-item">
                         <a href="{{ route('payments.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -289,9 +289,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('debts.index') --}}
+                @can('debts.index')
                     <li class="nav-item">
                         <a href="{{ route('debts.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -300,9 +300,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('sales.index') --}}
+                @can('sales.index')
                     <li class="nav-item">
                         <a href="{{ route('sales.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -311,9 +311,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('mubs.index') --}}
+                @can('mubs.index')
                     <li class="nav-item">
                         <a href="{{ route('mubs.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -322,9 +322,9 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
 
-                {{-- @can('gmvs.index') --}}
+                @can('gmvs.index')
                     <li class="nav-item">
                         <a href="{{ route('gmvs.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -333,7 +333,65 @@
                             </p>
                         </a>
                     </li>
-                {{-- @endcan --}}
+                @endcan
+
+                @can('ppsifs.index')
+                    <li class="nav-item">
+                        <a href="{{ route('ppsifs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Personal Percibe Salario Incluye Familia
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('gfos.index')
+                    <li class="nav-item">
+                        <a href="{{ route('gfos.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Detalle de Gastos Fijos Operativos
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('gfs.index')
+                    <li class="nav-item">
+                        <a href="{{ route('gfs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Detalle de Gastos Familiares
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('ois.index')
+                    <li class="nav-item">
+                        <a href="{{ route('ois.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Otros Ingresos
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+
+                {{-- Users --}}
+
+                @can('usrfolders.index')
+                <li class="nav-item">
+                    <a href="{{ route('usrfolders.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-globe"></i>
+                        <p>
+                            Carpetas
+                        </p>
+                    </a>
+                </li>
+            @endcan
             </ul>
         </nav>
     </div>

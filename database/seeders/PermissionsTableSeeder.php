@@ -155,5 +155,29 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'gmvs.store']);
         Permission::create(['name' => 'gmvs.update']);
         Permission::create(['name' => 'gmvs.destroy']);
+        //Ppsif list
+        Permission::create(['name' => 'ppsifs.index']);
+        Permission::create(['name' => 'ppsifs.store']);
+        Permission::create(['name' => 'ppsifs.update']);
+        Permission::create(['name' => 'ppsifs.destroy']);
+        //Gfof list
+        Permission::create(['name' => 'gfos.index']);
+        Permission::create(['name' => 'gfos.store']);
+        Permission::create(['name' => 'gfos.update']);
+        Permission::create(['name' => 'gfos.destroy']);
+        //Gff list
+        Permission::create(['name' => 'gfs.index']);
+        Permission::create(['name' => 'gfs.store']);
+        Permission::create(['name' => 'gfs.update']);
+        Permission::create(['name' => 'gfs.destroy']);
+        //Oi list
+        Permission::create(['name' => 'ois.index']);
+        Permission::create(['name' => 'ois.store']);
+        Permission::create(['name' => 'ois.update']);
+        Permission::create(['name' => 'ois.destroy']);
+
+        // User Permission
+        // Folder
+        Permission::create(['name' => 'usrfolders.index']);
     }
 }

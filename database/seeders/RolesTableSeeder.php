@@ -167,6 +167,26 @@ class RolesTableSeeder extends Seeder
         	'gmvs.store',
         	'gmvs.update',
         	'gmvs.destroy',
+
+            'ppsifs.index',
+        	'ppsifs.store',
+        	'ppsifs.update',
+        	'ppsifs.destroy',
+
+            'gfos.index',
+        	'gfos.store',
+        	'gfos.update',
+        	'gfos.destroy',
+
+            'gfs.index',
+        	'gfs.store',
+        	'gfs.update',
+        	'gfs.destroy',
+
+            'ois.index',
+        	'ois.store',
+        	'ois.update',
+        	'ois.destroy',
         ]);
 
 		$EN = Role::create(['name' => 'Encargado Nacional']);
@@ -175,10 +195,15 @@ class RolesTableSeeder extends Seeder
 
 		$EA = Role::create(['name' => 'Encargado Agencia']);
 		$EA->givePermissionTo([
+        	'usrfolders.index',
+
+        	'clients.store',
+        	'clients.update',
 		]);
 
 		$AS = Role::create(['name' => 'Asesor']);
 		$AS->givePermissionTo([
+        	'usrfolders.index',
 		]);
 
 		$PAS = Role::create(['name' => 'Pasante']);

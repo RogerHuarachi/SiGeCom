@@ -29,6 +29,10 @@ use App\Http\Controllers\Admin\DebtController;
 use App\Http\Controllers\Admin\SaleController;
 use App\Http\Controllers\Admin\MubController;
 use App\Http\Controllers\Admin\GmvController;
+use App\Http\Controllers\Admin\PpsifController;
+use App\Http\Controllers\Admin\GfoController;
+use App\Http\Controllers\Admin\GfController;
+use App\Http\Controllers\Admin\OiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -330,7 +334,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('mubs/{mub}', [MubController::class, 'destroy'])->name('mubs.destroy')
         ->middleware('permission:mubs.destroy');
 
-    // Gmv
+    // Gmv GASTOS Y MANTENIMIENTO DE VEHICULOS
     Route::get('gmvs', [GmvController::class, 'index'])->name('gmvs.index')
         ->middleware('permission:gmvs.index');
     Route::post('gmvs/store', [GmvController::class, 'store'])->name('gmvs.store')
@@ -340,4 +344,55 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('gmvs/{gmv}', [GmvController::class, 'destroy'])->name('gmvs.destroy')
         ->middleware('permission:gmvs.destroy');
 
+    // Ppsif PERSONAL PERCIBE SALARIO INCLUYE FAMILIAR
+    Route::get('ppsifs', [PpsifController::class, 'index'])->name('ppsifs.index')
+        ->middleware('permission:ppsifs.index');
+    Route::post('ppsifs/store', [PpsifController::class, 'store'])->name('ppsifs.store')
+        ->middleware('permission:ppsifs.store');
+    Route::put('ppsifs/{ppsif}', [PpsifController::class, 'update'])->name('ppsifs.update')
+        ->middleware('permission:ppsifs.update');
+    Route::delete('ppsifs/{ppsif}', [PpsifController::class, 'destroy'])->name('ppsifs.destroy')
+        ->middleware('permission:ppsifs.destroy');
+
+    // Gfo DETALLE DE GASTOS FIJOS OPERATIVOS
+    Route::get('gfos', [GfoController::class, 'index'])->name('gfos.index')
+        ->middleware('permission:gfos.index');
+    Route::post('gfos/store', [GfoController::class, 'store'])->name('gfos.store')
+        ->middleware('permission:gfos.store');
+    Route::put('gfos/{gfo}', [GfoController::class, 'update'])->name('gfos.update')
+        ->middleware('permission:gfos.update');
+    Route::delete('gfos/{gfo}', [GfoController::class, 'destroy'])->name('gfos.destroy')
+        ->middleware('permission:gfos.destroy');
+
+    // Gf DETALLE DE GASTOS FAMILIARES
+    Route::get('gfs', [GfController::class, 'index'])->name('gfs.index')
+        ->middleware('permission:gfs.index');
+    Route::post('gfs/store', [GfController::class, 'store'])->name('gfs.store')
+        ->middleware('permission:gfs.store');
+    Route::put('gfs/{gf}', [GfController::class, 'update'])->name('gfs.update')
+        ->middleware('permission:gfs.update');
+    Route::delete('gfs/{gf}', [GfController::class, 'destroy'])->name('gfs.destroy')
+        ->middleware('permission:gfs.destroy');
+
+    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    Route::get('ois', [OiController::class, 'index'])->name('ois.index')
+        ->middleware('permission:ois.index');
+    Route::post('ois/store', [OiController::class, 'store'])->name('ois.store')
+        ->middleware('permission:ois.store');
+    Route::put('ois/{oi}', [OiController::class, 'update'])->name('ois.update')
+        ->middleware('permission:ois.update');
+    Route::delete('ois/{oi}', [OiController::class, 'destroy'])->name('ois.destroy')
+        ->middleware('permission:ois.destroy');
+
+
+
+
+    // User Route
+
+    // Folder
+    Route::get('usrfolders', [App\Http\Controllers\User\FolderController::class, 'index'])->name('usrfolders.index')
+        ->middleware('permission:usrfolders.index');
+
+    Route::post('usrclient/store', [App\Http\Controllers\User\FolderController::class, 'deudor'])->name('deudor.store')
+        ->middleware('permission:clients.store');
 });

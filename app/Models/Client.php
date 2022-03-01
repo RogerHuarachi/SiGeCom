@@ -116,6 +116,26 @@ class Client extends Model
         return $this->hasMany(Gmv::class);
     }
 
+    public function ppsifs()
+    {
+        return $this->hasMany(Ppsif::class);
+    }
+
+    public function gfos()
+    {
+        return $this->hasMany(Gfo::class);
+    }
+
+    public function gfs()
+    {
+        return $this->hasMany(Gf::class);
+    }
+
+    public function ois()
+    {
+        return $this->hasMany(Oi::class);
+    }
+
     public function primary(){
         $primary = $this->businesses()->where('level', 'PRIMARIA')->first();
         return $primary;

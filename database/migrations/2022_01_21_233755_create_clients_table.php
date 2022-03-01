@@ -21,7 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('gender');
             $table->string('identification');
             $table->string('number');
-            $table->string('extension');
+            $table->string('extension')->nullable();
             $table->string('nit')->nullable();
             $table->string('birth');
             $table->string('age');
