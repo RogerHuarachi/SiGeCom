@@ -26,12 +26,15 @@ class FolderController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $request["user_id"]=$user->id;
+        Folder::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
     }
 
     public function show(Folder $folder)
     {
-        //
+        return view('user.folders.show', compact('folder'));
     }
 
     public function edit(Folder $folder)
@@ -64,5 +67,35 @@ class FolderController extends Controller
         $request["folder_id"]=$folder->id;
         Client::create($request->all());
         return back()->with('confirmation', 'Registrado Correctamente');
+    }
+
+
+    
+
+    public function indep(Folder $folder)
+    {
+        return view('formularios.deudor.independiente.show', compact('folder'));
+    }
+
+    public function asal(Folder $folder)
+    {
+        return "asal";
+    }
+
+    public function indepG(Folder $folder)
+    {
+        return "indepG";
+    }
+
+    public function asalG(Folder $folder)
+    {
+        return "asalG";
+    }
+
+    
+
+    public function sol(Folder $folder)
+    {
+        return view('hojas.solicitud.show', compact('folder'));
     }
 }

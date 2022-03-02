@@ -10,7 +10,7 @@ class Folder extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id'
+        'type', 'sequence', 'operation', 'state', 'user_id'
     ];
 
     public function user()

@@ -2,13 +2,13 @@
 @section('title')
     <div class="row">
         <h1 class="m-0">Carpetas</h1>
-        @can('clients.store')
+        @can('folders.store')
             <ol class="breadcrumb float-sm-right pl-1">
-                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#clientCreate"><i class="fas fa-plus-circle"></i></button>
+                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#folderCreate"><i class="fas fa-plus-circle"></i></button>
             </ol>
         @endcan
     </div>
-    @include('user.clients.create')
+    @include('user.folders.create')
 @endsection
 @section('browser')
     <li class="breadcrumb-item"><a href="{{ route('home') }}">inicio</a></li>
@@ -41,6 +41,9 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
+                                            <form action="{{ route('usrfolders.show', $folder->id) }}" method="GET">
+                                                <button class="btn btn-info btn-xs" type="submit"><i class="fas fa-eye"></i></button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

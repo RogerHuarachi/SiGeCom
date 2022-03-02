@@ -392,7 +392,25 @@ Route::middleware(['auth'])->group(function () {
     // Folder
     Route::get('usrfolders', [App\Http\Controllers\User\FolderController::class, 'index'])->name('usrfolders.index')
         ->middleware('permission:usrfolders.index');
+    Route::post('usrfolders/store', [App\Http\Controllers\User\FolderController::class, 'store'])->name('usrfolders.store')
+        ->middleware('permission:folders.store');
+    Route::get('usrfolders/{folder}', [App\Http\Controllers\User\FolderController::class, 'show'])->name('usrfolders.show')
+        ->middleware('permission:usrfolders.index');
 
-    Route::post('usrclient/store', [App\Http\Controllers\User\FolderController::class, 'deudor'])->name('deudor.store')
-        ->middleware('permission:clients.store');
+    // INDEPENDIENTE
+    Route::get('usrfoldersI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indep'])->name('usrfoldersI.indep')
+        ->middleware('permission:usrfolders.index');
+    // ASALARIADOS FORMALES E INFORMALES
+    Route::get('usrfoldersAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asal'])->name('usrfoldersAFI.asal')
+        ->middleware('permission:usrfolders.index');
+    // GARANTES INDEPENDIENTE
+    Route::get('usrfoldersGI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indepG'])->name('usrfoldersGI.indepG')
+        ->middleware('permission:usrfolders.index');
+    // GARANTES ASALARIADOS FORMALES E INFORMALES
+    Route::get('usrfoldersGAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asalG'])->name('usrfoldersGAFI.asalG')
+        ->middleware('permission:usrfolders.index');
+
+        
+    Route::get('usrsolicitud', [App\Http\Controllers\User\FolderController::class, 'sol'])->name('usrsolicitud.sol')
+        ->middleware('permission:usrfolders.index');
 });

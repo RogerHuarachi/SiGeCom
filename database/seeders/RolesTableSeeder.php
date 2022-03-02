@@ -197,6 +197,8 @@ class RolesTableSeeder extends Seeder
 		$EA->givePermissionTo([
         	'usrfolders.index',
 
+        	'folders.store',
+			
         	'clients.store',
         	'clients.update',
 		]);
