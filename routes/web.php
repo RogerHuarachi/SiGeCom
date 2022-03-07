@@ -410,7 +410,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('usrfoldersGAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asalG'])->name('usrfoldersGAFI.asalG')
         ->middleware('permission:usrfolders.index');
 
+    // cliente deudor
+    Route::post('usrdeudor/store', [App\Http\Controllers\User\ClientController::class, 'deudor'])->name('usrdeudor.store')
+        ->middleware('permission:clients.store');
+    // cliente codeudor
+    Route::post('usrcodeudor/store', [App\Http\Controllers\User\ClientController::class, 'codeudor'])->name('usrcodeudor.store')
+        ->middleware('permission:clients.store');
         
-    Route::get('usrsolicitud', [App\Http\Controllers\User\FolderController::class, 'sol'])->name('usrsolicitud.sol')
-        ->middleware('permission:usrfolders.index');
+    Route::get('usrclients/{client}', [App\Http\Controllers\User\ClientController::class, 'show'])->name('usrclients.show')
+        ->middleware('permission:clients.store');
+
 });

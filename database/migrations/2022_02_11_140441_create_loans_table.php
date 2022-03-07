@@ -20,7 +20,7 @@ class CreateLoansTable extends Migration
             $table->integer('rate');
             $table->integer('term');
             $table->integer('share');
-            $table->integer('frequency');
+            $table->string('frequency');
             $table->string('feeType');
             $table->integer('expiration');
             $table->integer('choose');

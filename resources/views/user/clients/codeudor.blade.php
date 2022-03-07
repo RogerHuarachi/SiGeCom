@@ -1,18 +1,28 @@
-<div class="modal fade" id="clientCreate">
+<div class="modal fade" id="codeudorCreate">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Registrar Cliente</h4>
+                <h4 class="modal-title">Datos de CoDeudor</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('deudor.store') }}" method="POST">
+            <form action="{{ route('usrcodeudor.store') }}" method="POST">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Identificador de carpeta</label>
+                                    <div class="select2-primary">
+                                        <select class="select2 form-control-border" data-placeholder="Select a State" data-dropdown-css-class="select2-primary" style="width: 100%;" name="folder_id" required>
+                                            <option value="{{ $folder->id }}">{{ $folder->id }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Nombre</label>
                                     <input type="text" class="form-control form-control-border"
@@ -20,7 +30,7 @@
                                     placeholder="Nombre" name="name" required>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Apellido</label>
                                     <input type="text" class="form-control form-control-border"
@@ -39,7 +49,25 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>Doc. de Identidad</label>
+                                    <label>Fecha de nacimiento</label>
+                                    <input type="date" class="form-control form-control-border"
+                                    placeholder="Fecha de nacimiento" name="birth" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Nacionalidad</label>
+                                    <select class="custom-select form-control-border" name="nacionality" required>
+                                        <option>BOLIVIANO (A)</option>
+                                        <option>EXTRANJERO(A)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Documento</label>
                                     <select class="custom-select form-control-border" name="identification" required>
                                         <option>CARNET DE IDENTIDAD</option>
                                         <option>CARNET DE EXTRANJERO</option>
@@ -54,10 +82,10 @@
                                     placeholder="1234567-12" name="number" required>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <div class="form-group">
                                     <label>Extensión</label>
-                                    <select class="custom-select form-control-border" name="extension">
+                                    <select class="custom-select form-control-border" name="extension" required>
                                         <option></option>
                                         <option>CB</option>
                                         <option>CH</option>
@@ -71,8 +99,6 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>NIT</label>
@@ -80,25 +106,9 @@
                                     placeholder="NIT" name="nit">
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <div class="form-group">
-                                    <label>Fecha de nacimiento</label>
-                                    <input type="date" class="form-control form-control-border"
-                                    placeholder="Fecha de nacimiento" name="birth" required>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label>Nacionalidad</label>
-                                    <select class="custom-select form-control-border" name="nacionality" required>
-                                        <option>BOLIVIANO (A)</option>
-                                        <option>EXTRANJERO(A)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label>N° de Dependientes</label>
+                                    <label>N° de Dep</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="N° de Dependientes" name="dependents">
                                 </div>
@@ -114,6 +124,8 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Situación Laboral</label>
@@ -126,8 +138,6 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Telefono Movil</label>
@@ -142,7 +152,7 @@
                                     placeholder="Telefono Fijo" name="landline">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Actividad Primaria</label>
                                     <input type="text" class="form-control form-control-border"
@@ -150,7 +160,7 @@
                                     placeholder="Actividad Primaria" name="mainActivity" required>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Actividad Secundaria</label>
                                     <input type="text" class="form-control form-control-border"

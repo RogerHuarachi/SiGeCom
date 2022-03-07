@@ -201,6 +201,32 @@ class RolesTableSeeder extends Seeder
 			
         	'clients.store',
         	'clients.update',
+			
+        	'personals.store',
+			'commercials.store',
+			'caedecs.store',
+			'businesses.store',
+			'loans.store',
+			'assets.store',
+			'passives.store',
+			'residences.store',
+			'jobs.store',
+			'works.store',
+			'families.store',
+			'products.store',
+			'items.store',
+			'inventories.store',
+			'documents.store',
+			'children.store',
+			'payments.store',
+			'debts.store',
+			'sales.store',
+			'mubs.store',
+			'gmvs.store',
+			'ppsifs.store',
+			'gfos.store',
+			'gfs.store',
+        	'ois.store',
 		]);
 
 		$AS = Role::create(['name' => 'Asesor']);
