@@ -195,4 +195,9 @@ class ClientController extends Controller
         Document::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
+
+    public function evaluacion(Client $client)
+    {
+        return view('hojas.evaluacion.show', compact('client'));
+    }
 }

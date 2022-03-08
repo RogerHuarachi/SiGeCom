@@ -50,7 +50,7 @@
                                 <form class="p-1" action="{{ route('usrdocumentos.show', $folder->debtor()->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">R.D.</button>
                                 </form>
-                                <form class="p-1" action="{{ route('usravaluos.show', $folder->debtor()->id) }}" method="GET">
+                                <form class="p-1" action="{{ route('usrevaluacions.show', $folder->debtor()->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">E.S.</button>
                                 </form>
                             @endif

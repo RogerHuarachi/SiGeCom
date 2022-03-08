@@ -431,6 +431,8 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:clients.store');
     Route::get('usrdocumentos/{client}', [App\Http\Controllers\User\ClientController::class, 'documento'])->name('usrdocumentos.show')
         ->middleware('permission:clients.store');
+    Route::get('usrevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluacion'])->name('usrevaluacions.show')
+        ->middleware('permission:clients.store');
 
 
     Route::post('muebleworks/store', [App\Http\Controllers\User\ClientController::class, 'mueble'])->name('muebleworks.store')
