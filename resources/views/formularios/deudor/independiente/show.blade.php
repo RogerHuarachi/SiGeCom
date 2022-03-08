@@ -23,16 +23,35 @@
                             @endif
                             @if ($folder->debtor())
                                 <form class="p-1" action="{{ route('usrsolicitudes.show', $folder->debtor()->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">Solicitud</button>
+                                    <button class="btn btn-primary btn-xs" type="submit">Sol.</button>
                                 </form>
                                 <form class="p-1" action="{{ route('usrcroquis.show', $folder->debtor()->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">Croquis</button>
+                                    <button class="btn btn-primary btn-xs" type="submit">Cro.</button>
                                 </form>
                                 <form class="p-1" action="{{ route('usrdps.show', $folder->debtor()->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">D.P.</button>
                                 </form>
                                 <form class="p-1" action="{{ route('usravaluos.show', $folder->debtor()->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">Aval.</button>
+                                </form>
+                            @endif
+                        </div>
+                        <div class="btn-group" role="group" aria-label="Button group">
+                            @if (!$folder->debtor())
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#deudorCreate"><i class="fas fa-plus"></i></button>
+                            @endif
+                            @if ($folder->debtor())
+                                <form class="p-1" action="{{ route('usrhcs.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">H.C.</button>
+                                </form>
+                                <form class="p-1" action="{{ route('usrinventarios.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">Inv.</button>
+                                </form>
+                                <form class="p-1" action="{{ route('usrdocumentos.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">R.D.</button>
+                                </form>
+                                <form class="p-1" action="{{ route('usravaluos.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">E.S.</button>
                                 </form>
                             @endif
                         </div>

@@ -194,4 +194,26 @@ class Client extends Model
         $mercaderias = $this->works()->where('type', 'Mercaderia')->get();
         return $mercaderias;
     }
+
+    public function actprimary(){
+        $primary = $this->inventories()->where('activity', 'PRIMARIA')->get();
+        return $primary;
+
+    }
+
+    public function actsecondary(){
+        $secondary = $this->inventories()->where('activity', 'SECUNDARIA')->get();
+        return $secondary;
+    }
+
+    public function inmueble(){
+        $primary = $this->documents()->where('type', 'Bien Inmueble')->get();
+        return $primary;
+
+    }
+
+    public function vehiculo(){
+        $secondary = $this->documents()->where('type', 'Vehiculo')->get();
+        return $secondary;
+    }
 }

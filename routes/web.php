@@ -425,6 +425,12 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:clients.store');
     Route::get('usravaluos/{client}', [App\Http\Controllers\User\ClientController::class, 'avaluo'])->name('usravaluos.show')
         ->middleware('permission:clients.store');
+    Route::get('usrhcs/{client}', [App\Http\Controllers\User\ClientController::class, 'hc'])->name('usrhcs.show')
+        ->middleware('permission:clients.store');
+    Route::get('usrinventarios/{client}', [App\Http\Controllers\User\ClientController::class, 'inventario'])->name('usrinventarios.show')
+        ->middleware('permission:clients.store');
+    Route::get('usrdocumentos/{client}', [App\Http\Controllers\User\ClientController::class, 'documento'])->name('usrdocumentos.show')
+        ->middleware('permission:clients.store');
 
 
     Route::post('muebleworks/store', [App\Http\Controllers\User\ClientController::class, 'mueble'])->name('muebleworks.store')
@@ -433,4 +439,16 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:works.store');
     Route::post('mercaderiaworks/store', [App\Http\Controllers\User\ClientController::class, 'mercaderia'])->name('mercaderiaworks.store')
         ->middleware('permission:works.store');
+
+        
+    Route::post('primaryinventories/store', [App\Http\Controllers\User\ClientController::class, 'primary'])->name('primaryinventories.store')
+        ->middleware('permission:inventories.store');
+    Route::post('secondaryinventories/store', [App\Http\Controllers\User\ClientController::class, 'secondary'])->name('secondaryinventories.store')
+        ->middleware('permission:inventories.store');
+
+        
+    Route::post('inmuebledocuments/store', [App\Http\Controllers\User\ClientController::class, 'inmueble'])->name('inmuebledocuments.store')
+        ->middleware('permission:documents.store');
+    Route::post('vehiculodocuments/store', [App\Http\Controllers\User\ClientController::class, 'vehiculo'])->name('vehiculodocuments.store')
+        ->middleware('permission:documents.store');
 });
