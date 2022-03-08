@@ -22,16 +22,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Monto</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Monto" name="money" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Moneda</label>
                                     <select class="custom-select form-control-border" name="currency" required>
@@ -40,9 +38,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Tasa</label>
                                     <select class="custom-select form-control-border" name="rate" required>
@@ -53,25 +49,21 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Plazo</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Plazo" name="term" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">N° de Cuotas</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="N° de Cuotas" name="share" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Frecuencia</label>
                                     <select class="custom-select form-control-border" name="frequency" required>
@@ -86,7 +78,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tipo de Cuota</label>
                                     <select class="custom-select form-control-border" name="feeType" required>
@@ -95,15 +87,15 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">Vencimiento fecha Fija cada</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Vencimiento fecha Fija cada" name="expiration" required>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -148,7 +140,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Destino de Credito</label>
                                     <select class="custom-select form-control-border" name="destination" required>
@@ -156,9 +148,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Detalle especifico del Destino</label>
                                     <select class="custom-select form-control-border" name="detail" required>
@@ -166,6 +156,8 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                         </div>
                     </div>
                 </div>

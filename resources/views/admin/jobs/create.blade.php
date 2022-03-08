@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Tipo de Propiedad</label>
                                     <select class="custom-select form-control-border"
@@ -59,16 +59,14 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Tiempo que Reside</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Tiempo que Reside" name="time" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Tipo de Negocio</label>
                                     <select class="custom-select form-control-border"
@@ -78,11 +76,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name">Aclaracion</label>
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Aclaracion" name="note" required>
+                                    <label for="my-textarea">Aclaracion</label>
+                                    <textarea id="my-textarea" class="form-control form-control-border" name="note" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>

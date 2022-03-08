@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Models\User;
 use App\Models\Caedec;
+use App\Models\Work;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -28,10 +29,7 @@ class ClientController extends Controller
 
     public function show(Client $client)
     {
-        $users = User::get();
-        $caedecs = Caedec::get();
-        return view('user.clients.show', compact('client', 'users', 'caedecs'));
-        // return $client;
+        //
     }
 
     public function edit(Client $client)
@@ -68,6 +66,48 @@ class ClientController extends Controller
         $request["age"]=$now->diffInYears($birt);
         $request["type"]="Codeudor";
         Client::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
+    }
+
+    public function solicitud(Client $client)
+    {
+        $caedecs = Caedec::get();
+        return view('hojas.solicitud.show', compact('client', 'caedecs'));
+    }
+
+    public function croqui(Client $client)
+    {
+        return view('hojas.croqui.show', compact('client'));
+    }
+
+    public function dp(Client $client)
+    {
+        return view('hojas.dp.show', compact('client'));
+    }
+
+    public function avaluo(Client $client)
+    {
+        return view('hojas.avaluo.show', compact('client'));
+    }
+
+    public function mueble(Request $request)
+    {
+        $request["type"]="Muebles y enseres, Equipos Electronicos, Instrumentos de trabajo, Heramientas y Otros";
+        Work::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
+    }
+
+    public function maquinaria(Request $request)
+    {
+        $request["type"]="Maquinaria y equipos";
+        Work::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
+    }
+
+    public function mercaderia(Request $request)
+    {
+        $request["type"]="Mercaderia";
+        Work::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
 }

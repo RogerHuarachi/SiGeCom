@@ -416,8 +416,21 @@ Route::middleware(['auth'])->group(function () {
     // cliente codeudor
     Route::post('usrcodeudor/store', [App\Http\Controllers\User\ClientController::class, 'codeudor'])->name('usrcodeudor.store')
         ->middleware('permission:clients.store');
-        
-    Route::get('usrclients/{client}', [App\Http\Controllers\User\ClientController::class, 'show'])->name('usrclients.show')
+
+    Route::get('usrsolicitudes/{client}', [App\Http\Controllers\User\ClientController::class, 'solicitud'])->name('usrsolicitudes.show')
+        ->middleware('permission:clients.store');
+    Route::get('usrcroquis/{client}', [App\Http\Controllers\User\ClientController::class, 'croqui'])->name('usrcroquis.show')
+        ->middleware('permission:clients.store');
+    Route::get('usrdps/{client}', [App\Http\Controllers\User\ClientController::class, 'dp'])->name('usrdps.show')
+        ->middleware('permission:clients.store');
+    Route::get('usravaluos/{client}', [App\Http\Controllers\User\ClientController::class, 'avaluo'])->name('usravaluos.show')
         ->middleware('permission:clients.store');
 
+
+    Route::post('muebleworks/store', [App\Http\Controllers\User\ClientController::class, 'mueble'])->name('muebleworks.store')
+        ->middleware('permission:works.store');
+    Route::post('maquinariaworks/store', [App\Http\Controllers\User\ClientController::class, 'maquinaria'])->name('maquinariaworks.store')
+        ->middleware('permission:works.store');
+    Route::post('mercaderiaworks/store', [App\Http\Controllers\User\ClientController::class, 'mercaderia'])->name('mercaderiaworks.store')
+        ->middleware('permission:works.store');
 });

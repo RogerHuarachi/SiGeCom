@@ -18,13 +18,13 @@ class CreateJobsTable extends Migration
             $table->string('property');
             $table->string('time');
             $table->string('business');
-            $table->string('note');
+            $table->text('note');
             $table->string('direction');
             $table->string('number');
             $table->string('zone');
             $table->string('mobile')->nullable();
             $table->string('province');
-            $table->string('description');
+            $table->text('description');
             $table->string('neglat');
             $table->string('neglon');
             $table->string('file');

@@ -22,8 +22,17 @@
                                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#deudorCreate"><i class="fas fa-plus"></i></button>
                             @endif
                             @if ($folder->debtor())
-                                <form class="p-1" action="{{ route('usrclients.show', $folder->debtor()->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-lg" type="submit">Info</button>
+                                <form class="p-1" action="{{ route('usrsolicitudes.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">Solicitud</button>
+                                </form>
+                                <form class="p-1" action="{{ route('usrcroquis.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">Croquis</button>
+                                </form>
+                                <form class="p-1" action="{{ route('usrdps.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">D.P.</button>
+                                </form>
+                                <form class="p-1" action="{{ route('usravaluos.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">Aval.</button>
                                 </form>
                             @endif
                         </div>
@@ -204,36 +213,3 @@
         </div>
     </div>
 @endsection
-
-{{-- <div class="row">
-    <form class="p-1" action="{{ route('usrsolicitud.sol', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Solicitud</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Croquis</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Avaluo de Bienes</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">D. Patrimonial</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Evaluacion Soc.</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Hoja de Costo</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Inventario Act. Prim</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Inventario Act. Sec.</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Av. Garantia Premdaria</button>
-    </form>
-    <form class="p-1" action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
-        <button class="btn btn-primary btn-lg" type="submit">Recp. de Doc.</button>
-    </form>
-</div> --}}

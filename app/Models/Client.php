@@ -179,4 +179,19 @@ class Client extends Model
 
         return $frec;
     }
+
+    public function mueble(){
+        $muebles = $this->works()->where('type', 'Muebles y enseres, Equipos Electronicos, Instrumentos de trabajo, Heramientas y Otros')->get();
+        return $muebles;
+    }
+
+    public function maquinaria(){
+        $maquinarias = $this->works()->where('type', 'Maquinaria y equipos')->get();
+        return $maquinarias;
+    }
+
+    public function mercaderia(){
+        $mercaderias = $this->works()->where('type', 'Mercaderia')->get();
+        return $mercaderias;
+    }
 }
