@@ -37,9 +37,6 @@
                             @endif
                         </div>
                         <div class="btn-group" role="group" aria-label="Button group">
-                            @if (!$folder->debtor())
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#deudorCreate"><i class="fas fa-plus"></i></button>
-                            @endif
                             @if ($folder->debtor())
                                 <form class="p-1" action="{{ route('usrhcs.show', $folder->debtor()->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">H.C.</button>

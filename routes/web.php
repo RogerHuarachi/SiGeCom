@@ -442,15 +442,23 @@ Route::middleware(['auth'])->group(function () {
     Route::post('mercaderiaworks/store', [App\Http\Controllers\User\ClientController::class, 'mercaderia'])->name('mercaderiaworks.store')
         ->middleware('permission:works.store');
 
-        
+
     Route::post('primaryinventories/store', [App\Http\Controllers\User\ClientController::class, 'primary'])->name('primaryinventories.store')
         ->middleware('permission:inventories.store');
     Route::post('secondaryinventories/store', [App\Http\Controllers\User\ClientController::class, 'secondary'])->name('secondaryinventories.store')
         ->middleware('permission:inventories.store');
 
-        
+
     Route::post('inmuebledocuments/store', [App\Http\Controllers\User\ClientController::class, 'inmueble'])->name('inmuebledocuments.store')
         ->middleware('permission:documents.store');
     Route::post('vehiculodocuments/store', [App\Http\Controllers\User\ClientController::class, 'vehiculo'])->name('vehiculodocuments.store')
         ->middleware('permission:documents.store');
+
+
+    Route::post('diasales/store', [App\Http\Controllers\User\ClientController::class, 'dia'])->name('diasales.store')
+        ->middleware('permission:sales.store');
+    Route::post('semanasales/store', [App\Http\Controllers\User\ClientController::class, 'semana'])->name('semanasales.store')
+        ->middleware('permission:sales.store');
+    Route::post('messales/store', [App\Http\Controllers\User\ClientController::class, 'mes'])->name('messales.store')
+        ->middleware('permission:sales.store');
 });

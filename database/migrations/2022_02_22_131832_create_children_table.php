@@ -18,9 +18,9 @@ class CreateChildrenTable extends Migration
             $table->integer('age');
             $table->string('gender');
             $table->string('student');
-            $table->string('where');
-            $table->string('type');
-            $table->string('other');
+            $table->string('where')->nullable();
+            $table->string('type')->nullable();
+            $table->string('other')->nullable();
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

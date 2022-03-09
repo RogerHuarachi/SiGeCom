@@ -216,4 +216,19 @@ class Client extends Model
         $secondary = $this->documents()->where('type', 'Vehiculo')->get();
         return $secondary;
     }
+
+    public function dia(){
+        $secondary = $this->sales()->where('type', 'Diario')->first();
+        return $secondary;
+    }
+
+    public function semana(){
+        $secondary = $this->sales()->where('type', 'Semanal')->first();
+        return $secondary;
+    }
+
+    public function mes(){
+        $secondary = $this->sales()->where('type', 'Mensual')->first();
+        return $secondary;
+    }
 }

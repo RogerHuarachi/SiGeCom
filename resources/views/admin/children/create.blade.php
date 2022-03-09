@@ -56,7 +56,8 @@
                                 <div class="form-group">
                                     <label>Donde</label>
                                     <select class="custom-select form-control-border"
-                                    name="where" required>
+                                    name="where">
+                                        <option></option>
                                         <option>INICIAL</option>
                                         <option>COLEGIO</option>
                                         <option>UNIVERSIDAD</option>
@@ -69,7 +70,8 @@
                                 <div class="form-group">
                                     <label>Tipo de Entidad</label>
                                     <select class="custom-select form-control-border"
-                                    name="type" required>
+                                    name="type">
+                                        <option></option>
                                         <option>FISCAL</option>
                                         <option>PARTICULAR</option>
                                     </select>
@@ -79,7 +81,7 @@
                                 <div class="form-group">
                                     <label for="name">Otras Actividades</label>
                                     <input type="text" class="form-control form-control-border"
-                                    placeholder="Otras Actividades " name="other" required>
+                                    placeholder="Otras Actividades " name="other">
                                 </div>
                             </div>
                         </div>

@@ -9,6 +9,7 @@ use App\Models\Caedec;
 use App\Models\Document;
 use App\Models\Work;
 use App\Models\Inventory;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -145,7 +146,7 @@ class ClientController extends Controller
         } else {
             $request["vipt"]=0;
         }
-        
+
         Inventory::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
@@ -172,7 +173,7 @@ class ClientController extends Controller
         } else {
             $request["vipt"]=0;
         }
-        
+
         Inventory::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
@@ -199,5 +200,26 @@ class ClientController extends Controller
     public function evaluacion(Client $client)
     {
         return view('hojas.evaluacion.show', compact('client'));
+    }
+
+    public function dia(Request $request)
+    {
+        $request["type"]="Diario";
+        Sale::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
+    }
+
+    public function semana(Request $request)
+    {
+        $request["type"]="Semanal";
+        Sale::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
+    }
+
+    public function mes(Request $request)
+    {
+        $request["type"]="Mensual";
+        Sale::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
     }
 }
