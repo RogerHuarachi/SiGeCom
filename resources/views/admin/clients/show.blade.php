@@ -545,6 +545,8 @@
                                         <th>Tipo de Bien</th>
                                         <th>En Garantia</th>
                                         <th>Valor</th>
+                                        <th>Estado</th>
+                                        <th>Monto</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -553,6 +555,8 @@
                                             <td>{{ $passive->creditor }}</td>
                                             <td>{{ $passive->share }}</td>
                                             <td>{{ $passive->balace }}</td>
+                                            <td>{{ $passive->state }}</td>
+                                            <td>{{ $passive->value }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

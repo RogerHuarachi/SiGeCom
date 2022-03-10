@@ -90,18 +90,30 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Cuota Mensual</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Cuota Mensual " name="share" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Saldo Deudor</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Saldo Deudor " name="balace" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Estado</label>
+                                    <select class="custom-select form-control-border"
+                                    name="state" required>
+                                        <option>MANTIENE</option>
+                                        <option>PARALELO</option>
+                                        <option>REFINANCIAMIENTO</option>
+                                        <option>LIQUIDACION</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

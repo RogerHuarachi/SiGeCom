@@ -18,6 +18,8 @@ class CreatePassivesTable extends Migration
             $table->string('creditor');
             $table->integer('share');
             $table->integer('balace');
+            $table->string('state');
+            $table->integer('value');
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

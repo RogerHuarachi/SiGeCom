@@ -21,6 +21,14 @@
                 <dd class="col-sm-8">
                     {{ $passive->balace }}
                 </dd>
+                <dt class="col-sm-4">Estado</dt>
+                <dd class="col-sm-8">
+                    {{ $passive->state }}
+                </dd>
+                <dt class="col-sm-4">Saldo Mensual Final</dt>
+                <dd class="col-sm-8">
+                    {{ $passive->value }}
+                </dd>
             </dl>
         </div>
         <div class="modal-footer justify-content-between">

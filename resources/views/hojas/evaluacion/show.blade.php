@@ -17,6 +17,7 @@
 @include('admin.gfos.create')
 @include('admin.gfs.create')
 @include('admin.ois.create')
+@include('admin.passives.create')
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -151,7 +152,7 @@
             <div class="card-header">
                 <h3 class="card-title">
                     Comportamiento de Ventas
-                    @if (!$client->sales)
+                    @if ($client->sales->count() == 0)
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#dayCreate">Diario</button>
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#weekCreate">Semanal</button>
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#monthCreate">Mensual</button>
@@ -480,11 +481,19 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                    <tr>
+                                        <td>Gastos Empleados</td>
+                                        <td>{{ $client->ppsifs->sum('total') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gastos y Mantenimiento de Vehiculos</td>
+                                        <td>{{ $client->gmvs->sum('totalmes') }}</td>
+                                    </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>Total</th>
-                                    <th>{{ $client->gfos->sum('total') }}</th>
+                                    <th>{{ $client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes') }}</th>
                                     <th></th>
                                 </tr>
                             </tfoot>
@@ -614,6 +623,192 @@
                                     <th></th>
                                     <th></th>
                                     <th>{{ $client->ois->sum('total') }}</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Pasivos
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#passiveCreate"><i class="fas fa-plus"></i></button>
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            @if ($client->passives)
+            <div class="card-body">
+                <div class="row">
+                    <table class="table table-sm table-light">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Nombre del Banco</th>
+                                <th>Cuota Mensual</th>
+                                <th>Saldo Deudor</th>
+                                <th>Estado</th>
+                                <th>Cuota Final</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($client->passives as $passive)
+                                <tr>
+                                    <td>{{ $passive->creditor }}</td>
+                                    <td>{{ $passive->share }}</td>
+                                    <td>{{ $passive->balace }}</td>
+                                    <td>{{ $passive->state }}</td>
+                                    <td>{{ $passive->value }}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            @can('passives.update')
+                                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#passiveEdit{{ $passive->id }}"><i class="fas fa-pen"></i></button>
+                                                @include('admin.passives.edit')
+                                            @endcan
+                                            @can('passives.destroy')
+                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#passiveDelete{{ $passive->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                @include('admin.passives.delete')
+                                            @endcan
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total Activos</th>
+                                <th>{{ $client->passives->sum('share') }}</th>
+                                <th>{{ $client->passives->sum('balace') }}</th>
+                                <th></th>
+                                <th>{{ $client->passives->sum('value') }}</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        @endif
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Estado de Resultados
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oiCreate"><i class="fas fa-plus"></i></button>
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+
+            @if ($client->ois)
+                <div class="card-body">
+                    <div class="row">
+                        <table class="table table-sm table-light">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Items</th>
+                                    <th>Monto</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ventas</td>
+                                    <td>{{ $client->sales->AVG('money')*$client->frec() }}</td>
+                                </tr>
+                                <tr>
+                                    <td>MUB</td>
+                                    <td>
+                                        @if ($client->mubs->count() != 0)
+                                            {{ (($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')*100)}} %
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Costo de Ventas </td>
+                                    <td>
+                                        @if ($client->mubs->sum('saleMonth') > 0)
+                                        {{ (($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec()) }}</td>
+                                        @endif
+                                </tr>
+                                <tr class="bg-dark">
+                                    <td>UTILIDAD BRUTA</td>
+                                    <td>
+                                        @if ($client->mubs->sum('saleMonth') > 0)
+                                            {{ ($client->sales->AVG('money')*$client->frec())+((($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec())) }}
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Gastos Fijo Operativos</td>
+                                    <td>{{ $client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes') }}</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <td>UTILIDAD OPERATIVA</td>
+                                    <td>
+                                        @if ($client->mubs->sum('saleMonth') > 0)
+                                            {{ (($client->sales->AVG('money')*$client->frec())+((($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec())))-($client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes')) }}
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Gastos Familiares</td>
+                                    <td>{{ $client->gfs->sum('total') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Pago Pasivos Mensuales</td>
+                                    <td>{{ $client->passives->sum('value') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Otros Ingresos</td>
+                                    <td>{{ $client->ois->sum('total') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Utilidad Neta De la F.E.</td>
+                                    <td>
+                                        @if ($client->mubs->sum('saleMonth') > 0)
+                                            {{ ((($client->sales->AVG('money')*$client->frec())+((($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec())))-($client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes'))-($client->gfs->sum('total'))-($client->passives->sum('value'))+($client->ois->sum('total'))) }}
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Capacidad de Pago (-20%)</td>
+                                    <td>
+                                        @if ($client->mubs->sum('saleMonth') > 0)
+                                            {{ (((($client->sales->AVG('money')*$client->frec())+((($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec())))-($client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes'))-($client->gfs->sum('total'))-($client->passives->sum('value'))+($client->ois->sum('total'))))*(0.8) }}
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Pago Cuota PROEZA</td>
+                                    <td>
+                                        @if ($client->mubs->sum('saleMonth') > 0)
+                                            {{ (((($client->sales->AVG('money')*$client->frec())+((($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec())))-($client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes'))-($client->gfs->sum('total'))-($client->passives->sum('value'))+($client->ois->sum('total'))))*(0.8) }}
+                                        @endif
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
                                     <th></th>
                                 </tr>
                             </tfoot>

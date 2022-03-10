@@ -21,6 +21,18 @@ class PassiveController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->state == "MANTIENE") {
+            $request["value"]=$request->share;
+        }
+        if ($request->state == "PARALELO") {
+            $request["value"]=$request->share;
+        }
+        if ($request->state == "REFINANCIAMIENTO") {
+            $request["value"]=0;
+        }
+        if ($request->state == "LIQUIDACION") {
+            $request["value"]=0;
+        }
         Passive::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
@@ -37,6 +49,18 @@ class PassiveController extends Controller
 
     public function update(Request $request, Passive $passive)
     {
+        if ($request->state == "MANTIENE") {
+            $request["value"]=$request->share;
+        }
+        if ($request->state == "PARALELO") {
+            $request["value"]=$request->share;
+        }
+        if ($request->state == "REFINANCIAMIENTO") {
+            $request["value"]=0;
+        }
+        if ($request->state == "LIQUIDACION") {
+            $request["value"]=0;
+        }
         $passive->update($request->all());
         return back()->with('confirmation','Actualizado Correctamente');
     }

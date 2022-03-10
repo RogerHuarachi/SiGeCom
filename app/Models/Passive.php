@@ -10,7 +10,7 @@ class Passive extends Model
     use HasFactory;
 
     protected $fillable = [
-        'creditor', 'share', 'balace', 'client_id',
+        'creditor', 'share', 'balace', 'state', 'value', 'client_id',
     ];
 
     public function client()

@@ -202,31 +202,106 @@ class RolesTableSeeder extends Seeder
         	'clients.store',
         	'clients.update',
 			
+
         	'personals.store',
-			'commercials.store',
-			'caedecs.store',
-			'businesses.store',
-			'loans.store',
-			'assets.store',
-			'passives.store',
-			'residences.store',
-			'jobs.store',
-			'works.store',
-			'families.store',
-			'products.store',
-			'items.store',
-			'inventories.store',
-			'documents.store',
-			'children.store',
-			'payments.store',
-			'debts.store',
-			'sales.store',
-			'mubs.store',
-			'gmvs.store',
-			'ppsifs.store',
-			'gfos.store',
-			'gfs.store',
+        	'personals.update',
+        	'personals.destroy',
+
+        	'commercials.store',
+        	'commercials.update',
+        	'commercials.destroy',
+
+        	'caedecs.store',
+        	'caedecs.update',
+        	'caedecs.destroy',
+
+        	'businesses.store',
+        	'businesses.update',
+        	'businesses.destroy',
+
+        	'loans.store',
+        	'loans.update',
+        	'loans.destroy',
+
+        	'assets.store',
+        	'assets.update',
+        	'assets.destroy',
+
+        	'passives.store',
+        	'passives.update',
+        	'passives.destroy',
+
+        	'residences.store',
+        	'residences.update',
+        	'residences.destroy',
+
+        	'jobs.store',
+        	'jobs.update',
+        	'jobs.destroy',
+
+        	'works.store',
+        	'works.update',
+        	'works.destroy',
+
+        	'families.store',
+        	'families.update',
+        	'families.destroy',
+
+        	'products.store',
+        	'products.update',
+        	'products.destroy',
+
+        	'items.store',
+        	'items.update',
+        	'items.destroy',
+
+        	'inventories.store',
+        	'inventories.update',
+        	'inventories.destroy',
+
+        	'documents.store',
+        	'documents.update',
+        	'documents.destroy',
+
+        	'children.store',
+        	'children.update',
+        	'children.destroy',
+
+        	'payments.store',
+        	'payments.update',
+        	'payments.destroy',
+
+        	'debts.store',
+        	'debts.update',
+        	'debts.destroy',
+
+        	'sales.store',
+        	'sales.update',
+        	'sales.destroy',
+
+        	'mubs.store',
+        	'mubs.update',
+        	'mubs.destroy',
+
+        	'gmvs.store',
+        	'gmvs.update',
+        	'gmvs.destroy',
+
+        	'ppsifs.store',
+        	'ppsifs.update',
+        	'ppsifs.destroy',
+
+        	'gfos.store',
+        	'gfos.update',
+        	'gfos.destroy',
+
+        	'gfs.store',
+        	'gfs.update',
+        	'gfs.destroy',
+
         	'ois.store',
+        	'ois.update',
+        	'ois.destroy',
 		]);
 
 		$AS = Role::create(['name' => 'Asesor']);
