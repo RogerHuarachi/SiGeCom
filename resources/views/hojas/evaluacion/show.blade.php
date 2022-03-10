@@ -176,16 +176,44 @@
 
             @if ($client->sales)
                 <div class="card-body">
-                        <div class="row">
-                    @foreach ($client->sales as $sale)
-                            <div class="col">
-                                <dl class="row">
-                                    <dt class="col-md-5">{{ $sale->item }}</dt>
-                                    <dd class="col-md-7">{{ $sale->money }}</dd>
-                                </dl>
-                            </div>
-                    @endforeach
-                        </div>
+                    <div class="row">
+                        <table class="table table-sm table-light">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Monto</th>
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($client->sales as $sale)
+                                    <tr>
+                                        <td>{{ $sale->item }}</td>
+                                        <td>{{ $sale->money }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('sales.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#saleEdit{{ $sale->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.sales.edit')
+                                                @endcan
+                                                @can('sales.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#saleDelete{{ $sale->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.sales.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <th>{{ $client->sales->sum('money') }}</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
             @endif
         </div>
@@ -220,6 +248,7 @@
                                     <th>Precio de Venta</th>
                                     <th>Compra Mesual</th>
                                     <th>Venta Mensual</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -233,6 +262,18 @@
                                         <td>{{ $mub->sale }}</td>
                                         <td>{{ $mub->buysMonth }}</td>
                                         <td>{{ $mub->saleMonth }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('mubs.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#mubEdit{{ $mub->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.mubs.edit')
+                                                @endcan
+                                                @can('mubs.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#mubDelete{{ $mub->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.mubs.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -246,6 +287,7 @@
                                     <th></th>
                                     <th>{{ $client->mubs->sum('buysMonth') }}</th>
                                     <th>{{ $client->mubs->sum('saleMonth') }}</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -282,6 +324,7 @@
                                     <th>Total</th>
                                     <th>Frecuencia</th>
                                     <th>Total Mensual</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -293,6 +336,18 @@
                                         <td>{{ $gmv->total }}</td>
                                         <td>{{ $gmv->frequency }}</td>
                                         <td>{{ $gmv->totalmes }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('gmvs.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#gmvEdit{{ $gmv->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.gmvs.edit')
+                                                @endcan
+                                                @can('gmvs.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#gmvDelete{{ $gmv->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.gmvs.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -304,6 +359,7 @@
                                     <th>{{ $client->gmvs->sum('total') }}</th>
                                     <th></th>
                                     <th>{{ $client->gmvs->sum('totalmes') }}</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -338,6 +394,7 @@
                                     <th>N°</th>
                                     <th>Salario</th>
                                     <th>Total</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -347,6 +404,18 @@
                                         <td>{{ $ppsif->amount }}</td>
                                         <td>{{ $ppsif->salary }}</td>
                                         <td>{{ $ppsif->total }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('ppsifs.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#ppsifEdit{{ $ppsif->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.ppsifs.edit')
+                                                @endcan
+                                                @can('ppsifs.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#ppsifDelete{{ $ppsif->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.ppsifs.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -356,6 +425,7 @@
                                     <th></th>
                                     <th></th>
                                     <th>{{ $client->ppsifs->sum('total') }}</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -388,6 +458,7 @@
                                 <tr>
                                     <th>Item</th>
                                     <th>Total</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -395,6 +466,18 @@
                                     <tr>
                                         <td>{{ $gfo->item }}</td>
                                         <td>{{ $gfo->total }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('gfos.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#gfoEdit{{ $gfo->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.gfos.edit')
+                                                @endcan
+                                                @can('gfos.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#gfoDelete{{ $gfo->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.gfos.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -402,6 +485,7 @@
                                 <tr>
                                     <th>Total</th>
                                     <th>{{ $client->gfos->sum('total') }}</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -434,6 +518,7 @@
                                 <tr>
                                     <th>Item</th>
                                     <th>Total</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -441,6 +526,18 @@
                                     <tr>
                                         <td>{{ $gf->item }}</td>
                                         <td>{{ $gf->total }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('gfs.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#gfEdit{{ $gf->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.gfs.edit')
+                                                @endcan
+                                                @can('gfs.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#gfDelete{{ $gf->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.gfs.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -448,6 +545,7 @@
                                 <tr>
                                     <th>Total</th>
                                     <th>{{ $client->gfs->sum('total') }}</th>
+                                    <th></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -483,6 +581,8 @@
                                     <th>Desc./ Gastos</th>
                                     <th>Total</th>
                                     <th>Aclaraciones</th>
+                                    <th>Opciones</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -493,6 +593,18 @@
                                         <td>{{ $oi->dg }}</td>
                                         <td>{{ $oi->total }}</td>
                                         <td>{{ $oi->description }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('ois.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#oiEdit{{ $oi->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.ois.edit')
+                                                @endcan
+                                                @can('ois.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#oiDelete{{ $oi->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.ois.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -501,7 +613,7 @@
                                     <th>Total</th>
                                     <th></th>
                                     <th></th>
-                                    <th>{{ $client->gfs->sum('total') }}</th>
+                                    <th>{{ $client->ois->sum('total') }}</th>
                                     <th></th>
                                 </tr>
                             </tfoot>

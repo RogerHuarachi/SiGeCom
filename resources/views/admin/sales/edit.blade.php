@@ -30,45 +30,62 @@
                                     <select class="custom-select form-control-border"
                                     name="type" required>
                                         <option>{{ $sale->type }}</option>
-                                        <option>Diario</option>
-                                        <option>Semanal</option>
-                                        <option>Mensual</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Dia</label>
-                                    <select class="custom-select form-control-border"
-                                    name="item" required>
-                                        <option>{{ $sale->item }}</option>
-                                        <option>Lunes</option>
-                                        <option>Martes</option>
-                                        <option>Miercoles</option>
-                                        <option>Jueves</option>
-                                        <option>Viernes</option>
-                                        <option>Sabado</option>
-                                        <option>Domingo</option>
-                                        <option>Semana 1</option>
-                                        <option>Semana 2</option>
-                                        <option>Semana 3</option>
-                                        <option>Semana 4</option>
-                                        <option>Enero</option>
-                                        <option>Febrero</option>
-                                        <option>Marzo</option>
-                                        <option>Abril</option>
-                                        <option>Mayo</option>
-                                        <option>Junio</option>
-                                        <option>Julio</option>
-                                        <option>Agosto</option>
-                                        <option>Septiembre</option>
-                                        <option>Octubre</option>
-                                        <option>Noviembre</option>
-                                        <option>Diciembre</option>
-                                    </select>
-                                </div>
+                                @if ($sale->type == "Diario")
+                                    <div class="form-group">
+                                        <label>Dia</label>
+                                        <select class="custom-select form-control-border"
+                                        name="item" required>
+                                            <option>{{ $sale->item }}</option>
+                                            <option>Lunes</option>
+                                            <option>Martes</option>
+                                            <option>Miercoles</option>
+                                            <option>Jueves</option>
+                                            <option>Viernes</option>
+                                            <option>Sabado</option>
+                                            <option>Domingo</option>
+                                        </select>
+                                    </div>
+                                @endif
+                                @if ($sale->type == "Semanal")
+                                    <div class="form-group">
+                                        <label>Semana</label>
+                                        <select class="custom-select form-control-border"
+                                        name="item" required>
+                                            <option>{{ $sale->item }}</option>
+                                            <option>Semana 1</option>
+                                            <option>Semana 2</option>
+                                            <option>Semana 3</option>
+                                            <option>Semana 4</option>
+                                        </select>
+                                    </div>
+                                @endif
+                                @if ($sale->type == "Mensual")
+                                    <div class="form-group">
+                                        <label>Mes</label>
+                                        <select class="custom-select form-control-border"
+                                        name="item" required>
+                                            <option>{{ $sale->item }}</option>
+                                            <option>Enero</option>
+                                            <option>Febrero</option>
+                                            <option>Marzo</option>
+                                            <option>Abril</option>
+                                            <option>Mayo</option>
+                                            <option>Junio</option>
+                                            <option>Julio</option>
+                                            <option>Agosto</option>
+                                            <option>Septiembre</option>
+                                            <option>Octubre</option>
+                                            <option>Noviembre</option>
+                                            <option>Diciembre</option>
+                                        </select>
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">

@@ -36,14 +36,14 @@
                                 <div class="form-group">
                                     <label for="name">Cantidad</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount" required>
+                                    placeholder="Cantidad " name="amount" value="1" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Unidad</label>
                                     <input type="text" class="form-control form-control-border"
-                                    placeholder="Unidad " name="unity" required>
+                                    placeholder="Unidad " name="unity" value="Unidad" required>
                                 </div>
                             </div>
                             <div class="col-md-4">

@@ -14,7 +14,7 @@
     <li class="breadcrumb-item"><a href="{{ route('home') }}">inicio</a></li>
     <li class="breadcrumb-item">roles</li>
 @endsection
-@section('content')}
+@section('content')
     @include('option.confirmation')
     <div class="row">
         <div class="col-12">
