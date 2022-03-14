@@ -64,14 +64,14 @@
                                 <div class="form-group">
                                     <label for="name">Precio de Compra</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Precio de Compra " name="buy" required>
+                                    placeholder="Precio de Compra" name="buy" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">Precio de Venta</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Precio de Venta " name="sale" required>
+                                    placeholder="Precio de Venta " name="sale" step=".01" required>
                                 </div>
                             </div>
                         </div>

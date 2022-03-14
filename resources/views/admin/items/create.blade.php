@@ -34,7 +34,7 @@
                                 <div class="form-group">
                                     <label for="name">Cantidad</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount" required>
+                                    placeholder="Cantidad " name="amount" step=".01" required>
                                 </div>
                             </div>
                         </div>
