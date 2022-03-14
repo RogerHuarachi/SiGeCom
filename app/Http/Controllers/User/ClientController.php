@@ -127,7 +127,11 @@ class ClientController extends Controller
     public function primary(Request $request)
     {
         $request["activity"]="Primaria";
-        $request["mb"]=($request->sale-$request->buys)/$request->buys;
+        if ($request->sale) {
+            $request["mb"]=($request->sale-$request->buys)/$request->sale;
+        } else {
+            $request["mb"]=0;
+        }
 
         if ($request->type == "MP") {
             $request["vimp"]=$request->amount*$request->buys;
@@ -154,7 +158,11 @@ class ClientController extends Controller
     public function secondary(Request $request)
     {
         $request["activity"]="Secundaria";
-        $request["mb"]=($request->sale-$request->buys)/$request->buys;
+        if ($request->sale) {
+            $request["mb"]=($request->sale-$request->buys)/$request->sale;
+        } else {
+            $request["mb"]=0;
+        }
 
         if ($request->type == "MP") {
             $request["vimp"]=$request->amount*$request->buys;

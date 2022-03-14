@@ -96,14 +96,14 @@
                                 <div class="form-group">
                                     <label for="name">Cuota Mensual</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cuota Mensual " name="share" value="{{ $passive->share }}" required>
+                                    placeholder="Cuota Mensual " name="share" value="{{ $passive->share }}" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Saldo Deudor</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Saldo Deudor " name="balace" value="{{ $passive->balace }}" required>
+                                    placeholder="Saldo Deudor " name="balace" value="{{ $passive->balace }}" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-4">

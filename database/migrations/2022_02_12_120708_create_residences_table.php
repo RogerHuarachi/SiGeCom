@@ -18,7 +18,7 @@ class CreateResidencesTable extends Migration
             $table->string('property');
             $table->string('time');
             $table->string('direction');
-            $table->string('number');
+            $table->string('number')->nullable();
             $table->string('zone');
             $table->string('mobile')->nullable();
             $table->string('province');

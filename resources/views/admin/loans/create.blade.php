@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <label>Tasa</label>
                                     <select class="custom-select form-control-border" name="rate" required>
-                                        <option value="34">34 %</option>
+                                        <option value="36">36 %</option>
                                         <option value="24">24 %</option>
                                     </select>
                                 </div>
@@ -111,6 +111,10 @@
                                 <div class="form-group">
                                     <label>Garantia Ofrecida</label>
                                     <select class="custom-select form-control-border" name="warrantyOne" required>
+                                        <option>PRENDA DE DOCUMENTOS NO PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
+                                        <option>PRENDA DE DOCUMENTOS PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
+                                        <option>PRENDA DE DOCUMENTOS PERFECCIONADOS AGRÍCOLAS (INRA)</option>
+                                        <option>PRENDA DE DOCUMENTOS DE MAQUINARIA PESADA (PÓLIZA DE IMPORTACIÓN Y DCTO. COMPRA)</option>
                                         <option>GARANTE PERSONAL SIN INMUEBLE PROPIO O CASA DE FAMILIAR</option>
                                         <option>GARANTE PERSONAL CON INMUEBLE PROPIO SIN RESPALDO (FOTOGRAFIA)</option>
                                         <option>GARANTE PERSONAL CON INMUEBLE ( MINUTA)</option>
@@ -118,6 +122,7 @@
                                         <option>PREHIPOTECA DE INMUEBLE (DOCUMENTOS ORIGINALES)</option>
                                         <option>HIPOTECA DE DE INMUEBLE</option>
                                         <option>HIPOTECA DE VEHICULO</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -128,6 +133,10 @@
                                     <label>y</label>
                                     <select class="custom-select form-control-border" name="warrantyTwo">
                                         <option></option>
+                                        <option>PRENDA DE DOCUMENTOS NO PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
+                                        <option>PRENDA DE DOCUMENTOS PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
+                                        <option>PRENDA DE DOCUMENTOS PERFECCIONADOS AGRÍCOLAS (INRA)</option>
+                                        <option>PRENDA DE DOCUMENTOS DE MAQUINARIA PESADA (PÓLIZA DE IMPORTACIÓN Y DCTO. COMPRA)</option>
                                         <option>GARANTE PERSONAL SIN INMUEBLE PROPIO O CASA DE FAMILIAR</option>
                                         <option>GARANTE PERSONAL CON INMUEBLE PROPIO SIN RESPALDO (FOTOGRAFIA)</option>
                                         <option>GARANTE PERSONAL CON INMUEBLE ( MINUTA)</option>

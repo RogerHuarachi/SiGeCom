@@ -50,14 +50,14 @@
                                 <div class="form-group">
                                     <label for="name">Rendimiento</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Rendimiento " name="performance" required>
+                                    placeholder="Rendimiento " name="performance" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Precio U</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Rendimiento " name="price" required>
+                                    placeholder="Rendimiento " name="price" step=".01" required>
                                 </div>
                             </div>
                         </div>

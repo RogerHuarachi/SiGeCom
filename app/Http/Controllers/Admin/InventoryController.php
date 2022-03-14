@@ -21,7 +21,11 @@ class InventoryController extends Controller
 
     public function store(Request $request)
     {
-        $request["mb"]=($request->sale-$request->buys)/$request->buys;
+        if ($request->sale) {
+            $request["mb"]=($request->sale-$request->buys)/$request->sale;
+        } else {
+            $request["mb"]=0;
+        }
 
         if ($request->type == "MP") {
             $request["vimp"]=$request->amount*$request->buys;
@@ -40,7 +44,7 @@ class InventoryController extends Controller
         } else {
             $request["vipt"]=0;
         }
-        
+
         Inventory::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
@@ -57,7 +61,11 @@ class InventoryController extends Controller
 
     public function update(Request $request, Inventory $inventory)
     {
-        $request["mb"]=($request->sale-$request->buys)/$request->buys;
+        if ($request->sale) {
+            $request["mb"]=($request->sale-$request->buys)/$request->sale;
+        } else {
+            $request["mb"]=0;
+        }
 
         if ($request->type == 'MP') {
             $request["vimp"]=$request->amount*$request->buys;

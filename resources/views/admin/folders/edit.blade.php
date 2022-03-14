@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     <label for="name">Tipo de Cambio</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Tipo de Cambio" name="type" value="{{ $folder->type }}" required>
+                                    placeholder="Tipo de Cambio" name="type" value="{{ $folder->type }}" step=".01" required>
                                 </div>
                             </div>
                         </div>

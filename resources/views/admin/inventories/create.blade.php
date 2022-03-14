@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label for="name">Cantidad</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount" required>
+                                    placeholder="Cantidad " name="amount" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -74,21 +74,21 @@
                                 <div class="form-group">
                                     <label for="name">Precio de Compra</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Precio de Compra " name="buys" required>
+                                    placeholder="Precio de Compra " name="buys" step=".01">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Precio de Venta</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Precio de Venta " name="sale" required>
+                                    placeholder="Precio de Venta " name="sale" step=".01">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">% Avance</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="% Avance " name="advance" required>
+                                    placeholder="% Avance " name="advance">
                                 </div>
                             </div>
                         </div>

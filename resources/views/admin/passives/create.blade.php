@@ -94,14 +94,14 @@
                                 <div class="form-group">
                                     <label for="name">Cuota Mensual</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cuota Mensual " name="share" required>
+                                    placeholder="Cuota Mensual " name="share" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Saldo Deudor</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Saldo Deudor " name="balace" required>
+                                    placeholder="Saldo Deudor " name="balace" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-4">

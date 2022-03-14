@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('unit');
-            $table->string('performance');
+            $table->integer('performance');
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

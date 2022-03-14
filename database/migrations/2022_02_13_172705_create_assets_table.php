@@ -17,7 +17,7 @@ class CreateAssetsTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->string('warranty');
-            $table->integer('value');
+            $table->double('value', 8, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

@@ -18,8 +18,8 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->integer('amount');
             $table->string('unit');
-            $table->string('performance');
-            $table->integer('price');
+            $table->double('performance', 8, 2);
+            $table->double('price', 8, 2);
             $table->double('total', 8, 2);
             $table->unsignedBigInteger('product_id');
             $table->timestamps();

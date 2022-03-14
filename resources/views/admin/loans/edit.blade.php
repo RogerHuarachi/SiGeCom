@@ -125,6 +125,10 @@
                                     <label>Garantia Ofrecida</label>
                                     <select class="custom-select form-control-border" name="warrantyOne" required>
                                         <option>{{ $loan->warrantyOne }}</option>
+                                        <option>PRENDA DE DOCUMENTOS NO PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
+                                        <option>PRENDA DE DOCUMENTOS PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
+                                        <option>PRENDA DE DOCUMENTOS PERFECCIONADOS AGRÍCOLAS (INRA)</option>
+                                        <option>PRENDA DE DOCUMENTOS DE MAQUINARIA PESADA (PÓLIZA DE IMPORTACIÓN Y DCTO. COMPRA)</option>
                                         <option>GARANTE PERSONAL SIN INMUEBLE PROPIO O CASA DE FAMILIAR</option>
                                         <option>GARANTE PERSONAL CON INMUEBLE PROPIO SIN RESPALDO (FOTOGRAFIA)</option>
                                         <option>GARANTE PERSONAL CON INMUEBLE ( MINUTA)</option>
@@ -143,6 +147,10 @@
                                     <select class="custom-select form-control-border" name="warrantyTwo">
                                         <option>{{ $loan->warrantyTwo }}</option>
                                         <option></option>
+                                        <option>PRENDA DE DOCUMENTOS NO PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
+                                        <option>PRENDA DE DOCUMENTOS PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
+                                        <option>PRENDA DE DOCUMENTOS PERFECCIONADOS AGRÍCOLAS (INRA)</option>
+                                        <option>PRENDA DE DOCUMENTOS DE MAQUINARIA PESADA (PÓLIZA DE IMPORTACIÓN Y DCTO. COMPRA)</option>
                                         <option>GARANTE PERSONAL SIN INMUEBLE PROPIO O CASA DE FAMILIAR</option>
                                         <option>GARANTE PERSONAL CON INMUEBLE PROPIO SIN RESPALDO (FOTOGRAFIA)</option>
                                         <option>GARANTE PERSONAL CON INMUEBLE ( MINUTA)</option>

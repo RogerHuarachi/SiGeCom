@@ -23,10 +23,10 @@ class CreateClientsTable extends Migration
             $table->string('number');
             $table->string('extension')->nullable();
             $table->string('nit')->nullable();
-            $table->string('birth');
+            $table->date('birth');
             $table->string('age');
             $table->string('nacionality');
-            $table->string('dependents')->nullable();
+            $table->integer('dependents')->nullable();
             $table->string('civil');
             $table->string('employment');
             $table->string('mobile');

@@ -62,7 +62,7 @@
                                 <div class="form-group">
                                     <label for="name">N°</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="N°" name="number" value="{{ $residence->number }}" required>
+                                    placeholder="N°" name="number" value="{{ $residence->number }}">
                                 </div>
                             </div>
                             <div class="col-md-5">

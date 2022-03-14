@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0 pr-1">Solicitud de Préstamo</h1>
+        <h1 class="m-0 pr-1">Evaluación Socio Economica</h1>
     </div>
 @endsection
 @section('content')
@@ -781,8 +781,8 @@
                                     <td>Otros Ingresos</td>
                                     <td>{{ $client->ois->sum('total') }}</td>
                                 </tr>
-                                <tr>
-                                    <td>Utilidad Neta De la F.E.</td>
+                                <tr class="bg-dark">
+                                    <td>UTILIDAD NETA DE LA F.E.</td>
                                     <td>
                                         @if ($client->mubs->sum('saleMonth') > 0)
                                             {{ ((($client->sales->AVG('money')*$client->frec())+((($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec())))-($client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes'))-($client->gfs->sum('total'))-($client->passives->sum('value'))+($client->ois->sum('total'))) }}
@@ -800,8 +800,8 @@
                                 <tr>
                                     <td>Pago Cuota PROEZA</td>
                                     <td>
-                                        @if ($client->mubs->sum('saleMonth') > 0)
-                                            {{ (((($client->sales->AVG('money')*$client->frec())+((($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec())))-($client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes'))-($client->gfs->sum('total'))-($client->passives->sum('value'))+($client->ois->sum('total'))))*(0.8) }}
+                                        @if ($client->loan)
+                                            {{ $client->loan->choose }}
                                         @endif
                                     </td>
                                 </tr>
@@ -809,7 +809,11 @@
                             <tfoot>
                                 <tr>
                                     <th>Total</th>
-                                    <th></th>
+                                    <th>
+                                        @if ($client->mubs->sum('saleMonth') > 0)
+                                            {{ ((((($client->sales->AVG('money')*$client->frec())+((($client->sales->AVG('money')*$client->frec())*(($client->mubs->sum('saleMonth')-$client->mubs->sum('buysMonth'))/$client->mubs->sum('saleMonth')))-( $client->sales->AVG('money')*$client->frec())))-($client->gfos->sum('total')+$client->ppsifs->sum('total')+$client->gmvs->sum('totalmes'))-($client->gfs->sum('total'))-($client->passives->sum('value'))+($client->ois->sum('total'))))*(0.8))-($client->loan->choose) }}
+                                        @endif
+                                    </th>
                                 </tr>
                             </tfoot>
                         </table>

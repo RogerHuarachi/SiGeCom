@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0 pr-1">Solicitud de Préstamo</h1>
+        <h1 class="m-0 pr-1">Inventario</h1>
     </div>
 @endsection
 @section('content')
@@ -61,9 +61,30 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Total Activos</th>
-                                    <th>{{ $client->actprimary()->sum('share') }}</th>
-                                    <th>{{ $client->actprimary()->sum('balace') }}</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>{{ $client->actprimary()->sum('vimp') }}</th>
+                                    <th>{{ $client->actprimary()->sum('vipp') }}</th>
+                                    <th>{{ $client->actprimary()->sum('vipt') }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>{{ $client->actprimary()->sum('vimp')+$client->actprimary()->sum('vipp')+$client->actprimary()->sum('vipt') }}</th>
                                 </tr>
                             </tfoot>
                         </table>

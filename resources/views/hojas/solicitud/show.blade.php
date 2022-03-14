@@ -233,7 +233,7 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         Actividad Secundaria
-                        @if (!$client->primary())
+                        @if (!$client->secondary())
                             <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#businessCreate"><i class="fas fa-plus"></i></button>
                         @endif
                     </h3>

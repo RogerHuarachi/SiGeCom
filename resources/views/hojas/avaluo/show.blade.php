@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0 pr-1">Solicitud de Préstamo</h1>
+        <h1 class="m-0 pr-1">Avaluo de Bienes Negocio y Familia</h1>
     </div>
 @endsection
 @section('content')
@@ -52,7 +52,7 @@
                                     <tr>
                                         <th>Total</th>
                                         <th></th>
-                                        <th>{{ $client->maquinaria()->sum('value') }}</th>
+                                        <th>{{ $client->mueble()->sum('value') }}</th>
                                         <th></th>
                                         <th></th>
                                     </tr>

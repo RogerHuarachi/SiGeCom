@@ -42,7 +42,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">Rendimiento</label>
-                                    <input type="text" class="form-control form-control-border"
+                                    <input type="number" class="form-control form-control-border"
                                     placeholder="Rendimiento " name="performance" required>
                                 </div>
                             </div>

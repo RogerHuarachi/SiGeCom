@@ -20,7 +20,7 @@ class CreateJobsTable extends Migration
             $table->string('business');
             $table->text('note');
             $table->string('direction');
-            $table->string('number');
+            $table->string('number')->nullable();
             $table->string('zone');
             $table->string('mobile')->nullable();
             $table->string('province');

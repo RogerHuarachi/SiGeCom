@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0 pr-1">Solicitud de Préstamo</h1>
+        <h1 class="m-0 pr-1">Hoja de Costo</h1>
     </div>
 @endsection
 @section('content')
@@ -24,6 +24,12 @@
             <div class="card-body">
                 @if ($client->products)
                     @foreach ($client->products as $product)
+                        <div class="row">
+                            <h6 class="p-1">Unidad de Produccion: {{ $product->unit }}</h6>
+                        </div>
+                        <div class="row">
+                            <h6 class="p-1">Rendimiento: {{ $product->performance }}</h6>
+                        </div>
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
@@ -70,6 +76,14 @@
                                                 <th></th>
                                                 <th></th>
                                                 <th>{{ $product->items->sum('total') }}</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Costo por Unidad de venta</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>{{ $product->items->sum('total')/ $product->performance }}</th>
                                             </tr>
                                         </tfoot>
                                     </table>

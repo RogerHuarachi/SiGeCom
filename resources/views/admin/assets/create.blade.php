@@ -88,7 +88,7 @@
                                 <div class="form-group">
                                     <label for="name">Valor</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Valor" name="value" required>
+                                    placeholder="Valor" name="value" step=".01" required>
                                 </div>
                             </div>
                         </div>

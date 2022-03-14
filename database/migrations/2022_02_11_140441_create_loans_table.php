@@ -15,7 +15,7 @@ class CreateLoansTable extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('money');
+            $table->double('money', 8, 2);
             $table->string('currency');
             $table->integer('rate');
             $table->integer('term');
@@ -23,7 +23,7 @@ class CreateLoansTable extends Migration
             $table->string('frequency');
             $table->string('feeType');
             $table->integer('expiration');
-            $table->integer('choose');
+            $table->double('choose', 8, 2);
             $table->string('warrantyOne');
             $table->string('warrantyTwo')->nullable();
             $table->string('destination');

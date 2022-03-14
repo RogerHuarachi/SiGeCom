@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                     <label for="name">Tipo de Cambio</label>
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Tipo de Cambio" name="type" value="6.86" required>
+                                    placeholder="Tipo de Cambio" name="type" value="6.86" step=".01" required>
                                 </div>
                             </div>
                         </div>

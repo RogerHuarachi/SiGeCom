@@ -18,7 +18,7 @@ class CreateWorksTable extends Migration
             $table->string('type');
             $table->integer('amount');
             $table->string('description');
-            $table->integer('value');
+            $table->double('value', 8, 2);
             $table->string('exercise');
             $table->string('state');
             $table->unsignedBigInteger('client_id');

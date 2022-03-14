@@ -1,13 +1,15 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0 pr-1">Solicitud de Préstamo</h1>
+        <h1 class="m-0 pr-1">Declaración Patrimonial</h1>
     </div>
 @endsection
 @section('content')
     @include('admin.assets.create')
     @include('admin.passives.create')
-
+    <div class="row">
+        <h5 class="p-1">Patrimonio Neto: {{ $client->assets->sum('value') - $client->passives->sum('balace') }}</h5>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
