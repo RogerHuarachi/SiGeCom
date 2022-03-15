@@ -32,10 +32,12 @@
     @include('admin.weeks.create')
     @include('admin.months.create')
     @include('admin.mubs.create')
+    @include('admin.cmubs.create')
     @include('admin.gmvs.create')
     @include('admin.ppsifs.create')
     @include('admin.gfos.create')
     @include('admin.gfs.create')
+    @include('admin.cdgs.create')
     @include('admin.ois.create')
     <div class="row">
         <div class="col-12">
@@ -1043,6 +1045,7 @@
                     <h3 class="card-title">
                         MUB
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#mubCreate"><i class="fas fa-plus"></i></button>
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cmubCreate">Aclaracion</button>
                     </h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -1051,8 +1054,8 @@
                     </div>
                 </div>
 
-                @if ($client->mubs)
-                    <div class="card-body">
+                <div class="card-body">
+                    @if ($client->mubs)
                         <div class="row">
                             <table class="table table-sm table-light">
                                 <thead class="thead-light">
@@ -1095,8 +1098,18 @@
                                 </tfoot>
                             </table>
                         </div>
-                    </div>
-                @endif
+                    @endif
+                    @if ($client->cmub)
+                        <div class="row">
+                            <div class="col-md-12">
+                                <dl class="row">
+                                    <dt class="col-md-2">Aclaración</dt>
+                                    <dd class="col-md-10">{{ $client->cmub->comentary }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
@@ -1296,6 +1309,42 @@
                                     </tr>
                                 </tfoot>
                             </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Aclaraciones
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cdgCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->cdg)
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-md-2">Aclaración de Gastos Fijos Operativos</dt>
+                                    <dd class="col-md-10">{{ $client->cdg->comentaryo }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-6">
+                                <dl class="row">
+                                    <dt class="col-md-2">Aclaración de Gastos Familiares</dt>
+                                    <dd class="col-md-10">{{ $client->cdg->comentaryf }}</dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                 @endif

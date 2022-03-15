@@ -324,6 +324,17 @@
                     </li>
                 @endcan
 
+                @can('mubs.index')
+                    <li class="nav-item">
+                        <a href="{{ route('cmubs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Aclaraciones MUB
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
                 @can('gmvs.index')
                     <li class="nav-item">
                         <a href="{{ route('gmvs.index') }}" class="nav-link">
@@ -363,6 +374,17 @@
                             <i class="nav-icon fas fa-globe"></i>
                             <p>
                                 Detalle de Gastos Familiares
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('cdgs.index')
+                    <li class="nav-item">
+                        <a href="{{ route('cdgs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Aclaraciones de Gastos
                             </p>
                         </a>
                     </li>

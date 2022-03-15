@@ -1,13 +1,13 @@
-<div class="modal fade" id="productEdit{{ $product->id }}">
+<div class="modal fade" id="cdgEdit{{ $cdg->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Editar Producto</h4>
+                <h4 class="modal-title">Editar Bien</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('products.update', $product->id) }}" method="POST">
+            <form action="{{ route('cdgs.update', $cdg->id) }}" method="POST">
                 {{ csrf_field() }}
                 {{ @method_field('PUT') }}
                 <div class="modal-body">
@@ -18,7 +18,7 @@
                                     <label>Cliente</label>
                                     <select class="custom-select form-control-border"
                                     name="client_id" required>
-                                        <option value="{{ $product->client->id }}">{{ $product->client->name }} {{ $product->client->lastName }}</option>
+                                        <option value="{{ $cdg->client->id }}">{{ $cdg->client->name }} {{ $cdg->client->lastName }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -26,33 +26,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name">Nombre</label>
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Nombre " name="name" value="{{ $product->name }}" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">Unidad</label>
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Unidad " name="unit" value="{{ $product->unit }}" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">Rendimiento</label>
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Rendimiento " name="performance" value="{{ $product->performance }}" required>
+                                    <label for="my-textarea">Aclaración de Gastos Fijos Operativos</label>
+                                    <textarea id="my-textarea" class="form-control form-control-border" name="comentaryo" rows="3">{{ $cdg->comentaryo }}</textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="my-textarea">Aclaración</label>
-                                    <textarea id="my-textarea" class="form-control form-control-border" name="comentary" rows="3"></textarea>
+                                    <label for="my-textarea">Aclaración de Gastos Familiares</label>
+                                    <textarea id="my-textarea" class="form-control form-control-border" name="comentaryf" rows="3">{{ $cdg->comentaryf }}</textarea>
                                 </div>
                             </div>
                         </div>

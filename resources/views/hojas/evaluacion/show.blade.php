@@ -12,14 +12,16 @@
 @include('admin.weeks.sub.semana')
 @include('admin.months.sub.mes')
 @include('admin.mubs.create')
+@include('admin.cmubs.create')
 @include('admin.gmvs.create')
 @include('admin.ppsifs.create')
 @include('admin.gfos.create')
 @include('admin.gfs.create')
 @include('admin.ois.create')
+@include('admin.cdgs.create')
 @include('admin.passives.create')
 <div class="row">
-    <div class="col-12">
+    <div class="col-6">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -65,9 +67,7 @@
             @endif
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
+    <div class="col-6">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -83,8 +83,8 @@
                 </div>
             </div>
 
-            @if ($client->payment)
-                <div class="card-body">
+            <div class="card-body">
+                @if ($client->payment)
                     <div class="row">
                         <div class="col-md-4">
                             <dl class="row">
@@ -103,13 +103,13 @@
                             </dl>
                         </div>
                     </div>
-                </div>
-            @endif
+                @endif
+            </div>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
+    <div class="col-6">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -145,9 +145,7 @@
             @endif
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
+    <div class="col-6">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -221,13 +219,13 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
+    <div class="col-8">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
                     MUB
                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#mubCreate"><i class="fas fa-plus"></i></button>
-                </h3>
+                    </h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -235,8 +233,8 @@
                 </div>
             </div>
 
-            @if ($client->mubs)
-                <div class="card-body">
+            <div class="card-body">
+                @if ($client->mubs)
                     <div class="row">
                         <table class="table table-sm table-light">
                             <thead class="thead-light">
@@ -293,13 +291,41 @@
                             </tfoot>
                         </table>
                     </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Aclaraciones
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cmubCreate">Aclaracion</button>
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
                 </div>
-            @endif
+            </div>
+
+            <div class="card-body">
+                @if ($client->cmub)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <dl class="row">
+                                <dt class="col-md-4">Aclaración</dt>
+                                <dd class="col-md-8">{{ $client->cmub->comentary }}</dd>
+                            </dl>
+                        </div>
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
+    <div class="col-6">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -369,9 +395,7 @@
             @endif
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
+    <div class="col-6">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -437,7 +461,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
+    <div class="col-4">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -503,9 +527,7 @@
             @endif
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
+    <div class="col-4">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -563,14 +585,12 @@
             @endif
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12">
+    <div class="col-4">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
-                    Otros Ingresos
-                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oiCreate"><i class="fas fa-plus"></i></button>
+                    Aclaraciones
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cdgCreate"><i class="fas fa-plus"></i></button>
                 </h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -579,132 +599,27 @@
                 </div>
             </div>
 
-            @if ($client->ois)
-                <div class="card-body">
-                    <div class="row">
-                        <table class="table table-sm table-light">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Decripción</th>
-                                    <th>Ingreso Bruto</th>
-                                    <th>Desc./ Gastos</th>
-                                    <th>Total</th>
-                                    <th>Aclaraciones</th>
-                                    <th>Opciones</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($client->ois as $oi)
-                                    <tr>
-                                        <td>{{ $oi->item }}</td>
-                                        <td>{{ $oi->ib }}</td>
-                                        <td>{{ $oi->dg }}</td>
-                                        <td>{{ $oi->total }}</td>
-                                        <td>{{ $oi->description }}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                @can('ois.update')
-                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#oiEdit{{ $oi->id }}"><i class="fas fa-pen"></i></button>
-                                                    @include('admin.ois.edit')
-                                                @endcan
-                                                @can('ois.destroy')
-                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#oiDelete{{ $oi->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                    @include('admin.ois.delete')
-                                                @endcan
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Total</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>{{ $client->ois->sum('total') }}</th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-            @endif
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">
-                    Pasivos
-                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#passiveCreate"><i class="fas fa-plus"></i></button>
-                </h3>
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                    </button>
-                </div>
-            </div>
-
-
-            @if ($client->passives)
             <div class="card-body">
-                <div class="row">
-                    <table class="table table-sm table-light">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Nombre del Banco</th>
-                                <th>Cuota Mensual</th>
-                                <th>Saldo Deudor</th>
-                                <th>Estado</th>
-                                <th>Cuota Final</th>
-                                <th>Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($client->passives as $passive)
-                                <tr>
-                                    <td>{{ $passive->creditor }}</td>
-                                    <td>{{ $passive->share }}</td>
-                                    <td>{{ $passive->balace }}</td>
-                                    <td>{{ $passive->state }}</td>
-                                    <td>{{ $passive->value }}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            @can('passives.update')
-                                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#passiveEdit{{ $passive->id }}"><i class="fas fa-pen"></i></button>
-                                                @include('admin.passives.edit')
-                                            @endcan
-                                            @can('passives.destroy')
-                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#passiveDelete{{ $passive->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                @include('admin.passives.delete')
-                                            @endcan
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Total Activos</th>
-                                <th>{{ $client->passives->sum('share') }}</th>
-                                <th>{{ $client->passives->sum('balace') }}</th>
-                                <th></th>
-                                <th>{{ $client->passives->sum('value') }}</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
+                @if ($client->cdg)
+                    <div class="row">
+                        <div class="col-md-12">
+                            <dl class="row">
+                                <dt class="col-md-5">Aclaración de Gastos Fijos Operativos</dt>
+                                <dd class="col-md-7">{{ $client->cdg->comentaryo }}</dd>
+                            </dl>
+                            <dl class="row">
+                                <dt class="col-md-5">Aclaración de Gastos Familiares</dt>
+                                <dd class="col-md-7">{{ $client->cdg->comentaryf }}</dd>
+                            </dl>
+                        </div>
+                    </div>
+                @endif
             </div>
-        @endif
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-12">
+    <div class="col-6">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
@@ -820,6 +735,382 @@
                     </div>
                 </div>
             @endif
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Otros Ingresos
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oiCreate"><i class="fas fa-plus"></i></button>
+                        </h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    @if ($client->ois)
+                        <div class="card-body">
+                            <div class="row">
+                                <table class="table table-sm table-light">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Decripción</th>
+                                            <th>Ingreso Bruto</th>
+                                            <th>Desc./ Gastos</th>
+                                            <th>Total</th>
+                                            <th>Aclaraciones</th>
+                                            <th>Opciones</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($client->ois as $oi)
+                                            <tr>
+                                                <td>{{ $oi->item }}</td>
+                                                <td>{{ $oi->ib }}</td>
+                                                <td>{{ $oi->dg }}</td>
+                                                <td>{{ $oi->total }}</td>
+                                                <td>{{ $oi->description }}</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        @can('ois.update')
+                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#oiEdit{{ $oi->id }}"><i class="fas fa-pen"></i></button>
+                                                            @include('admin.ois.edit')
+                                                        @endcan
+                                                        @can('ois.destroy')
+                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#oiDelete{{ $oi->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                            @include('admin.ois.delete')
+                                                        @endcan
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Total</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th>{{ $client->ois->sum('total') }}</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Pasivos
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#passiveCreate"><i class="fas fa-plus"></i></button>
+                        </h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    @if ($client->passives)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Nombre del Banco</th>
+                                        <th>Cuota Mensual</th>
+                                        <th>Saldo Deudor</th>
+                                        <th>Estado</th>
+                                        <th>Cuota Final</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->passives as $passive)
+                                        <tr>
+                                            <td>{{ $passive->creditor }}</td>
+                                            <td>{{ $passive->share }}</td>
+                                            <td>{{ $passive->balace }}</td>
+                                            <td>{{ $passive->state }}</td>
+                                            <td>{{ $passive->value }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('passives.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#passiveEdit{{ $passive->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.passives.edit')
+                                                    @endcan
+                                                    @can('passives.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#passiveDelete{{ $passive->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.passives.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total Activos</th>
+                                        <th>{{ $client->passives->sum('share') }}</th>
+                                        <th>{{ $client->passives->sum('balace') }}</th>
+                                        <th></th>
+                                        <th>{{ $client->passives->sum('value') }}</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Estado de Resultados
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oiCreate"><i class="fas fa-plus"></i></button>
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+
+            @if ($client->ois)
+                <div class="card-body">
+                    <div class="row">
+                        <table class="table table-sm table-light">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Items</th>
+                                    <th>Monto</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-dark">
+                                    <td>TOTAL ACTIVOS DEL NEGOCIO</td>
+                                    <td>{{ $client->balance('Efectivo del Negocio') +
+                                        $client->inventories->sum("vimp") + $client->inventories->sum("vipp") + $client->inventories->sum("vipt") +
+                                        $client->balance('Cuentas por Cobrar') +
+                                        $client->balance('Inmuebles del Negocio') +
+                                        $client->balance('Vehículos del Negocio') +
+                                        $client->balance('Bienes Muebles Enseres y Herramientas del Negocio') +
+                                        $client->balance('Equipos Electronicos del Negocio') +
+                                        $client->balance('Maquinaria y Equipo del Negocio') +
+                                        $client->balance('Semovientes de la Actividad') +
+                                        $client->balance('Anticréticos') +
+                                        $client->balance('Puesto de Venta') +
+                                        $client->balance('Líneas y/o Acciones') +
+                                        $client->balance('Aporte Propio para la Compra de Activos') }}</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <td>Activo Corriente del Negocio</td>
+                                    <td>{{ $client->balance('Efectivo del Negocio') +
+                                    $client->inventories->sum("vimp") + $client->inventories->sum("vipp") + $client->inventories->sum("vipt") +
+                                    $client->balance('Cuentas por Cobrar') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Efectivo o Caja</td>
+                                    <td>{{ $client->balance('Efectivo del Negocio') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Inventarios (MP, PP, PT)</td>
+                                    <td>
+                                        {{ $client->inventories->sum("vimp") + $client->inventories->sum("vipp") + $client->inventories->sum("vipt") }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Cuentas por Cobrar</td>
+                                    <td>{{ $client->balance('Cuentas por Cobrar') }}</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <td>Activos Fijos del Negocio</td>
+                                    <td>{{ $client->balance('Inmuebles del Negocio') +
+                                        $client->balance('Vehículos del Negocio') +
+                                        $client->balance('Bienes Muebles Enseres y Herramientas del Negocio') +
+                                        $client->balance('Equipos Electronicos del Negocio') +
+                                        $client->balance('Maquinaria y Equipo del Negocio') +
+                                        $client->balance('Semovientes de la Actividad') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Inmuebles del Negocio</td>
+                                    <td>{{ $client->balance('Inmuebles del Negocio') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vehículos del Negocio</td>
+                                    <td>{{ $client->balance('Vehículos del Negocio') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Bienes Muebles Enseres y Herramientas del Negocio</td>
+                                    <td>{{ $client->balance('Bienes Muebles Enseres y Herramientas del Negocio') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Equipos Electronicos del Negocio</td>
+                                    <td>{{ $client->balance('Equipos Electronicos del Negocio') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Maquinaria y Equipo del Negocio</td>
+                                    <td>{{ $client->balance('Maquinaria y Equipo del Negocio') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Semovientes de la Actividad</td>
+                                    <td>{{ $client->balance('Semovientes de la Actividad') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Otros Activos del Negocio</td>
+                                    <td>{{ $client->balance('Anticréticos') +
+                                        $client->balance('Puesto de Venta') +
+                                        $client->balance('Líneas y/o Acciones') +
+                                        $client->balance('Aporte Propio para la Compra de Activos') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Anticréticos</td>
+                                    <td>{{ $client->balance('Anticréticos') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Puesto de Venta</td>
+                                    <td>{{ $client->balance('Puesto de Venta') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Líneas y/o Acciones</td>
+                                    <td>{{ $client->balance('Líneas y/o Acciones') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Aporte Propio para la Compra de Activos</td>
+                                    <td>{{ $client->balance('Aporte Propio para la Compra de Activos') }}</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <td>TOTAL ACTIVOS DE LA FAMILIA</td>
+                                    <td>{{ $client->balance('Inmuebles de la Familia') +
+                                        $client->balance('Vehículos de la Familia') +
+                                        $client->balance('Muebles y Enseres del Hogar') +
+                                        $client->balance('Equipos Electrónicos y Electrodomésticos del Hogar') +
+                                        $client->balance('Otros Activos, Equipos y Herramientas del hogar') +
+                                        $client->balance('Anticréticos') +
+                                        $client->balance('Líneas y/o Acciones') +
+                                        $client->balance('Ahorros y Efectivo de la Familia') +
+                                        $client->balance('Otros activos de Actividad Secundarias') }}</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <td>Activos de la Familia</td>
+                                    <td>{{ $client->balance('Inmuebles de la Familia') +
+                                        $client->balance('Vehículos de la Familia') +
+                                        $client->balance('Muebles y Enseres del Hogar') +
+                                        $client->balance('Equipos Electrónicos y Electrodomésticos del Hogar') +
+                                        $client->balance('Otros Activos, Equipos y Herramientas del hogar') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Inmuebles de la Familia</td>
+                                    <td>{{ $client->balance('Inmuebles de la Familia') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Vehículos de la Familia</td>
+                                    <td>{{ $client->balance('Vehículos de la Familia') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Muebles y Enseres del Hogar</td>
+                                    <td>{{ $client->balance('Muebles y Enseres del Hogar') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Equipos Electrónicos y Electrodomésticos del Hogar</td>
+                                    <td>{{ $client->balance('Equipos Electrónicos y Electrodomésticos del Hogar') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Otros Activos, Equipos y Herramientas del hogar</td>
+                                    <td>{{ $client->balance('Otros Activos, Equipos y Herramientas del hogar') }}</td>
+                                </tr>
+                                <tr class="bg-dark">
+                                    <td>Otros Activos de la Familia</td>
+                                    <td>{{ $client->balance('Anticréticos') +
+                                        $client->balance('Líneas y/o Acciones') +
+                                        $client->balance('Ahorros y Efectivo de la Familia') +
+                                        $client->balance('Otros activos de Actividad Secundarias') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Anticréticos</td>
+                                    <td>{{ $client->balance('Anticréticos') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Líneas y/o Acciones</td>
+                                    <td>{{ $client->balance('Líneas y/o Acciones') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Ahorros y Efectivo de la Familia</td>
+                                    <td>{{ $client->balance('Ahorros y Efectivo de la Familia') }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Otros activos de Actividad Secundarias</td>
+                                    <td>{{ $client->balance('Otros activos de Actividad Secundarias') }}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="bg-dark">
+                                    <th>Total</th>
+                                    <th>{{ $client->balance('Efectivo del Negocio') +
+                                        $client->inventories->sum("vimp") + $client->inventories->sum("vipp") + $client->inventories->sum("vipt") +
+                                        $client->balance('Cuentas por Cobrar') +
+                                        $client->balance('Inmuebles del Negocio') +
+                                        $client->balance('Vehículos del Negocio') +
+                                        $client->balance('Bienes Muebles Enseres y Herramientas del Negocio') +
+                                        $client->balance('Equipos Electronicos del Negocio') +
+                                        $client->balance('Maquinaria y Equipo del Negocio') +
+                                        $client->balance('Semovientes de la Actividad') +
+                                        $client->balance('Anticréticos') +
+                                        $client->balance('Puesto de Venta') +
+                                        $client->balance('Líneas y/o Acciones') +
+                                        $client->balance('Aporte Propio para la Compra de Activos') +
+                                        $client->balance('Inmuebles de la Familia') +
+                                        $client->balance('Vehículos de la Familia') +
+                                        $client->balance('Muebles y Enseres del Hogar') +
+                                        $client->balance('Equipos Electrónicos y Electrodomésticos del Hogar') +
+                                        $client->balance('Otros Activos, Equipos y Herramientas del hogar') +
+                                        $client->balance('Anticréticos') +
+                                        $client->balance('Líneas y/o Acciones') +
+                                        $client->balance('Ahorros y Efectivo de la Familia') +
+                                        $client->balance('Otros activos de Actividad Secundarias')}}
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    INDICADORES Y CRUCES DE VARIABLES
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oiCreate"><i class="fas fa-plus"></i></button>
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+            </div>
         </div>
     </div>
 </div>

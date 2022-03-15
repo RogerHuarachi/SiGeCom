@@ -150,6 +150,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'mubs.store']);
         Permission::create(['name' => 'mubs.update']);
         Permission::create(['name' => 'mubs.destroy']);
+        //cmub list
+        Permission::create(['name' => 'cmubs.index']);
+        Permission::create(['name' => 'cmubs.store']);
+        Permission::create(['name' => 'cmubs.update']);
+        Permission::create(['name' => 'cmubs.destroy']);
         //Gmv list
         Permission::create(['name' => 'gmvs.index']);
         Permission::create(['name' => 'gmvs.store']);
@@ -170,6 +175,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'gfs.store']);
         Permission::create(['name' => 'gfs.update']);
         Permission::create(['name' => 'gfs.destroy']);
+        //cdg list
+        Permission::create(['name' => 'cdgs.index']);
+        Permission::create(['name' => 'cdgs.store']);
+        Permission::create(['name' => 'cdgs.update']);
+        Permission::create(['name' => 'cdgs.destroy']);
         //Oi list
         Permission::create(['name' => 'ois.index']);
         Permission::create(['name' => 'ois.store']);

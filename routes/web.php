@@ -28,10 +28,12 @@ use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\DebtController;
 use App\Http\Controllers\Admin\SaleController;
 use App\Http\Controllers\Admin\MubController;
+use App\Http\Controllers\Admin\CmubController;
 use App\Http\Controllers\Admin\GmvController;
 use App\Http\Controllers\Admin\PpsifController;
 use App\Http\Controllers\Admin\GfoController;
 use App\Http\Controllers\Admin\GfController;
+use App\Http\Controllers\Admin\CdgController;
 use App\Http\Controllers\Admin\OiController;
 
 /*
@@ -334,6 +336,16 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('mubs/{mub}', [MubController::class, 'destroy'])->name('mubs.destroy')
         ->middleware('permission:mubs.destroy');
 
+    // CMUB
+    Route::get('cmubs', [CmubController::class, 'index'])->name('cmubs.index')
+        ->middleware('permission:cmubs.index');
+    Route::post('cmubs/store', [CmubController::class, 'store'])->name('cmubs.store')
+        ->middleware('permission:cmubs.store');
+    Route::put('cmubs/{cmub}', [CmubController::class, 'update'])->name('cmubs.update')
+        ->middleware('permission:cmubs.update');
+    Route::delete('cmubs/{cmub}', [CmubController::class, 'destroy'])->name('cmubs.destroy')
+        ->middleware('permission:cmubs.destroy');
+
     // Gmv GASTOS Y MANTENIMIENTO DE VEHICULOS
     Route::get('gmvs', [GmvController::class, 'index'])->name('gmvs.index')
         ->middleware('permission:gmvs.index');
@@ -373,6 +385,16 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:gfs.update');
     Route::delete('gfs/{gf}', [GfController::class, 'destroy'])->name('gfs.destroy')
         ->middleware('permission:gfs.destroy');
+
+    // Cdgs
+    Route::get('cdgs', [CdgController::class, 'index'])->name('cdgs.index')
+        ->middleware('permission:cdgs.index');
+    Route::post('cdgs/store', [CdgController::class, 'store'])->name('cdgs.store')
+        ->middleware('permission:cdgs.store');
+    Route::put('cdgs/{cdg}', [CdgController::class, 'update'])->name('cdgs.update')
+        ->middleware('permission:cdgs.update');
+    Route::delete('cdgs/{cdg}', [CdgController::class, 'destroy'])->name('cdgs.destroy')
+        ->middleware('permission:cdgs.destroy');
 
     // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
     Route::get('ois', [OiController::class, 'index'])->name('ois.index')

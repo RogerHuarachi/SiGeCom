@@ -163,6 +163,11 @@ class RolesTableSeeder extends Seeder
         	'mubs.update',
         	'mubs.destroy',
 
+            'cmubs.index',
+        	'cmubs.store',
+        	'cmubs.update',
+        	'cmubs.destroy',
+
             'gmvs.index',
         	'gmvs.store',
         	'gmvs.update',
@@ -183,6 +188,11 @@ class RolesTableSeeder extends Seeder
         	'gfs.update',
         	'gfs.destroy',
 
+            'cdgs.index',
+        	'cdgs.store',
+        	'cdgs.update',
+        	'cdgs.destroy',
+
             'ois.index',
         	'ois.store',
         	'ois.update',
@@ -198,10 +208,10 @@ class RolesTableSeeder extends Seeder
         	'usrfolders.index',
 
         	'folders.store',
-			
+
         	'clients.store',
         	'clients.update',
-			
+
 
         	'personals.store',
         	'personals.update',
@@ -283,6 +293,10 @@ class RolesTableSeeder extends Seeder
         	'mubs.update',
         	'mubs.destroy',
 
+        	'cmubs.store',
+        	'cmubs.update',
+        	'cmubs.destroy',
+
         	'gmvs.store',
         	'gmvs.update',
         	'gmvs.destroy',
@@ -298,6 +312,10 @@ class RolesTableSeeder extends Seeder
         	'gfs.store',
         	'gfs.update',
         	'gfs.destroy',
+
+        	'cdgs.store',
+        	'cdgs.update',
+        	'cdgs.destroy',
 
         	'ois.store',
         	'ois.update',

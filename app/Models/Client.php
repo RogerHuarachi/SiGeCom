@@ -111,6 +111,11 @@ class Client extends Model
         return $this->hasMany(Mub::class);
     }
 
+    public function cmub()
+    {
+        return $this->hasOne(Cmub::class);
+    }
+
     public function gmvs()
     {
         return $this->hasMany(Gmv::class);
@@ -129,6 +134,11 @@ class Client extends Model
     public function gfs()
     {
         return $this->hasMany(Gf::class);
+    }
+
+    public function cdg()
+    {
+        return $this->hasOne(Cdg::class);
     }
 
     public function ois()
@@ -232,5 +242,14 @@ class Client extends Model
     public function mes(){
         $secondary = $this->sales()->where('type', 'Mensual')->first();
         return $secondary;
+    }
+
+    public function balance($item){
+        $asset = $this->assets()->where('type', $item)->first();
+        if ($asset) {
+            return $asset->value;
+        } else {
+            return 0;
+        }
     }
 }
