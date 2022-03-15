@@ -197,6 +197,31 @@ class RolesTableSeeder extends Seeder
         	'ois.store',
         	'ois.update',
         	'ois.destroy',
+
+            'acns.index',
+        	'acns.store',
+        	'acns.update',
+        	'acns.destroy',
+
+            'afns.index',
+        	'afns.store',
+        	'afns.update',
+        	'afns.destroy',
+
+            'oans.index',
+        	'oans.store',
+        	'oans.update',
+        	'oans.destroy',
+
+            'afs.index',
+        	'afs.store',
+        	'afs.update',
+        	'afs.destroy',
+
+            'oafs.index',
+        	'oafs.store',
+        	'oafs.update',
+        	'oafs.destroy',
         ]);
 
 		$EN = Role::create(['name' => 'Encargado Nacional']);
@@ -320,6 +345,26 @@ class RolesTableSeeder extends Seeder
         	'ois.store',
         	'ois.update',
         	'ois.destroy',
+
+        	'acns.store',
+        	'acns.update',
+        	'acns.destroy',
+
+        	'afns.store',
+        	'afns.update',
+        	'afns.destroy',
+
+        	'oans.store',
+        	'oans.update',
+        	'oans.destroy',
+
+        	'afs.store',
+        	'afs.update',
+        	'afs.destroy',
+
+        	'oafs.store',
+        	'oafs.update',
+        	'oafs.destroy',
 		]);
 
 		$AS = Role::create(['name' => 'Asesor']);

@@ -39,6 +39,11 @@
     @include('admin.gfs.create')
     @include('admin.cdgs.create')
     @include('admin.ois.create')
+    @include('admin.acns.create')
+    @include('admin.afns.create')
+    @include('admin.oans.create')
+    @include('admin.afs.create')
+    @include('admin.oafs.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -1397,6 +1402,236 @@
                                         <th></th>
                                         <th>{{ $client->gfs->sum('total') }}</th>
                                         <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Activos Corrientes del Negocio
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#acnCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->acns)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->acns as $acn)
+                                        <tr>
+                                            <td>{{ $acn->item }}</td>
+                                            <td>{{ $acn->value }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th>{{ $client->acns->sum('value') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Activos Fijos del Negocio
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#afnCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->afns)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->afns as $afn)
+                                        <tr>
+                                            <td>{{ $afn->item }}</td>
+                                            <td>{{ $afn->value }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th>{{ $client->afns->sum('value') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Otros Activos del Negocio
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oanCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->oans)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->oans as $oan)
+                                        <tr>
+                                            <td>{{ $oan->item }}</td>
+                                            <td>{{ $oan->value }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th>{{ $client->oans->sum('value') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Activos de la Familia
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#afCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->afs)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->afs as $af)
+                                        <tr>
+                                            <td>{{ $af->item }}</td>
+                                            <td>{{ $af->value }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th>{{ $client->afs->sum('value') }}</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Otros Activos de la Familia
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oafCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->oafs)
+                    <div class="card-body">
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->oafs as $oaf)
+                                        <tr>
+                                            <td>{{ $oaf->item }}</td>
+                                            <td>{{ $oaf->value }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th>{{ $client->oafs->sum('value') }}</th>
                                     </tr>
                                 </tfoot>
                             </table>

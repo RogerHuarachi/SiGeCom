@@ -185,6 +185,31 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'ois.store']);
         Permission::create(['name' => 'ois.update']);
         Permission::create(['name' => 'ois.destroy']);
+        //Oi list
+        Permission::create(['name' => 'acns.index']);
+        Permission::create(['name' => 'acns.store']);
+        Permission::create(['name' => 'acns.update']);
+        Permission::create(['name' => 'acns.destroy']);
+        //Oi list
+        Permission::create(['name' => 'afns.index']);
+        Permission::create(['name' => 'afns.store']);
+        Permission::create(['name' => 'afns.update']);
+        Permission::create(['name' => 'afns.destroy']);
+        //Oi list
+        Permission::create(['name' => 'oans.index']);
+        Permission::create(['name' => 'oans.store']);
+        Permission::create(['name' => 'oans.update']);
+        Permission::create(['name' => 'oans.destroy']);
+        //Oi list
+        Permission::create(['name' => 'afs.index']);
+        Permission::create(['name' => 'afs.store']);
+        Permission::create(['name' => 'afs.update']);
+        Permission::create(['name' => 'afs.destroy']);
+        //Oi list
+        Permission::create(['name' => 'oafs.index']);
+        Permission::create(['name' => 'oafs.store']);
+        Permission::create(['name' => 'oafs.update']);
+        Permission::create(['name' => 'oafs.destroy']);
 
         // User Permission
         // Folder

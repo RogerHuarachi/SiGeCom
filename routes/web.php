@@ -35,6 +35,11 @@ use App\Http\Controllers\Admin\GfoController;
 use App\Http\Controllers\Admin\GfController;
 use App\Http\Controllers\Admin\CdgController;
 use App\Http\Controllers\Admin\OiController;
+use App\Http\Controllers\Admin\AcnController;
+use App\Http\Controllers\Admin\AfnController;
+use App\Http\Controllers\Admin\OanController;
+use App\Http\Controllers\Admin\AfController;
+use App\Http\Controllers\Admin\OafController;
 
 /*
 |--------------------------------------------------------------------------
@@ -407,6 +412,56 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:ois.destroy');
 
 
+    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    Route::get('acns', [AcnController::class, 'index'])->name('acns.index')
+        ->middleware('permission:acns.index');
+    Route::post('acns/store', [AcnController::class, 'store'])->name('acns.store')
+        ->middleware('permission:acns.store');
+    Route::put('acns/{acn}', [AcnController::class, 'update'])->name('acns.update')
+        ->middleware('permission:acns.update');
+    Route::delete('acns/{acn}', [AcnController::class, 'destroy'])->name('acns.destroy')
+        ->middleware('permission:acns.destroy');
+
+    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    Route::get('afns', [AfnController::class, 'index'])->name('afns.index')
+        ->middleware('permission:afns.index');
+    Route::post('afns/store', [AfnController::class, 'store'])->name('afns.store')
+        ->middleware('permission:afns.store');
+    Route::put('afns/{afn}', [AfnController::class, 'update'])->name('afns.update')
+        ->middleware('permission:afns.update');
+    Route::delete('afns/{afn}', [AfnController::class, 'destroy'])->name('afns.destroy')
+        ->middleware('permission:afns.destroy');
+
+    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    Route::get('oans', [OanController::class, 'index'])->name('oans.index')
+        ->middleware('permission:oans.index');
+    Route::post('oans/store', [OanController::class, 'store'])->name('oans.store')
+        ->middleware('permission:oans.store');
+    Route::put('oans/{oan}', [OanController::class, 'update'])->name('oans.update')
+        ->middleware('permission:oans.update');
+    Route::delete('oans/{oan}', [OanController::class, 'destroy'])->name('oans.destroy')
+        ->middleware('permission:oans.destroy');
+
+    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    Route::get('afs', [AfController::class, 'index'])->name('afs.index')
+        ->middleware('permission:afs.index');
+    Route::post('afs/store', [AfController::class, 'store'])->name('afs.store')
+        ->middleware('permission:afs.store');
+    Route::put('afs/{af}', [AfController::class, 'update'])->name('afs.update')
+        ->middleware('permission:afs.update');
+    Route::delete('afs/{af}', [AfController::class, 'destroy'])->name('afs.destroy')
+        ->middleware('permission:afs.destroy');
+
+    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    Route::get('oafs', [OafController::class, 'index'])->name('oafs.index')
+        ->middleware('permission:oafs.index');
+    Route::post('oafs/store', [OafController::class, 'store'])->name('oafs.store')
+        ->middleware('permission:oafs.store');
+    Route::put('oafs/{oaf}', [OafController::class, 'update'])->name('oafs.update')
+        ->middleware('permission:oafs.update');
+    Route::delete('oafs/{oaf}', [OafController::class, 'destroy'])->name('oafs.destroy')
+        ->middleware('permission:oafs.destroy');
+
 
 
     // User Route
@@ -455,6 +510,10 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:clients.store');
     Route::get('usrevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluacion'])->name('usrevaluacions.show')
         ->middleware('permission:clients.store');
+
+        
+    Route::get('usrconyegue/{client}', [App\Http\Controllers\User\ClientController::class, 'conyegue'])->name('usrconyegue.show')
+    ->middleware('permission:clients.store');
 
 
     Route::post('muebleworks/store', [App\Http\Controllers\User\ClientController::class, 'mueble'])->name('muebleworks.store')

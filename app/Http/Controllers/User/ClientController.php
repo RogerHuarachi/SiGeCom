@@ -78,6 +78,12 @@ class ClientController extends Controller
         return view('hojas.solicitud.show', compact('client', 'caedecs'));
     }
 
+    public function conyegue(Client $client)
+    {
+        $caedecs = Caedec::get();
+        return view('hojas.referencia.show', compact('client', 'caedecs'));
+    }
+
     public function croqui(Client $client)
     {
         return view('hojas.croqui.show', compact('client'));

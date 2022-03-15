@@ -146,6 +146,31 @@ class Client extends Model
         return $this->hasMany(Oi::class);
     }
 
+    public function acns()
+    {
+        return $this->hasMany(Acn::class);
+    }
+
+    public function afns()
+    {
+        return $this->hasMany(Afn::class);
+    }
+
+    public function oans()
+    {
+        return $this->hasMany(Oan::class);
+    }
+
+    public function afs()
+    {
+        return $this->hasMany(Af::class);
+    }
+
+    public function oafs()
+    {
+        return $this->hasMany(Oaf::class);
+    }
+
     public function primary(){
         $primary = $this->businesses()->where('level', 'PRIMARIA')->first();
         return $primary;

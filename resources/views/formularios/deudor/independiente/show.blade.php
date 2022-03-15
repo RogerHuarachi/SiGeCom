@@ -139,14 +139,16 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         Datos del conyegue y/o codeudor
-                        @if (!$folder->guarantor())
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#codeudorCreate"><i class="fas fa-plus"></i></button>
-                        @endif
-                        @if ($folder->guarantor())
-                            {{-- <form class="p-1" action="{{ route('usrsolicitud.sol', $folder->debtor()->id) }}" method="GET"> --}}
-                                <button class="btn btn-primary btn-lg" type="submit">Info</button>
-                            {{-- </form> --}}
-                        @endif
+                        <div class="btn-group" role="group" aria-label="Button group">
+                            @if (!$folder->debtor())
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#codeudorCreate"><i class="fas fa-plus"></i></button>
+                            @endif
+                            @if ($folder->debtor())
+                                <form class="p-1" action="{{ route('usrconyegue.show', $folder->guarantor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">Referencia</button>
+                                </form>
+                            @endif
+                        </div>
                     </h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
