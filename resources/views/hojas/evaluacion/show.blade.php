@@ -25,6 +25,7 @@
 @include('admin.oans.create')
 @include('admin.afs.create')
 @include('admin.oafs.create')
+@include('admin.cbals.create')
 <div class="row">
     <div class="col-lg-5">
         <div class="card">
@@ -1014,70 +1015,105 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="card">
-            <div class="card-header bg-info p-1 pl-2 pr-2">
-                <h4 class="card-title">
-                    Indicadores y Cruces de Variables
-                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oiCreate"><i class="fas fa-plus"></i></button>
-                </h4>
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                    </button>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-info p-1 pl-2 pr-2">
+                        <h4 class="card-title">
+                            Indicadores y Cruces de Variables
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oiCreate"><i class="fas fa-plus"></i></button>
+                        </h4>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <dl class="row">
+                                    <dt class="col-md-5">Liquidez del Negocio Vs. Crédito Solicitado</dt>
+                                    <dd class="col-md-7">
+                                        @if ($client->loan)
+                                            {{ number_format($client->acns->sum('value') / $client->loan->money, 2, ',', '.') }}
+                                        @endif
+                                    </dd>
+
+                                    <dt class="col-md-5">Capital de Trabajo Vs. Costo de Ventas</dt>
+                                    <dd class="col-md-7">
+                                        @if ($client->costoventas($client->id) != 0)
+                                            {{ number_format($client->acns->sum('value') / -$client->costoventas($client->id), 2, ',', '.') }} Meses
+                                        @endif
+                                    </dd>
+
+                                    <dt class="col-md-5">Gastos Operativos Vs. Utilidad Bruta</dt>
+                                    <dd class="col-md-7">{{ number_format($client->goub($client->id)*100, 2, ',', '.') }} %</dd>
+
+                                    <dt class="col-md-5">Gastos Familiares Vs. Utilidad Bruta</dt>
+                                    <dd class="col-md-7">{{ number_format($client->gfub($client->id)*100, 2, ',', '.') }} %</dd>
+
+                                    <dt class="col-md-5">Relación Patrimonial Vs. Crédito Solicitado</dt>
+                                    <dd class="col-md-7">
+                                    @if ($client->loan)
+                                        {{ number_format((($client->acns->sum('value') +
+                                        $client->afns->sum('value') +
+                                        $client->oans->sum('value') +
+                                        $client->afs->sum('value') +
+                                        $client->oafs->sum('value') -
+                                        $client->passives->sum('balace')) / $client->loan->money), 2, ',', '.') }} A 1 (mínimo 3 a 1)
+                                    @endif
+                                    </dd>
+
+                                    <dt class="col-md-5">Otros ingresos  Vs.  Utilidad Neta F.E.</dt>
+                                    <dd class="col-md-7">{{ number_format($client->oiun($client->id)*100, 2, ',', '.') }} %</dd>
+
+                                    <dt class="col-md-5">Endeudamiento Total de la Famiempresa (menor al 50%) </dt>
+                                    <dd class="col-md-7">
+                                        @if (($client->acns->sum('value') + $client->afns->sum('value') + $client->oans->sum('value') + $client->afs->sum('value') + $client->oafs->sum('value')) != 0)
+                                        {{ number_format(($client->passives->sum('balace')+
+                                        $client->loan->money)/
+                                        ($client->acns->sum('value') +
+                                        $client->afns->sum('value') +
+                                        $client->oans->sum('value') +
+                                        $client->afs->sum('value') +
+                                        $client->oafs->sum('value'))*100, 2, ',', '.') }} %
+                                        @endif
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card-body p-2">
-                <div class="row">
-                    <div class="col-md-12">
-                        <dl class="row">
-                            <dt class="col-md-5">Liquidez del Negocio Vs. Crédito Solicitado</dt>
-                            <dd class="col-md-7">
-                                @if ($client->loan)
-                                    {{ number_format($client->acns->sum('value') / $client->loan->money, 2, ',', '.') }}
-                                @endif
-                            </dd>
-
-                            <dt class="col-md-5">Capital de Trabajo Vs. Costo de Ventas</dt>
-                            <dd class="col-md-7">
-                                @if ($client->costoventas($client->id) != 0)
-                                    {{ number_format($client->acns->sum('value') / -$client->costoventas($client->id), 2, ',', '.') }} Meses
-                                @endif
-                            </dd>
-
-                            <dt class="col-md-5">Gastos Operativos Vs. Utilidad Bruta</dt>
-                            <dd class="col-md-7">{{ number_format($client->goub($client->id)*100, 2, ',', '.') }} %</dd>
-
-                            <dt class="col-md-5">Gastos Familiares Vs. Utilidad Bruta</dt>
-                            <dd class="col-md-7">{{ number_format($client->gfub($client->id)*100, 2, ',', '.') }} %</dd>
-
-                            <dt class="col-md-5">Relación Patrimonial Vs. Crédito Solicitado</dt>
-                            <dd class="col-md-7">
-                            @if ($client->loan)
-                                {{ number_format((($client->acns->sum('value') +
-                                $client->afns->sum('value') +
-                                $client->oans->sum('value') +
-                                $client->afs->sum('value') +
-                                $client->oafs->sum('value') -
-                                $client->passives->sum('balace')) / $client->loan->money), 2, ',', '.') }} A 1 (mínimo 3 a 1)
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-info p-1 pl-2 pr-2">
+                        <h4 class="card-title">
+                            Aclaraciones
+                            @if (!$client->cbal)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cbalCreate"><i class="fas fa-plus"></i></button>
                             @endif
-                            </dd>
+                        </h4>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
 
-                            <dt class="col-md-5">Otros ingresos  Vs.  Utilidad Neta F.E.</dt>
-                            <dd class="col-md-7">{{ number_format($client->oiun($client->id)*100, 2, ',', '.') }} %</dd>
-
-                            <dt class="col-md-5">Endeudamiento Total de la Famiempresa (menor al 50%) </dt>
-                            <dd class="col-md-7">
-                                @if (($client->acns->sum('value') + $client->afns->sum('value') + $client->oans->sum('value') + $client->afs->sum('value') + $client->oafs->sum('value')) != 0)
-                                {{ number_format(($client->passives->sum('balace')+
-                                $client->loan->money)/
-                                ($client->acns->sum('value') +
-                                $client->afns->sum('value') +
-                                $client->oans->sum('value') +
-                                $client->afs->sum('value') +
-                                $client->oafs->sum('value'))*100, 2, ',', '.') }} %
-                                @endif
-                            </dd>
-                        </dl>
+                    <div class="card-body p-2">
+                        @if ($client->cbal)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <dl class="row">
+                                        <dd class="col-md-12">{{ $client->cbal->comentary }}</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
