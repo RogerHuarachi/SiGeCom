@@ -146,6 +146,11 @@ class Client extends Model
         return $this->hasMany(Oi::class);
     }
 
+    public function cbal()
+    {
+        return $this->hasOne(Cbal::class);
+    }
+
     public function acns()
     {
         return $this->hasMany(Acn::class);
@@ -269,12 +274,120 @@ class Client extends Model
         return $secondary;
     }
 
-    public function balance($item){
-        $asset = $this->assets()->where('type', $item)->first();
-        if ($asset) {
-            return $asset->value;
+    public function ventas($id){
+        $client = Client::find($id);
+        if ($client->sales) {
+            $promedio = $client->sales->AVG('money');
+            $frecuencia = $client->frec();
+            return $promedio*$frecuencia;
         } else {
             return 0;
         }
     }
+
+    public function mub($id){
+        $client = Client::find($id);
+        if ($client->mubs && $client->mubs->sum('buysMonth')>0) {
+            $vm = $client->mubs->sum('saleMonth');
+            $cm = $client->mubs->sum('buysMonth');
+            return ($vm-$cm)/$vm;
+        } else {
+            return 0;
+        }
+    }
+
+    public function costoventas($id){
+        $client = Client::find($id);
+        if ($client->sales) {
+            $ventas = $client->ventas($id);
+            $mub = $client->mub($id);
+            return ($ventas*$mub)-$ventas;
+        } else {
+            return 0;
+        }
+    }
+
+    public function utilidadbruta($id){
+        $client = Client::find($id);
+        $ventas = $client->ventas($id);
+        $costoventas = $client->costoventas($id);
+        return $ventas+$costoventas;
+    }
+
+    public function gfo($id){
+        $client = Client::find($id);
+        $gfos =  $client->gfos->sum('total');
+        $ppsifs = $client->ppsifs->sum('total');
+        $gmvs = $client->gmvs->sum('totalmes');
+        return $gfos+$ppsifs+$gmvs;
+    }
+
+    public function utilidadoperativa($id){
+        $client = Client::find($id);
+        $ub = $client->utilidadbruta($id);
+        $gfo = $client->gfo($id);
+        return $ub-$gfo;
+    }
+
+    public function utilidadneta($id){
+        $client = Client::find($id);
+        $uo = $client->utilidadoperativa($id);
+        $gf = $client->gfs->sum('total');
+        $ppm = $client->passives->sum('value');
+        $oi = $client->ois->sum('total');
+        return $uo-$gf-$ppm+$oi;
+    }
+
+    public function capacidad($id){
+        $client = Client::find($id);
+        $un = $client->utilidadneta($id);
+        return $un*0.8;
+    }
+
+    public function excedente($id){
+        $client = Client::find($id);
+        if ($client->loan) {
+            $capacidad = $client->capacidad($id);
+            $monto = $client->loan->choose;
+            return $capacidad-$monto;
+        } else {
+            $capacidad = $client->capacidad($id);
+            return $capacidad;
+        }
+    }
+
+    public function goub($id){
+        $client = Client::find($id);
+        if ($client->utilidadbruta($client->id)) {
+            $gfo = $client->gfo($client->id);
+            $utilidadbruta = $client->utilidadbruta($client->id);
+            return $gfo/$utilidadbruta;
+        } else {
+            return 0;
+        }
+    }
+
+    public function gfub($id){
+        $client = Client::find($id);
+        if ($client->utilidadbruta($client->id)) {
+            $gfs = $client->gfs->sum('total');
+            $utilidadbruta = $client->utilidadbruta($client->id);
+            return $gfs/$utilidadbruta;
+        } else {
+            return 0;
+        }
+    }
+
+    public function oiun($id){
+        $client = Client::find($id);
+        if ($client->utilidadneta($client->id)) {
+            $ois = $client->ois->sum('total');
+            $utilidadneta = $client->utilidadneta($client->id);
+            return $ois/$utilidadneta;
+        } else {
+            return 0;
+        }
+    }
+
+
 }

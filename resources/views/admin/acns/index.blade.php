@@ -30,6 +30,7 @@
                                     <td>{{ $acn->id }}</td>
                                     <td>{{ $acn->client->name }}</td>
                                     <td>{{ $acn->item }}</td>
+                                    <td>{{ $acn->value }}</td>
                                     <td>
                                         <div class="btn-group">
                                             @can('acns.update')

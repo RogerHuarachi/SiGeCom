@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Crear Gastos y Mantenimiento de Vehiculo</h4>
+                <h4 class="modal-title">Registrar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -28,7 +28,6 @@
                                     <label>Item</label>
                                     <select class="custom-select form-control-border"
                                     name="item" required>
-                                        <option>Gastos en empleados</option>
                                         <option>Efectivo o Caja</option>
                                         <option>Total Inventarios (MP, PP, PT)</option>
                                         <option>Cuentas por Cobrar</option>

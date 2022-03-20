@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Editar Producto</h4>
+                <h4 class="modal-title">Editar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -28,6 +28,7 @@
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
                                     <input type="text" class="form-control form-control-border"
+                                    onkeyup="javascript:this.value=this.value.toUpperCase();"
                                     placeholder="Nombre " name="name" value="{{ $product->name }}" required>
                                 </div>
                             </div>

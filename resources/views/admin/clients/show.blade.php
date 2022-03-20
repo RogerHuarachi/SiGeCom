@@ -44,6 +44,7 @@
     @include('admin.oans.create')
     @include('admin.afs.create')
     @include('admin.oafs.create')
+    @include('admin.cbals.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -1635,6 +1636,36 @@
                                     </tr>
                                 </tfoot>
                             </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Aclaraciones
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cbalCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->cbal)
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <dl class="row">
+                                    <dt class="col-md-2">Aclaración de Gastos Fijos Operativos</dt>
+                                    <dd class="col-md-10">{{ $client->cbal->comentary }}</dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                 @endif

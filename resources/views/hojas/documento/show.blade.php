@@ -8,9 +8,9 @@
     @include('admin.propertys.inmueble')
     @include('admin.vehicles.vehiculo')
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Recepcion de Documentos
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#inmuebleCreate">Inmueble</button>
@@ -23,10 +23,10 @@
                 </div>
 
                 @if ($client->inmueble())
-                    <div class="card-body">
+                    <div class="card-body p-2">
                         <div class="row">
                             <table class="table table-sm table-light">
-                                <thead class="thead-light">
+                                <thead>
                                     <tr>
                                         <th>Descripcion</th>
                                         <th>N° Doc</th>
@@ -52,9 +52,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Recepcion de Documentos
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#vehicleCreate">Vehiculo</button>
@@ -67,10 +67,10 @@
                 </div>
 
                 @if ($client->vehiculo())
-                    <div class="card-body">
+                    <div class="card-body p-2">
                         <div class="row">
                             <table class="table table-sm table-light">
-                                <thead class="thead-light">
+                                <thead>
                                     <tr>
                                         <th>Descripcion</th>
                                         <th>N° Doc</th>

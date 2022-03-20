@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Editar Bien</h4>
+                <h4 class="modal-title">Editar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -28,6 +28,7 @@
                                 <div class="form-group">
                                     <label for="name">Detalle</label>
                                     <input type="text" class="form-control form-control-border"
+                                    onkeyup="javascript:this.value=this.value.toUpperCase();"
                                     placeholder="Detalle " name="detail" value="{{ $mub->detail }}" required>
                                 </div>
                             </div>
@@ -44,7 +45,8 @@
                                 <div class="form-group">
                                     <label for="name">Unidad</label>
                                     <input type="text" class="form-control form-control-border"
-                                    placeholder="Unidad " name="unity" value="{{ $mub->unity }}" required>
+                                    onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                    placeholder="UNIDAD " name="unity" value="{{ $mub->unity }}" required>
                                 </div>
                             </div>
                             <div class="col-md-4">

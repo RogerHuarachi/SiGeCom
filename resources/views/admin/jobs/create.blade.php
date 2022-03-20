@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Registrar Croquis</h4>
+                <h4 class="modal-title">Registrar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -16,14 +16,14 @@
                                 <div class="form-group">
                                     <label for="name">Latitud</label>
                                     <input id="neglat" type="text" class="form-control form-control-border"
-                                    name="neglat">
+                                    name="neglat" required>
                                 </div>
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="name">Logitud</label>
                                     <input id="neglon" type="text" class="form-control form-control-border"
-                                    name="neglon">
+                                    name="neglon" required>
                                 </div>
                             </div>
                             <div class="col-md-2">

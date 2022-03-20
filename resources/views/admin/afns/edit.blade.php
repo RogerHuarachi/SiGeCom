@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Personal Percibe Salario Incluye Familia</h4>
+                <h4 class="modal-title">Editar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -30,11 +30,11 @@
                                     <select class="custom-select form-control-border"
                                     name="item" required>
                                         <option>{{ $afn->item }}</option>
-                                        <option>Inmuebles del Negocio</option>												
-                                        <option>Vehículos del Negocio</option>												
-                                        <option>Bienes Muebles Enseres y Herramientas del Negocio</option>												
-                                        <option>Equipos Electronicos del Negocio</option>												
-                                        <option>Maquinaria y Equipo del Negocio</option>												
+                                        <option>Inmuebles del Negocio</option>
+                                        <option>Vehículos del Negocio</option>
+                                        <option>Bienes Muebles Enseres y Herramientas del Negocio</option>
+                                        <option>Equipos Electronicos del Negocio</option>
+                                        <option>Maquinaria y Equipo del Negocio</option>
                                         <option>Semovientes de la Actividad</option>
                                     </select>
                                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0">Endeudamiento</h1>
+        <h1 class="m-0">Endeudamiento en Otras Instituciones</h1>
     </div>
 @endsection
 @section('browser')

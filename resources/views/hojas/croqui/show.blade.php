@@ -9,9 +9,9 @@
     @include('admin.jobs.create')
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Croquis de Domicilio
                         @if (!$client->residence)
@@ -27,7 +27,7 @@
                 </div>
 
                 @if ($client->residence)
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="row">
                             <div class="col-md-6">
                                 <dl class="row">
@@ -63,9 +63,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Croquis de Negocio
                         @if (!$client->job)
@@ -80,7 +80,7 @@
                 </div>
 
                 @if ($client->job)
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="row">
                             <div class="col-md-6">
                                 <dl class="row">

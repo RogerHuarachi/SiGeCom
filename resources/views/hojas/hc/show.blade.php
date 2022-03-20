@@ -7,9 +7,9 @@
 @section('content')
 @include('admin.products.create')
 <div class="row">
-    <div class="col-12">
+    <div class="col-md-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-info p-2">
                 <h3 class="card-title">
                     Productos
                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#productCreate"><i class="fas fa-plus"></i></button>
@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <div class="card-body">
+            <div class="card-body p-2">
                 @if ($client->products)
                     @foreach ($client->products as $product)
                         <div class="row">
@@ -31,7 +31,7 @@
                             <h6 class="p-1">Rendimiento: {{ $product->performance }}</h6>
                         </div>
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header bg-info p-2">
                                 <h3 class="card-title">
                                     Insumos de {{ $product->name }}
                                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#itemCreate{{ $product->id }}"><i class="fas fa-plus"></i></button>
@@ -43,10 +43,10 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body p-2">
                                 <div class="row">
                                     <table class="table table-sm table-light">
-                                        <thead class="thead-light">
+                                        <thead>
                                             <tr>
                                                 <th>Nombre</th>
                                                 <th>Cantidad</th>

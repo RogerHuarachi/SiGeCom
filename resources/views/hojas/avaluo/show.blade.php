@@ -10,9 +10,9 @@
     @include('admin.works.sub.mercaderias')
     @include('admin.families.create')
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info">
                     <h3 class="card-title">
                         (Negocio) Muebles y Enseres
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#mueblesCreate"><i class="fas fa-plus"></i></button>
@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <div class="row">
                             <table class="table table-sm table-light">
-                                <thead class="thead-light">
+                                <thead>
                                     <tr>
                                         <th>Cantidad</th>
                                         <th>Descripción de Activo</th>
@@ -63,11 +63,9 @@
                 @endif
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info">
                     <h3 class="card-title">
                         (Negocio) Maquinaria y Equipos
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#maquinariasCreate"><i class="fas fa-plus"></i></button>
@@ -83,7 +81,7 @@
                     <div class="card-body">
                         <div class="row">
                             <table class="table table-sm table-light">
-                                <thead class="thead-light">
+                                <thead>
                                     <tr>
                                         <th>Cantidad</th>
                                         <th>Descripción de Activo</th>
@@ -120,9 +118,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info">
                     <h3 class="card-title">
                         (Negocio) Mercaderia
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#mercaderiasCreate"><i class="fas fa-plus"></i></button>
@@ -138,7 +136,7 @@
                     <div class="card-body">
                         <div class="row">
                             <table class="table table-sm table-light">
-                                <thead class="thead-light">
+                                <thead>
                                     <tr>
                                         <th>Cantidad</th>
                                         <th>Descripción de Activo</th>
@@ -173,11 +171,9 @@
                 @endif
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info">
                     <h3 class="card-title">
                         (Familia) Muebles y Enseres
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#familyCreate"><i class="fas fa-plus"></i></button>
@@ -193,7 +189,7 @@
                     <div class="card-body">
                         <div class="row">
                             <table class="table table-sm table-light">
-                                <thead class="thead-light">
+                                <thead>
                                     <tr>
                                         <th>Cantidad</th>
                                         <th>Descripción de Activo</th>

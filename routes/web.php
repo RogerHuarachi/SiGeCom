@@ -40,6 +40,7 @@ use App\Http\Controllers\Admin\AfnController;
 use App\Http\Controllers\Admin\OanController;
 use App\Http\Controllers\Admin\AfController;
 use App\Http\Controllers\Admin\OafController;
+use App\Http\Controllers\Admin\CbalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -412,7 +413,7 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:ois.destroy');
 
 
-    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    // Activos Corrientes del Negocio
     Route::get('acns', [AcnController::class, 'index'])->name('acns.index')
         ->middleware('permission:acns.index');
     Route::post('acns/store', [AcnController::class, 'store'])->name('acns.store')
@@ -422,7 +423,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('acns/{acn}', [AcnController::class, 'destroy'])->name('acns.destroy')
         ->middleware('permission:acns.destroy');
 
-    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    // Activos Fijos del Negocio
     Route::get('afns', [AfnController::class, 'index'])->name('afns.index')
         ->middleware('permission:afns.index');
     Route::post('afns/store', [AfnController::class, 'store'])->name('afns.store')
@@ -432,7 +433,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('afns/{afn}', [AfnController::class, 'destroy'])->name('afns.destroy')
         ->middleware('permission:afns.destroy');
 
-    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    // Otros Activos del Negocio
     Route::get('oans', [OanController::class, 'index'])->name('oans.index')
         ->middleware('permission:oans.index');
     Route::post('oans/store', [OanController::class, 'store'])->name('oans.store')
@@ -442,7 +443,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('oans/{oan}', [OanController::class, 'destroy'])->name('oans.destroy')
         ->middleware('permission:oans.destroy');
 
-    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    // Activos de la Familia
     Route::get('afs', [AfController::class, 'index'])->name('afs.index')
         ->middleware('permission:afs.index');
     Route::post('afs/store', [AfController::class, 'store'])->name('afs.store')
@@ -452,7 +453,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('afs/{af}', [AfController::class, 'destroy'])->name('afs.destroy')
         ->middleware('permission:afs.destroy');
 
-    // Oi OTROS INGRESOS (Seg. Actividad,Sueldos,Rentas y Otros)
+    // Otros Activos de la Familia
     Route::get('oafs', [OafController::class, 'index'])->name('oafs.index')
         ->middleware('permission:oafs.index');
     Route::post('oafs/store', [OafController::class, 'store'])->name('oafs.store')
@@ -461,6 +462,16 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:oafs.update');
     Route::delete('oafs/{oaf}', [OafController::class, 'destroy'])->name('oafs.destroy')
         ->middleware('permission:oafs.destroy');
+
+    // CBal
+    Route::get('cbals', [CbalController::class, 'index'])->name('cbals.index')
+        ->middleware('permission:cbals.index');
+    Route::post('cbals/store', [CbalController::class, 'store'])->name('cbals.store')
+        ->middleware('permission:cbals.store');
+    Route::put('cbals/{cbal}', [CbalController::class, 'update'])->name('cbals.update')
+        ->middleware('permission:cbals.update');
+    Route::delete('cbals/{cbal}', [CbalController::class, 'destroy'])->name('cbals.destroy')
+        ->middleware('permission:cbals.destroy');
 
 
 
@@ -511,7 +522,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('usrevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluacion'])->name('usrevaluacions.show')
         ->middleware('permission:clients.store');
 
-        
+
     Route::get('usrconyegue/{client}', [App\Http\Controllers\User\ClientController::class, 'conyegue'])->name('usrconyegue.show')
     ->middleware('permission:clients.store');
 

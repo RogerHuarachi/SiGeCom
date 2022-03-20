@@ -2,13 +2,7 @@
 @section('title')
     <div class="row">
         <h1 class="m-0">Ref. Personal</h1>
-        {{-- @can('personals.store')
-            <ol class="breadcrumb float-sm-right pl-1">
-                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#personalCreate"><i class="fas fa-plus-circle"></i></button>
-            </ol>
-        @endcan --}}
     </div>
-    {{-- @include('admin.personals.create') --}}
 @endsection
 @section('browser')
     <li class="breadcrumb-item"><a href="{{ route('home') }}">inicio</a></li>

@@ -190,26 +190,31 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'acns.store']);
         Permission::create(['name' => 'acns.update']);
         Permission::create(['name' => 'acns.destroy']);
-        //Oi list
+        //acns list
         Permission::create(['name' => 'afns.index']);
         Permission::create(['name' => 'afns.store']);
         Permission::create(['name' => 'afns.update']);
         Permission::create(['name' => 'afns.destroy']);
-        //Oi list
+        //oans list
         Permission::create(['name' => 'oans.index']);
         Permission::create(['name' => 'oans.store']);
         Permission::create(['name' => 'oans.update']);
         Permission::create(['name' => 'oans.destroy']);
-        //Oi list
+        //afs list
         Permission::create(['name' => 'afs.index']);
         Permission::create(['name' => 'afs.store']);
         Permission::create(['name' => 'afs.update']);
         Permission::create(['name' => 'afs.destroy']);
-        //Oi list
+        //oafs list
         Permission::create(['name' => 'oafs.index']);
         Permission::create(['name' => 'oafs.store']);
         Permission::create(['name' => 'oafs.update']);
         Permission::create(['name' => 'oafs.destroy']);
+        //cbal list
+        Permission::create(['name' => 'cbals.index']);
+        Permission::create(['name' => 'cbals.store']);
+        Permission::create(['name' => 'cbals.update']);
+        Permission::create(['name' => 'cbals.destroy']);
 
         // User Permission
         // Folder

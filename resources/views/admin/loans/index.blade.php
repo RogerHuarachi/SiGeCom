@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0">Prestamos</h1>
+        <h1 class="m-0">Datos de Prestamos</h1>
     </div>
 @endsection
 @section('browser')

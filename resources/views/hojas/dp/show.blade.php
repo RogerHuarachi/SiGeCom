@@ -11,9 +11,9 @@
         <h5 class="p-1">Patrimonio Neto: {{ $client->assets->sum('value') - $client->passives->sum('balace') }}</h5>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Activos
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#assetCreate"><i class="fas fa-plus"></i></button>
@@ -26,10 +26,10 @@
                 </div>
 
                 @if ($client->assets)
-                    <div class="card-body">
+                    <div class="card-body p-2">
                         <div class="row">
                             <table class="table table-sm table-light">
-                                <thead class="thead-light">
+                                <thead>
                                     <tr>
                                         <th>Tipo de Bien</th>
                                         <th>En Garantia</th>
@@ -60,9 +60,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Pasivos
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#passiveCreate"><i class="fas fa-plus"></i></button>
@@ -75,14 +75,15 @@
                 </div>
 
                 @if ($client->passives)
-                    <div class="card-body">
+                    <div class="card-body p-2">
                         <div class="row">
                             <table class="table table-sm table-light">
-                                <thead class="thead-light">
+                                <thead>
                                     <tr>
                                         <th>Tipo de Bien</th>
                                         <th>Cuota Mensual</th>
                                         <th>Saldo Deudor</th>
+                                        <th>Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -91,6 +92,7 @@
                                             <td>{{ $passive->creditor }}</td>
                                             <td>{{ $passive->share }}</td>
                                             <td>{{ $passive->balace }}</td>
+                                            <td>{{ $passive->state }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

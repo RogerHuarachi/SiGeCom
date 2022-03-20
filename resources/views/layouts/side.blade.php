@@ -401,6 +401,72 @@
                     </li>
                 @endcan
 
+                @can('acns.index')
+                    <li class="nav-item">
+                        <a href="{{ route('acns.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Activo CN
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('afns.index')
+                    <li class="nav-item">
+                        <a href="{{ route('afns.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Activo FN
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('oans.index')
+                    <li class="nav-item">
+                        <a href="{{ route('oans.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Otros Activos N
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('afs.index')
+                    <li class="nav-item">
+                        <a href="{{ route('afs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Activos de la Familia
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('oafs.index')
+                    <li class="nav-item">
+                        <a href="{{ route('oafs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Otros Activos F
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('cbals.index')
+                    <li class="nav-item">
+                        <a href="{{ route('cbals.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Aclaraciones de Balance
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
 
                 {{-- Users --}}
 

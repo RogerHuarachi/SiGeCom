@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Crear Insumo</h4>
+                <h4 class="modal-title">Registrar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -27,6 +27,7 @@
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
                                     <input type="text" class="form-control form-control-border"
+                                    onkeyup="javascript:this.value=this.value.toUpperCase();"
                                     placeholder="Nombre " name="name" required>
                                 </div>
                             </div>
@@ -43,7 +44,8 @@
                                 <div class="form-group">
                                     <label for="name">Unidad</label>
                                     <input type="text" class="form-control form-control-border"
-                                    placeholder="Unidad " name="unit" required>
+                                    onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                    placeholder="UNIDAD " name="unit" required>
                                 </div>
                             </div>
                             <div class="col-md-4">

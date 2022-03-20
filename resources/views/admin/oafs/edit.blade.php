@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Otros Activos de la Familia</h4>
+                <h4 class="modal-title">Otros</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -30,9 +30,9 @@
                                     <select class="custom-select form-control-border"
                                     name="item" required>
                                         <option>{{ $oaf->item }}</option>
-                                        <option>Anticréticos</option>												
-                                        <option>Líneas y/o Acciones</option>												
-                                        <option>Ahorros y Efectivo de la Familia</option>												
+                                        <option>Anticréticos</option>
+                                        <option>Líneas y/o Acciones</option>
+                                        <option>Ahorros y Efectivo de la Familia</option>
                                         <option>Otros activos de Actividad Secundarias</option>
                                     </select>
                                 </div>

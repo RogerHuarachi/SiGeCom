@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Eliminar Producto</h4>
+                <h4 class="modal-title">Eliminar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,7 +11,7 @@
                 {{ csrf_field() }}
                 <div class="modal-body">
                         <div class="card-body">
-                            <label for="">Desea eliminar Producto</label>
+                            <label for="">Desea eliminar</label>
                         </div>
                 </div>
                 <div class="modal-footer justify-content-between">

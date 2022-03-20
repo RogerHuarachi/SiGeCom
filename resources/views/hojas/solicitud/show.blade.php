@@ -12,9 +12,9 @@
     @include('admin.loans.create')
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Datos del {{ $client->type }}
                     </h3>
@@ -24,7 +24,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-1">
                     <div class="row">
                         <div class="col-md-4">
                             <dl class="row">
@@ -97,9 +97,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Referencia Personal
                         @if (!$client->personal)
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 @if ($client->personal)
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="row">
                             <div class="col-md-6">
                                 <dl class="row">
@@ -136,11 +136,9 @@
                 @endif
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Referencia Comercial
                         @if (!$client->commercial)
@@ -155,7 +153,7 @@
                 </div>
 
                 @if ($client->commercial)
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="row">
                             <div class="col-md-6">
                                 <dl class="row">
@@ -180,9 +178,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Actividad Primaria
                         @if (!$client->primary())
@@ -197,9 +195,9 @@
                 </div>
 
                 @if ($client->primary())
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <dl class="row">
                                     <dt class="col-md-5">CAEDEC Actividad Primaria</dt>
                                     <dd class="col-md-7">{{ $client->primary()->caedec->code }} {{ $client->primary()->caedec->description }}</dd>
@@ -209,10 +207,6 @@
                                     <dd class="col-md-7">{{ $client->primary()->profession }}</dd>
                                     <dt class="col-md-5">Realizada por</dt>
                                     <dd class="col-md-7">{{ $client->primary()->responsable }}</dd>
-                                </dl>
-                            </div>
-                            <div class="col-md-6">
-                                <dl class="row">
                                     <dt class="col-md-5">Experiencia en el Rubro</dt>
                                     <dd class="col-md-7">{{ $client->primary()->experience }}</dd>
                                     <dt class="col-md-5">Antiguedad del Negocio</dt>
@@ -226,11 +220,9 @@
                 @endif
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Actividad Secundaria
                         @if (!$client->secondary())
@@ -245,9 +237,9 @@
                 </div>
 
                 @if ($client->secondary())
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <dl class="row">
                                     <dt class="col-md-5">CAEDEC Actividad Primaria</dt>
                                     <dd class="col-md-7">{{ $client->secondary()->caedec->code }} {{ $client->secondary()->caedec->description }}</dd>
@@ -257,10 +249,6 @@
                                     <dd class="col-md-7">{{ $client->secondary()->profession }}</dd>
                                     <dt class="col-md-5">Realizada por</dt>
                                     <dd class="col-md-7">{{ $client->secondary()->responsable }}</dd>
-                                </dl>
-                            </div>
-                            <div class="col-md-6">
-                                <dl class="row">
                                     <dt class="col-md-5">Experiencia en el Rubro</dt>
                                     <dd class="col-md-7">{{ $client->secondary()->experience }}</dd>
                                     <dt class="col-md-5">Antiguedad del Negocio</dt>
@@ -276,9 +264,11 @@
         </div>
     </div>
     <div class="row">
+    </div>
+    <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Datos del Prestamo
                         @if (!$client->loan)
@@ -293,7 +283,7 @@
                 </div>
 
                 @if ($client->loan)
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <div class="row">
                             <div class="col-md-4">
                                 <dl class="row">
