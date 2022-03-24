@@ -521,6 +521,8 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:clients.store');
     Route::get('usrevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluacion'])->name('usrevaluacions.show')
         ->middleware('permission:clients.store');
+    Route::get('usrresolucions/{client}', [App\Http\Controllers\User\ClientController::class, 'resolucion'])->name('usrresolucions.show')
+        ->middleware('permission:clients.store');
 
 
     Route::get('usrconyegue/{client}', [App\Http\Controllers\User\ClientController::class, 'conyegue'])->name('usrconyegue.show')

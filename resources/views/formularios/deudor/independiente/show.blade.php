@@ -52,6 +52,13 @@
                                 </form>
                             @endif
                         </div>
+                        <div class="btn-group" role="group" aria-label="Button group">
+                            @if ($folder->debtor())
+                                <form class="p-1" action="{{ route('usrresolucions.show', $folder->debtor()->id) }}" method="GET">
+                                    <button class="btn btn-primary btn-xs" type="submit">Res</button>
+                                </form>
+                            @endif
+                        </div>
                     </h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">

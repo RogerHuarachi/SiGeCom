@@ -236,4 +236,9 @@ class ClientController extends Controller
         Sale::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
+
+    public function resolucion(Client $client)
+    {
+        return view('hojas.resolucion.show', compact('client'));
+    }
 }
