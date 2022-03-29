@@ -16,8 +16,12 @@ class CreateFoldersTable extends Migration
         Schema::create('folders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->double('type', 8, 2);
+            $table->string('product');
             $table->string('sequence');
             $table->string('operation');
+            $table->double('mca', 8, 2)->nullable();
+            $table->double('sca', 8, 2)->nullable();
+            $table->double('rt', 8, 2)->nullable();
             $table->boolean('state')->default(false);
             $table->unsignedBigInteger('user_id');
 

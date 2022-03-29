@@ -10,7 +10,7 @@ class Folder extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type', 'sequence', 'operation', 'state', 'user_id'
+        'type', 'sequence', 'product', 'operation', 'state', 'mca', 'sca', 'rt', 'user_id'
     ];
 
     public function user()
@@ -22,13 +22,13 @@ class Folder extends Model
     {
         return $this->hasMany(Client::class);
     }
-    
+
     public function debtor(){
         $debtor = $this->clients()->where('type', 'Deudor')->first();
         return $debtor;
 
     }
-    
+
     public function guarantor(){
         $guarantor = $this->clients()->where('type', 'Codeudor')->first();
         return $guarantor;
