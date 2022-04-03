@@ -147,11 +147,11 @@
                     <h3 class="card-title">
                         Datos del conyegue y/o codeudor
                         <div class="btn-group" role="group" aria-label="Button group">
-                            @if (!$folder->guarantor())
+                            @if (!$folder->codebtor())
                                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#codeudorCreate"><i class="fas fa-plus"></i></button>
                             @endif
-                            @if ($folder->guarantor())
-                                <form class="p-1" action="{{ route('usrconyegue.show', $folder->guarantor()->id) }}" method="GET">
+                            @if ($folder->codebtor())
+                                <form class="p-1" action="{{ route('usrconyegue.show', $folder->codebtor()->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">Referencia</button>
                                 </form>
                             @endif
@@ -163,68 +163,68 @@
                         </button>
                     </div>
                 </div>
-                @if ($folder->guarantor())
+                @if ($folder->codebtor())
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <dl class="row">
                                     <dt class="col-md-5">Nombres y Apellidos</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->name }} {{ $folder->guarantor()->lastName }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->name }} {{ $folder->codebtor()->lastName }}</dd>
                                     <dt class="col-md-5">Doc. de Identidad</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->identification }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->identification }}</dd>
                                     <dt class="col-md-5">Edad</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->age }} Años</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->age }} Años</dd>
                                     <dt class="col-md-5">Telefono Movil</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->mobile }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->mobile }}</dd>
                                     <dt class="col-md-5">Situación Laboral</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->employment }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->employment }}</dd>
                                 </dl>
                             </div>
                             <div class="col-md-4">
                                 <dl class="row">
                                     <dt class="col-md-5">Sexo</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->gender }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->gender }}</dd>
                                     <dt class="col-md-5">N° de Documento</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->number }} {{ $folder->guarantor()->extension }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->number }} {{ $folder->codebtor()->extension }}</dd>
                                     <dt class="col-md-5">Estado Civil</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->civil }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->civil }}</dd>
                                     <dt class="col-md-5">Telefono Fijo</dt>
                                     <dd class="col-md-7">
-                                        @if ($folder->guarantor()->landline)
-                                            {{ $folder->guarantor()->landline }}
+                                        @if ($folder->codebtor()->landline)
+                                            {{ $folder->codebtor()->landline }}
                                         @else
                                             --
                                         @endif
                                     <dt class="col-md-5">Actividad Primaria</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->mainActivity }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->mainActivity }}</dd>
                                 </dl>
                             </div>
                             <div class="col-md-4">
                                 <dl class="row">
                                     <dt class="col-md-5">Fecha de Nacimiento</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->birth }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->birth }}</dd>
                                     <dt class="col-md-5">Nacionalidad</dt>
-                                    <dd class="col-md-7">{{ $folder->guarantor()->nacionality }}</dd>
+                                    <dd class="col-md-7">{{ $folder->codebtor()->nacionality }}</dd>
                                     <dt class="col-md-5">N° de Dependientes</dt>
                                     <dd class="col-md-7">
-                                        @if ($folder->guarantor()->dependents)
-                                            {{ $folder->guarantor()->dependents }}
+                                        @if ($folder->codebtor()->dependents)
+                                            {{ $folder->codebtor()->dependents }}
                                         @else
                                             --
                                         @endif
                                     </dd>
                                     <dt class="col-md-5">NIT</dt>
                                     <dd class="col-md-7">
-                                        @if ($folder->guarantor()->nit)
-                                            {{ $folder->guarantor()->nit }}
+                                        @if ($folder->codebtor()->nit)
+                                            {{ $folder->codebtor()->nit }}
                                         @else
                                             --
                                         @endif
                                     </dd>
                                     <dt class="col-md-5">Actividad Secundaria</dt>
                                     <dd class="col-md-7">
-                                        @if ($folder->guarantor()->secondaryActivity)
-                                            {{ $folder->guarantor()->secondaryActivity }}
+                                        @if ($folder->codebtor()->secondaryActivity)
+                                            {{ $folder->codebtor()->secondaryActivity }}
                                         @else
                                             --
                                         @endif

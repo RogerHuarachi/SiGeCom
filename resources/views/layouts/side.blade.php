@@ -467,6 +467,17 @@
                     </li>
                 @endcan
 
+                @can('ddgs.index')
+                    <li class="nav-item">
+                        <a href="{{ route('ddgs.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Detalle de garantia
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
 
                 {{-- Users --}}
 

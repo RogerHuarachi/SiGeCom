@@ -45,6 +45,7 @@
     @include('admin.afs.create')
     @include('admin.oafs.create')
     @include('admin.cbals.create')
+    @include('admin.ddgs.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -1667,6 +1668,50 @@
                                 </dl>
                             </div>
                         </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Detalle de Garantia
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#ddgCreate"><i class="fas fa-plus"></i></button>
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                @if ($client->ddgs)
+                    <div class="card-body">
+                        @foreach ($client->ddgs as $ddg)
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <dl class="row">
+                                        <dt class="col-md-3">Garantia</dt>
+                                        <dd class="col-md-9">{{ $ddg->garanty }}</dd>
+                                    </dl>
+                                </div>
+                                <div class="col-md-3">
+                                    <dl class="row">
+                                        <dt class="col-md-6">Valor Comercial</dt>
+                                        <dd class="col-md-6">{{ $ddg->vc }}</dd>
+                                    </dl>
+                                </div>
+                                <div class="col-md-3">
+                                    <dl class="row">
+                                        <dt class="col-md-6">Moto Coverturado</dt>
+                                        <dd class="col-md-6">{{ $ddg->mc }}</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 @endif
             </div>

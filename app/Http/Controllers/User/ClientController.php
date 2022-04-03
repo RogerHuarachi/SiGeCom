@@ -239,6 +239,10 @@ class ClientController extends Controller
 
     public function resolucion(Client $client)
     {
-        return view('hojas.resolucion.show', compact('client'));
+        $folder = $client->folder;
+        $dudor = $folder->debtor();
+        $codeudor = $folder->codebtor();
+        $garante = $folder->guarantor();
+        return view('hojas.resolucion.show', compact('client', 'codeudor', 'garante'));
     }
 }

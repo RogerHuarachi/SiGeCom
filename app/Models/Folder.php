@@ -29,8 +29,13 @@ class Folder extends Model
 
     }
 
+    public function codebtor(){
+        $codebtor = $this->clients()->where('type', 'Codeudor')->first();
+        return $codebtor;
+    }
+
     public function guarantor(){
-        $guarantor = $this->clients()->where('type', 'Codeudor')->first();
+        $guarantor = $this->clients()->where('type', 'Garante')->first();
         return $guarantor;
     }
 }

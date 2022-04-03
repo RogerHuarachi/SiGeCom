@@ -16,7 +16,7 @@ class CreateAfnsTable extends Migration
         Schema::create('afns', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item');
-            $table->text('value');
+            $table->double('value', 8, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

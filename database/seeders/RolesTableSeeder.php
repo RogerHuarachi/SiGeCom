@@ -227,6 +227,11 @@ class RolesTableSeeder extends Seeder
         	'cbals.store',
         	'cbals.update',
         	'cbals.destroy',
+
+            'ddgs.index',
+        	'ddgs.store',
+        	'ddgs.update',
+        	'ddgs.destroy',
         ]);
 
 		$EN = Role::create(['name' => 'Encargado Nacional']);
@@ -370,7 +375,7 @@ class RolesTableSeeder extends Seeder
         	'oafs.store',
         	'oafs.update',
         	'oafs.destroy',
-            
+
         	'cbals.store',
         	'cbals.update',
         	'cbals.destroy',

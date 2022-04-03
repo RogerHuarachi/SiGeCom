@@ -102,3 +102,39 @@
         </div>
     </div>
 </div>
+
+@section('script')
+<script>
+function mostrar(id) {
+    if (id == "Nuevo") {
+        $("#mca").hide();
+        $("#sca").hide();
+        $("#rt").hide();
+    }
+
+    if (id == "Paralelo") {
+        $("#mca").hide();
+        $("#sca").show();
+        $("#rt").show();
+    }
+
+    if (id == "Represtamo") {
+        $("#mca").show();
+        $("#sca").hide();
+        $("#rt").hide();
+    }
+
+    if (id == "Financiamiento") {
+        $("#mca").hide();
+        $("#sca").show();
+        $("#rt").hide();
+    }
+
+    if (id == "Reprogramación") {
+        $("#mca").hide();
+        $("#sca").show();
+        $("#rt").hide();
+    }
+}
+</script>
+@endsection

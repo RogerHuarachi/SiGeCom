@@ -41,6 +41,7 @@ use App\Http\Controllers\Admin\OanController;
 use App\Http\Controllers\Admin\AfController;
 use App\Http\Controllers\Admin\OafController;
 use App\Http\Controllers\Admin\CbalController;
+use App\Http\Controllers\Admin\DdgController;
 
 /*
 |--------------------------------------------------------------------------
@@ -472,6 +473,17 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:cbals.update');
     Route::delete('cbals/{cbal}', [CbalController::class, 'destroy'])->name('cbals.destroy')
         ->middleware('permission:cbals.destroy');
+
+
+    // Ddg Detalles de garantia
+    Route::get('ddgs', [DdgController::class, 'index'])->name('ddgs.index')
+        ->middleware('permission:ddgs.index');
+    Route::post('ddgs/store', [DdgController::class, 'store'])->name('ddgs.store')
+        ->middleware('permission:ddgs.store');
+    Route::put('ddgs/{ddg}', [DdgController::class, 'update'])->name('ddgs.update')
+        ->middleware('permission:ddgs.update');
+    Route::delete('ddgs/{ddg}', [DdgController::class, 'destroy'])->name('ddgs.destroy')
+        ->middleware('permission:ddgs.destroy');
 
 
 

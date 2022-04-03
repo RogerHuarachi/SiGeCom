@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAcnsTable extends Migration
+class CreateDdgsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateAcnsTable extends Migration
      */
     public function up()
     {
-        Schema::create('acns', function (Blueprint $table) {
+        Schema::create('ddgs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('item');
-            $table->double('value', 8, 2);
+            $table->string('garanty');
+            $table->double('vc', 8, 2);
+            $table->double('mc', 8, 2);
+            
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 
@@ -34,6 +36,6 @@ class CreateAcnsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acns');
+        Schema::dropIfExists('ddgs');
     }
 }
