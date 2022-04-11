@@ -42,6 +42,7 @@ use App\Http\Controllers\Admin\AfController;
 use App\Http\Controllers\Admin\OafController;
 use App\Http\Controllers\Admin\CbalController;
 use App\Http\Controllers\Admin\DdgController;
+use App\Http\Controllers\Admin\JustificacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -484,6 +485,17 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:ddgs.update');
     Route::delete('ddgs/{ddg}', [DdgController::class, 'destroy'])->name('ddgs.destroy')
         ->middleware('permission:ddgs.destroy');
+
+
+    // Justificacion
+    Route::get('justifications', [JustificationController::class, 'index'])->name('justifications.index')
+        ->middleware('permission:justifications.index');
+    Route::post('justifications/store', [JustificationController::class, 'store'])->name('justifications.store')
+        ->middleware('permission:justifications.store');
+    Route::put('justifications/{justification}', [JustificationController::class, 'update'])->name('justifications.update')
+        ->middleware('permission:justifications.update');
+    Route::delete('justifications/{justification}', [JustificationController::class, 'destroy'])->name('justifications.destroy')
+        ->middleware('permission:justifications.destroy');
 
 
 

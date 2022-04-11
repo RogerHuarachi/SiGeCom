@@ -5,7 +5,7 @@
     </div>
 @endsection
 @section('content')
-{{-- @include('admin.ddgs.create') --}}
+@include('admin.ddgs.create')
 
 <div class="row">
     <div class="col-md-12">
