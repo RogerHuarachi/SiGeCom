@@ -42,7 +42,9 @@ use App\Http\Controllers\Admin\AfController;
 use App\Http\Controllers\Admin\OafController;
 use App\Http\Controllers\Admin\CbalController;
 use App\Http\Controllers\Admin\DdgController;
-use App\Http\Controllers\Admin\JustificacionController;
+use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\JustificationController;
+use App\Http\Controllers\Admin\CrnaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -487,6 +489,17 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:ddgs.destroy');
 
 
+    // Garante Cogarante
+    Route::get('members', [MemberController::class, 'index'])->name('members.index')
+        ->middleware('permission:members.index');
+    Route::post('members/store', [MemberController::class, 'store'])->name('members.store')
+        ->middleware('permission:members.store');
+    Route::put('members/{member}', [MemberController::class, 'update'])->name('members.update')
+        ->middleware('permission:members.update');
+    Route::delete('members/{member}', [MemberController::class, 'destroy'])->name('members.destroy')
+        ->middleware('permission:members.destroy');
+
+
     // Justificacion
     Route::get('justifications', [JustificationController::class, 'index'])->name('justifications.index')
         ->middleware('permission:justifications.index');
@@ -496,6 +509,17 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:justifications.update');
     Route::delete('justifications/{justification}', [JustificationController::class, 'destroy'])->name('justifications.destroy')
         ->middleware('permission:justifications.destroy');
+
+
+    // Comentario recomendacion nivel de aprobacion
+    Route::get('crnas', [CrnaController::class, 'index'])->name('crnas.index')
+        ->middleware('permission:crnas.index');
+    Route::post('crnas/store', [CrnaController::class, 'store'])->name('crnas.store')
+        ->middleware('permission:crnas.store');
+    Route::put('crnas/{crna}', [CrnaController::class, 'update'])->name('crnas.update')
+        ->middleware('permission:crnas.update');
+    Route::delete('crnas/{crna}', [CrnaController::class, 'destroy'])->name('crnas.destroy')
+        ->middleware('permission:crnas.destroy');
 
 
 

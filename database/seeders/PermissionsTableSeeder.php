@@ -220,11 +220,21 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'ddgs.store']);
         Permission::create(['name' => 'ddgs.update']);
         Permission::create(['name' => 'ddgs.destroy']);
+        //garante list
+        Permission::create(['name' => 'members.index']);
+        Permission::create(['name' => 'members.store']);
+        Permission::create(['name' => 'members.update']);
+        Permission::create(['name' => 'members.destroy']);
         //ddg list
         Permission::create(['name' => 'justifications.index']);
         Permission::create(['name' => 'justifications.store']);
         Permission::create(['name' => 'justifications.update']);
         Permission::create(['name' => 'justifications.destroy']);
+        //ddg list
+        Permission::create(['name' => 'crnas.index']);
+        Permission::create(['name' => 'crnas.store']);
+        Permission::create(['name' => 'crnas.update']);
+        Permission::create(['name' => 'crnas.destroy']);
 
         // User Permission
         // Folder

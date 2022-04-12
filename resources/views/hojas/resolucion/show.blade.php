@@ -6,6 +6,8 @@
 @endsection
 @section('content')
 @include('admin.ddgs.create')
+@include('admin.members.create')
+@include('admin.justifications.create')
 
 <div class="row">
     <div class="col-md-12">
@@ -103,7 +105,8 @@
             <div class="card-header bg-info p-2">
                 <h3 class="card-title">
                     Detalle de Garantia
-                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#ddgCreate"><i class="fas fa-plus"></i></button>
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#ddgCreate">Garantia</button>
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#memberCreate">Participante</button>
                 </h3>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -137,40 +140,103 @@
                         </div>
                     @endforeach
                 @endif
-                @if ($garante)
+                @if ($client->members)
+                    @foreach ($client->members as $member)
+                        <div class="row">
+                            <div class="col-md-4">
+                                <dl class="row">
+                                    <dt class="col-md-5">{{ $member->type }}</dt>
+                                    <dd class="col-md-7">{{ $member->name }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-2">
+                                <dl class="row">
+                                    <dt class="col-md-3">CI</dt>
+                                    <dd class="col-md-9">{{ $member->ci }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-3">
+                                <dl class="row">
+                                    <dt class="col-md-6">Patrimonio total</dt>
+                                    <dd class="col-md-6">{{ number_format($member->pt, 2, ',', '.') }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-3">
+                                <dl class="row">
+                                    <dt class="col-md-6">Covertura</dt>
+                                    <dd class="col-md-6">{{ number_format($member->mc, 2, ',', '.') }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-info p-2">
+                <h3 class="card-title">
+                    Excepciones/Autorizaciones/Justificaciones
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#justificationCreate"><i class="fas fa-plus"></i></button>
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card-body p-2">
+                @if ($client->justifications)
+                    @foreach ($client->justifications as $justification)
+                        <div class="row">
+                            <div class="col-md-5">
+                                <dl class="row">
+                                    <dt class="col-md-12">{{ $justification->type }}</dt>
+                                </dl>
+                            </div>
+                            <div class="col-md-7">
+                                <dl class="row">
+                                    <dt class="col-md-2">Justificación</dt>
+                                    <dd class="col-md-10">{{ $justification->justification }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-info p-2">
+                <h3 class="card-title">
+                    Comentarios y recomendaciones nivel de aprobación
+                    @if (!$client->crna)
+                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#crnaCreate"><i class="fas fa-plus"></i></button>
+                    @endif
+                </h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card-body p-2">
+                @if ($client->crna)
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <dl class="row">
-                                <dt class="col-md-4">Garante Personal</dt>
-                                <dd class="col-md-8">{{ $garante->name }} {{ $garante->lastName }}</dd>
-                            </dl>
-                        </div>
-                        <div class="col-md-2">
-                            <dl class="row">
-                                <dt class="col-md-3">CI</dt>
-                                <dd class="col-md-9">{{ $garante->number }} {{ $garante->extension }}</dd>
-                            </dl>
-                        </div>
-                        <div class="col-md-3">
-                            <dl class="row">
-                                <dt class="col-md-6">Patrimonio total</dt>
-                                <dd class="col-md-6">{{ number_format($garante->acns->sum('value') +
-                                    $garante->afns->sum('value') +
-                                    $garante->oans->sum('value') +
-                                    $garante->afs->sum('value') +
-                                    $garante->oafs->sum('value') -
-                                    $garante->passives->sum('balace'), 2, ',', '.') }}</dd>
-                            </dl>
-                        </div>
-                        <div class="col-md-3">
-                            <dl class="row">
-                                <dt class="col-md-6">Covertura</dt>
-                                <dd class="col-md-6">{{ number_format(($garante->acns->sum('value') +
-                                    $garante->afns->sum('value') +
-                                    $garante->oans->sum('value') +
-                                    $garante->afs->sum('value') +
-                                    $garante->oafs->sum('value') -
-                                    $garante->passives->sum('balace'))/2, 2, ',', '.') }}</dd>
+                                <dt class="col-md-2">Aclaración</dt>
+                                <dd class="col-md-10">{{ $client->crna->aclaration }}</dd>
                             </dl>
                         </div>
                     </div>

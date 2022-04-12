@@ -181,6 +181,21 @@ class Client extends Model
         return $this->hasMany(Ddg::class);
     }
 
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
+
+    public function justifications()
+    {
+        return $this->hasMany(Justification::class);
+    }
+
+    public function crna()
+    {
+        return $this->hasOne(Crna::class);
+    }
+
     public function primary(){
         $primary = $this->businesses()->where('level', 'PRIMARIA')->first();
         return $primary;

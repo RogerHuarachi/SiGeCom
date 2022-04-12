@@ -478,6 +478,17 @@
                     </li>
                 @endcan
 
+                @can('members.index')
+                    <li class="nav-item">
+                        <a href="{{ route('members.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Participates
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
 
                 {{-- Users --}}
 

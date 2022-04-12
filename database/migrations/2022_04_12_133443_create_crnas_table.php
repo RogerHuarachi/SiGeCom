@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJustificationsTable extends Migration
+class CreateCrnasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateJustificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('justifications', function (Blueprint $table) {
+        Schema::create('crnas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
-            $table->text('justification');
+            $table->text('aclaration');
 
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
@@ -35,6 +34,6 @@ class CreateJustificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('justifications');
+        Schema::dropIfExists('crnas');
     }
 }
