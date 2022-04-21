@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title')
     <div class="row">
-        <h1 class="m-0">Detalle de Aclaración</h1>
+        <h1 class="m-0">Recomendaciones</h1>
     </div>
 @endsection
 @section('browser')
@@ -24,20 +24,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($members as $member)
+                            @foreach ($crnas as $crna)
                                 <tr>
-                                    <td>{{ $member->id }}</td>
-                                    <td>{{ $member->client->name }}</td>
-                                    <td>{{ $member->aclaration }}</td>
+                                    <td>{{ $crna->id }}</td>
+                                    <td>{{ $crna->client->name }}</td>
+                                    <td>{{ $crna->aclaration }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            @can('members.update')
-                                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#memberEdit{{ $member->id }}"><i class="fas fa-pen"></i></button>
-                                                @include('admin.members.edit')
+                                            @can('crnas.update')
+                                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#crnaEdit{{ $crna->id }}"><i class="fas fa-pen"></i></button>
+                                                @include('admin.crnas.edit')
                                             @endcan
-                                            @can('members.destroy')
-                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#memberDelete{{ $member->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                @include('admin.members.delete')
+                                            @can('crnas.destroy')
+                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#crnaDelete{{ $crna->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                @include('admin.crnas.delete')
                                             @endcan
                                         </div>
                                     </td>
@@ -45,7 +45,7 @@
                             @endforeach
                         </tfoot>
                     </table>
-                    {{ $members->links() }}
+                    {{ $crnas->links() }}
                 </div>
             </div>
         </div>

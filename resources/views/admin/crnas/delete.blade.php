@@ -1,4 +1,4 @@
-<div class="modal fade" id="memberDelete{{ $member->id }}">
+<div class="modal fade" id="crnaDelete{{ $crna->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('members.destroy', $member->id) }}" method="POST">
+            <form action="{{ route('crnas.destroy', $crna->id) }}" method="POST">
                 {{ csrf_field() }}
                 <div class="modal-body">
                         <div class="card-body">

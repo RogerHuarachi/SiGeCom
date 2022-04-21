@@ -489,6 +489,17 @@
                     </li>
                 @endcan
 
+                @can('crnas.index')
+                    <li class="nav-item">
+                        <a href="{{ route('crnas.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Recomendaciones
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
 
                 {{-- Users --}}
 
