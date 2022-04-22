@@ -1,4 +1,4 @@
-<div class="modal fade" id="caedecDelete{{ $caedec->id }}">
+<div class="modal fade text-dark" id="caedecDelete{{ $caedec->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

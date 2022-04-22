@@ -1,4 +1,4 @@
-<div class="modal fade" id="folderEdit{{ $folder->id }}">
+<div class="modal fade text-dark" id="folderEdit{{ $folder->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

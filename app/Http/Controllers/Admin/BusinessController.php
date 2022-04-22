@@ -50,13 +50,13 @@ class BusinessController extends Controller
 
     public function update(Request $request, Business $business)
     {
-        $agency->update($request->all());
+        $business->update($request->all());
         return back()->with('confirmation','Actualizado Correctamente');
     }
 
     public function destroy(Business $business)
     {
-        $agency->delete();
+        $business->delete();
         return back()->with('confirmation', 'Eliminado Correctamente');
     }
 }

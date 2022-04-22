@@ -11,7 +11,7 @@
         <h5 class="p-1">Patrimonio Neto: {{ $client->assets->sum('value') - $client->passives->sum('balace') }}</h5>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
@@ -34,6 +34,7 @@
                                         <th>Tipo de Bien</th>
                                         <th>En Garantia</th>
                                         <th>Valor</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -42,6 +43,18 @@
                                             <td>{{ $asset->type }}</td>
                                             <td>{{ $asset->warranty }}</td>
                                             <td>{{ $asset->value }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('assets.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#assetEdit{{ $asset->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.assets.edit')
+                                                    @endcan
+                                                    @can('assets.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#assetDelete{{ $asset->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.assets.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -58,9 +71,7 @@
                 @endif
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
@@ -84,6 +95,7 @@
                                         <th>Cuota Mensual</th>
                                         <th>Saldo Deudor</th>
                                         <th>Estado</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -93,6 +105,18 @@
                                             <td>{{ $passive->share }}</td>
                                             <td>{{ $passive->balace }}</td>
                                             <td>{{ $passive->state }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('passives.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#passiveEdit{{ $passive->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.passives.edit')
+                                                    @endcan
+                                                    @can('passives.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#passiveDelete{{ $passive->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.passives.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

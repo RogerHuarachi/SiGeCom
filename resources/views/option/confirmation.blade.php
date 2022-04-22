@@ -1,5 +1,5 @@
 @if(session('confirmation'))
-    <div class="alert alert-success">
+    <div class="alert alert-success p-1 mb-1">
         <button type="button" class="close" data-dismiss="alert">
             &times;
         </button>

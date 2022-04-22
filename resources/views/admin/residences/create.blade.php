@@ -1,4 +1,4 @@
-<div class="modal fade" id="residenceCreate">
+<div class="modal fade text-dark" id="residenceCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -34,6 +34,8 @@
                             <div class="card-header bg-info p-2">
                                 <h3 class="card-title">
                                     Insumos de {{ $product->name }}
+                                    <br>
+                                    Unidad de Produccion: {{ $product->unit }}
                                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#itemCreate{{ $product->id }}"><i class="fas fa-plus"></i></button>
                                     @include('admin.items.create')
                                 </h3>
@@ -54,6 +56,7 @@
                                                 <th>Rendimiento</th>
                                                 <th>Precio U</th>
                                                 <th>Total</th>
+                                                <th>Opc</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,6 +68,18 @@
                                                     <td>{{ $item->performance }}</td>
                                                     <td>{{ $item->price }}</td>
                                                     <td>{{ $item->total }}</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            @can('items.update')
+                                                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#itemEdit{{ $item->id }}"><i class="fas fa-pen"></i></button>
+                                                                @include('admin.items.edit')
+                                                            @endcan
+                                                            @can('items.destroy')
+                                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#itemDelete{{ $item->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                                @include('admin.items.delete')
+                                                            @endcan
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -90,9 +105,7 @@
                                 </div>
                             </div>
                         </div>
-
                     @endforeach
-
                 @endif
             </div>
         </div>

@@ -54,6 +54,7 @@
                                         <th>Donde</th>
                                         <th>Tipo de Ent</th>
                                         <th>Otras Act</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
@@ -65,6 +66,18 @@
                                             <td>{{ $child->where }}</td>
                                             <td>{{ $child->type }}</td>
                                             <td>{{ $child->other }}</td>
+                                            <th>
+                                                <div class="btn-group">
+                                                    @can('children.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#childEdit{{ $child->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.children.edit')
+                                                    @endcan
+                                                    @can('children.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#childDelete{{ $child->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.children.delete')
+                                                    @endcan
+                                                </div>
+                                            </th>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -80,8 +93,12 @@
             <div class="card-header bg-info p-1 pl-2 pr-2">
                 <h4 class="card-title">
                     Comportamiento de Pago
-                    @if (!$client->payment)
+                    @if (!$payment)
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#paymentCreate"><i class="fas fa-plus"></i></button>
+                    @endif
+                    @if ($payment)
+                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#paymentEdit{{ $payment->id }}"><i class="fas fa-pen"></i></button>
+                        @include('admin.payments.edit')
                     @endif
                 </h4>
                 <div class="card-tools">
@@ -92,18 +109,18 @@
             </div>
 
             <div class="card-body p-2">
-                @if ($client->payment)
+                @if ($payment)
                     <div class="row">
                         <div class="col-md-12">
                             <dl class="row">
                                 <dt class="col-md-4">Proeza Atrasos</dt>
-                                <dd class="col-md-8">{{ $client->payment->proeza }}</dd>
+                                <dd class="col-md-8">{{ $payment->proeza }}</dd>
                                 <dt class="col-md-4">Razon</dt>
-                                <dd class="col-md-8">{{ $client->payment->obs1 }}</dd>
+                                <dd class="col-md-8">{{ $payment->obs1 }}</dd>
                                 <dt class="col-md-4">Obs BIC</dt>
-                                <dd class="col-md-8">{{ $client->payment->bic }}</dd>
+                                <dd class="col-md-8">{{ $payment->bic }}</dd>
                                 <dt class="col-md-4">Razon</dt>
-                                <dd class="col-md-8">{{ $client->payment->obs2 }}</dd>
+                                <dd class="col-md-8">{{ $payment->obs2 }}</dd>
                             </dl>
                         </div>
                     </div>
@@ -134,6 +151,7 @@
                                     <tr>
                                         <th>Entidad</th>
                                         <th>Calificacion</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
@@ -141,6 +159,18 @@
                                         <tr>
                                             <td>{{ $debt->entity }}</td>
                                             <td>{{ $debt->qualification }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('debts.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#debtEdit{{ $debt->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.debts.edit')
+                                                    @endcan
+                                                    @can('debts.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#debtDelete{{ $debt->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.debts.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -308,8 +338,12 @@
             <div class="card-header bg-info p-1 pl-2 pr-2">
                 <h4 class="card-title">
                     Aclaraciones
-                    @if (!$client->cmub)
+                    @if (!$cmub)
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cmubCreate"><i class="fas fa-plus"></i></button>
+                    @endif
+                    @if ($cmub)
+                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#cmubEdit{{ $cmub->id }}"><i class="fas fa-pen"></i></button>
+                        @include('admin.cmubs.edit')
                     @endif
                 </h4>
                 <div class="card-tools">
@@ -320,11 +354,11 @@
             </div>
 
             <div class="card-body p-2">
-                @if ($client->cmub)
+                @if ($cmub)
                     <div class="row">
                         <div class="col-md-12">
                             <dl class="row">
-                                <dd class="col-md-12">{{ $client->cmub->comentary }}</dd>
+                                <dd class="col-md-12">{{ $cmub->comentary }}</dd>
                             </dl>
                         </div>
                     </div>
@@ -599,8 +633,12 @@
             <div class="card-header bg-info p-1 pl-2 pr-2">
                 <h4 class="card-title">
                     Aclaraciones
-                    @if (!$client->cdg)
+                    @if (!$cdg)
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cdgCreate"><i class="fas fa-plus"></i></button>
+                    @endif
+                    @if ($cdg)
+                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#cdgEdit{{ $cdg->id }}"><i class="fas fa-pen"></i></button>
+                        @include('admin.cdgs.edit')
                     @endif
                 </h4>
                 <div class="card-tools">
@@ -611,16 +649,16 @@
             </div>
 
             <div class="card-body p-2">
-                @if ($client->cdg)
+                @if ($cdg)
                     <div class="row">
                         <div class="col-md-12">
                                 <dt>Gastos Fijos Operativos</dt>
                             <dl class="row">
-                                <dd class="col-md-12">{{ $client->cdg->comentaryo }}</dd>
+                                <dd class="col-md-12">{{ $cdg->comentaryo }}</dd>
                             </dl>
                                 <dt>Gastos Familiares</dt>
                             <dl class="row">
-                                <dd class="col-md-12">{{ $client->cdg->comentaryf }}</dd>
+                                <dd class="col-md-12">{{ $cdg->comentaryf }}</dd>
                             </dl>
                         </div>
                     </div>
@@ -1021,7 +1059,6 @@
                     <div class="card-header bg-info p-1 pl-2 pr-2">
                         <h4 class="card-title">
                             Indicadores y Cruces de Variables
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#oiCreate"><i class="fas fa-plus"></i></button>
                         </h4>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -1093,8 +1130,12 @@
                     <div class="card-header bg-info p-1 pl-2 pr-2">
                         <h4 class="card-title">
                             Aclaraciones
-                            @if (!$client->cbal)
+                            @if (!$cbal)
                                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cbalCreate"><i class="fas fa-plus"></i></button>
+                            @endif
+                            @if ($cbal)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#cbalEdit{{ $cbal->id }}"><i class="fas fa-pen"></i></button>
+                                @include('admin.cbals.edit')
                             @endif
                         </h4>
                         <div class="card-tools">
@@ -1105,11 +1146,11 @@
                     </div>
 
                     <div class="card-body p-2">
-                        @if ($client->cbal)
+                        @if ($cbal)
                             <div class="row">
                                 <div class="col-md-12">
                                     <dl class="row">
-                                        <dd class="col-md-12">{{ $client->cbal->comentary }}</dd>
+                                        <dd class="col-md-12">{{ $cbal->comentary }}</dd>
                                     </dl>
                                 </div>
                             </div>

@@ -1,4 +1,4 @@
-<div class="modal fade" id="gfCreate">
+<div class="modal fade text-dark" id="gfCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

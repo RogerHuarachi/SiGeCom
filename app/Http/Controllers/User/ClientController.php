@@ -75,7 +75,12 @@ class ClientController extends Controller
     public function solicitud(Client $client)
     {
         $caedecs = Caedec::get();
-        return view('hojas.solicitud.show', compact('client', 'caedecs'));
+        $personal = $client->personal;
+        $commercial = $client->commercial;
+        $primary = $client->primary();
+        $secondary = $client->secondary();
+        $loan = $client->loan;
+        return view('hojas.solicitud.show', compact('caedecs', 'client', 'personal', 'commercial', 'primary', 'secondary', 'loan'));
     }
 
     public function conyegue(Client $client)
@@ -86,7 +91,9 @@ class ClientController extends Controller
 
     public function croqui(Client $client)
     {
-        return view('hojas.croqui.show', compact('client'));
+        $residence = $client->residence;
+        $job = $client->job;
+        return view('hojas.croqui.show', compact('client', 'residence', 'job'));
     }
 
     public function dp(Client $client)
@@ -213,7 +220,11 @@ class ClientController extends Controller
 
     public function evaluacion(Client $client)
     {
-        return view('hojas.evaluacion.show', compact('client'));
+        $payment = $client->payment;
+        $cmub = $client->cmub;
+        $cdg = $client->cdg;
+        $cbal = $client->cbal;
+        return view('hojas.evaluacion.show', compact('client', 'payment', 'cmub', 'cdg', 'cbal'));
     }
 
     public function dia(Request $request)
@@ -243,6 +254,7 @@ class ClientController extends Controller
         $dudor = $folder->debtor();
         $codeudor = $folder->codebtor();
         $garante = $folder->guarantor();
-        return view('hojas.resolucion.show', compact('client', 'codeudor', 'garante'));
+        $crna = $client->crna;
+        return view('hojas.resolucion.show', compact('client', 'codeudor', 'garante', 'crna'));
     }
 }

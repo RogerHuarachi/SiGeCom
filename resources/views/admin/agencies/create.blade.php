@@ -1,4 +1,4 @@
-<div class="modal fade" id="agencyCreate">
+<div class="modal fade text-dark" id="agencyCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

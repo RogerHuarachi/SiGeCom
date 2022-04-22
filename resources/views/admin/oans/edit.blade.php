@@ -1,4 +1,4 @@
-<div class="modal fade" id="oanEdit{{ $oan->id }}">
+<div class="modal fade text-dark" id="oanEdit{{ $oan->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

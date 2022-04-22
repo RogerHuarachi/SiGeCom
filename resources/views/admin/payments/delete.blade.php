@@ -1,4 +1,4 @@
-<div class="modal fade" id="paymentDelete{{ $payment->id }}">
+<div class="modal fade text-dark" id="paymentDelete{{ $payment->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

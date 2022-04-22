@@ -1,4 +1,4 @@
-<div class="modal fade" id="commercialShow{{ $commercial->id }}">
+<div class="modal fade text-dark" id="commercialShow{{ $commercial->id }}">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

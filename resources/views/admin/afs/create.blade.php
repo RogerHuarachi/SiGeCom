@@ -1,4 +1,4 @@
-<div class="modal fade" id="afCreate">
+<div class="modal fade text-dark" id="afCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

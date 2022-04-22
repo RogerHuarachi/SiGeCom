@@ -35,6 +35,7 @@
                                         <th>Valor Comercial</th>
                                         <th>Actividad</th>
                                         <th>En Garantia</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +46,18 @@
                                             <td>{{ $work->value }}</td>
                                             <td>{{ $work->exercise }}</td>
                                             <td>{{ $work->state }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('works.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#workEdit{{ $work->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.works.edit')
+                                                    @endcan
+                                                    @can('works.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#workDelete{{ $work->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.works.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -88,6 +101,7 @@
                                         <th>Valor Comercial</th>
                                         <th>Actividad</th>
                                         <th>En Garantia</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -98,6 +112,18 @@
                                             <td>{{ $work->value }}</td>
                                             <td>{{ $work->exercise }}</td>
                                             <td>{{ $work->state }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('works.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#workEdit{{ $work->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.works.edit')
+                                                    @endcan
+                                                    @can('works.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#workDelete{{ $work->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.works.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -143,6 +169,7 @@
                                         <th>Valor Comercial</th>
                                         <th>Actividad</th>
                                         <th>En Garantia</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -153,6 +180,18 @@
                                             <td>{{ $work->value }}</td>
                                             <td>{{ $work->exercise }}</td>
                                             <td>{{ $work->state }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('works.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#workEdit{{ $work->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.works.edit')
+                                                    @endcan
+                                                    @can('works.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#workDelete{{ $work->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.works.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -195,6 +234,7 @@
                                         <th>Descripción de Activo</th>
                                         <th>Valor Comercial</th>
                                         <th>En Garantia</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -204,6 +244,18 @@
                                             <td>{{ $family->description }}</td>
                                             <td>{{ $family->value }}</td>
                                             <td>{{ $family->state }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('works.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#workEdit{{ $work->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.works.edit')
+                                                    @endcan
+                                                    @can('works.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#workDelete{{ $work->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.works.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

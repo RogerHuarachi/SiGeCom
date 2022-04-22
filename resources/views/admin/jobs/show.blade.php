@@ -1,4 +1,4 @@
-<div class="modal fade" id="jobShow{{ $job->id }}">
+<div class="modal fade text-dark" id="jobShow{{ $job->id }}">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

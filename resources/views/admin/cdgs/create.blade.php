@@ -1,4 +1,4 @@
-<div class="modal fade" id="cdgCreate">
+<div class="modal fade text-dark" id="cdgCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

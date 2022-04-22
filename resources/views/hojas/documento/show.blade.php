@@ -32,6 +32,7 @@
                                         <th>N° Doc</th>
                                         <th>N° FOjas</th>
                                         <th>Observacion</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,6 +42,18 @@
                                             <td>{{ $document->doc }}</td>
                                             <td>{{ $document->fojas }}</td>
                                             <td>{{ $document->obs }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('documents.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#documentEdit{{ $document->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.documents.edit')
+                                                    @endcan
+                                                    @can('documents.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#documentDelete{{ $document->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.documents.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -76,6 +89,7 @@
                                         <th>N° Doc</th>
                                         <th>N° FOjas</th>
                                         <th>Observacion</th>
+                                        <th>Opc</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -85,6 +99,18 @@
                                             <td>{{ $document->doc }}</td>
                                             <td>{{ $document->fojas }}</td>
                                             <td>{{ $document->obs }}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    @can('documents.update')
+                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#documentEdit{{ $document->id }}"><i class="fas fa-pen"></i></button>
+                                                        @include('admin.documents.edit')
+                                                    @endcan
+                                                    @can('documents.destroy')
+                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#documentDelete{{ $document->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                        @include('admin.documents.delete')
+                                                    @endcan
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

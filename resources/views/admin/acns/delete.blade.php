@@ -1,4 +1,4 @@
-<div class="modal fade" id="acnDelete{{ $acn->id }}">
+<div class="modal fade text-dark" id="acnDelete{{ $acn->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

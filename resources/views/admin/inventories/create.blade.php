@@ -1,4 +1,4 @@
-<div class="modal fade" id="inventoryCreate">
+<div class="modal fade text-dark" id="inventoryCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -8,6 +8,7 @@
 @include('admin.ddgs.create')
 @include('admin.members.create')
 @include('admin.justifications.create')
+@include('admin.crnas.create')
 
 <div class="row">
     <div class="col-md-12">
@@ -116,60 +117,82 @@
             </div>
 
             <div class="card-body p-2">
-                @if ($client->ddgs)
-                    @foreach ($client->ddgs as $ddg)
-                        <div class="row">
-                            <div class="col-md-6">
-                                <dl class="row">
-                                    <dt class="col-md-3">Garantia</dt>
-                                    <dd class="col-md-9">{{ $ddg->garanty }}</dd>
-                                </dl>
-                            </div>
-                            <div class="col-md-3">
-                                <dl class="row">
-                                    <dt class="col-md-6">Valor Comercial</dt>
-                                    <dd class="col-md-6">{{ $ddg->vc }}</dd>
-                                </dl>
-                            </div>
-                            <div class="col-md-3">
-                                <dl class="row">
-                                    <dt class="col-md-6">Moto Coverturado</dt>
-                                    <dd class="col-md-6">{{ $ddg->mc }}</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    @endforeach
-                @endif
-                @if ($client->members)
-                    @foreach ($client->members as $member)
-                        <div class="row">
-                            <div class="col-md-4">
-                                <dl class="row">
-                                    <dt class="col-md-5">{{ $member->type }}</dt>
-                                    <dd class="col-md-7">{{ $member->name }}</dd>
-                                </dl>
-                            </div>
-                            <div class="col-md-2">
-                                <dl class="row">
-                                    <dt class="col-md-3">CI</dt>
-                                    <dd class="col-md-9">{{ $member->ci }}</dd>
-                                </dl>
-                            </div>
-                            <div class="col-md-3">
-                                <dl class="row">
-                                    <dt class="col-md-6">Patrimonio total</dt>
-                                    <dd class="col-md-6">{{ number_format($member->pt, 2, ',', '.') }}</dd>
-                                </dl>
-                            </div>
-                            <div class="col-md-3">
-                                <dl class="row">
-                                    <dt class="col-md-6">Covertura</dt>
-                                    <dd class="col-md-6">{{ number_format($member->mc, 2, ',', '.') }}</dd>
-                                </dl>
+                <div class="row">
+                    @if ($client->ddgs)
+                        <div class="col-6">
+                            <div class="row">
+                                <table class="table table-sm table-light">
+                                    <thead>
+                                        <th>Garantia</th>
+                                        <th>Valor Comercial</th>
+                                        <th>Moto Coverturado</th>
+                                        <th>Opc</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($client->ddgs as $ddg)
+                                            <tr>
+                                                <td>{{ $ddg->garanty }}</td>
+                                                <td>{{ $ddg->vc }}</td>
+                                                <td>{{ $ddg->mc }}</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        @can('ddgs.update')
+                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#ddgEdit{{ $ddg->id }}"><i class="fas fa-pen"></i></button>
+                                                            @include('admin.ddgs.edit')
+                                                        @endcan
+                                                        @can('ddgs.destroy')
+                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#ddgDelete{{ $ddg->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                            @include('admin.ddgs.delete')
+                                                        @endcan
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    @endforeach
-                @endif
+                    @endif
+                    @if ($client->members)
+                        <div class="col-6">
+                            <div class="row">
+                                <table class="table table-sm table-light">
+                                    <thead>
+                                        <th>Tipo</th>
+                                        <th>Nombre</th>
+                                        <th>CI</th>
+                                        <th>Patrimonio total</th>
+                                        <th>Covertura</th>
+                                        <th>Opc</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($client->members as $member)
+                                            <tr>
+                                                <td>{{ $member->type }}</td>
+                                                <td>{{ $member->name }}</td>
+                                                <td>{{ $member->ci }}</td>
+                                                <td>{{ number_format($member->pt, 2, ',', '.') }}</td>
+                                                <td>{{ number_format($member->mc, 2, ',', '.') }}</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        @can('members.update')
+                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#memberEdit{{ $member->id }}"><i class="fas fa-pen"></i></button>
+                                                            @include('admin.members.edit')
+                                                        @endcan
+                                                        @can('members.destroy')
+                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#memberDelete{{ $member->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                            @include('admin.members.delete')
+                                                        @endcan
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
@@ -192,21 +215,35 @@
 
             <div class="card-body p-2">
                 @if ($client->justifications)
-                    @foreach ($client->justifications as $justification)
-                        <div class="row">
-                            <div class="col-md-5">
-                                <dl class="row">
-                                    <dt class="col-md-12">{{ $justification->type }}</dt>
-                                </dl>
-                            </div>
-                            <div class="col-md-7">
-                                <dl class="row">
-                                    <dt class="col-md-2">Justificación</dt>
-                                    <dd class="col-md-10">{{ $justification->justification }}</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    @endforeach
+                    <div class="row">
+                        <table class="table table-sm table-light">
+                            <thead>
+                                <th>Excepción</th>
+                                <th>Justificación</th>
+                                <th>Opc</th>
+                            </thead>
+                            <tbody>
+                                @foreach ($client->justifications as $justification)
+                                    <tr>
+                                        <td>{{ $justification->type }}</td>
+                                        <td>{{ $justification->justification }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('justifications.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#justificationEdit{{ $justification->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.justifications.edit')
+                                                @endcan
+                                                @can('justifications.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#justificationDelete{{ $justification->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.justifications.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 @endif
             </div>
         </div>
@@ -219,8 +256,12 @@
             <div class="card-header bg-info p-2">
                 <h3 class="card-title">
                     Comentarios y recomendaciones nivel de aprobación
-                    @if (!$client->crna)
+                    @if (!$crna)
                         <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#crnaCreate"><i class="fas fa-plus"></i></button>
+                    @endif
+                    @if ($crna)
+                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#crnaEdit{{ $crna->id }}"><i class="fas fa-pen"></i></button>
+                        @include('admin.crnas.edit')
                     @endif
                 </h3>
                 <div class="card-tools">
@@ -231,12 +272,12 @@
             </div>
 
             <div class="card-body p-2">
-                @if ($client->crna)
+                @if ($crna)
                     <div class="row">
                         <div class="col-md-12">
                             <dl class="row">
                                 <dt class="col-md-2">Aclaración</dt>
-                                <dd class="col-md-10">{{ $client->crna->aclaration }}</dd>
+                                <dd class="col-md-10">{{ $crna->aclaration }}</dd>
                             </dl>
                         </div>
                     </div>

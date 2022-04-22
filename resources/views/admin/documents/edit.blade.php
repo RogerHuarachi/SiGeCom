@@ -1,4 +1,4 @@
-<div class="modal fade" id="documentEdit{{ $document->id }}">
+<div class="modal fade text-dark" id="documentEdit{{ $document->id }}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -78,7 +78,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="name">Observacion</label>
-                                    <input type="number" class="form-control form-control-border"
+                                    <input type="text" class="form-control form-control-border"
                                     placeholder="Observacion " name="obs" value="{{ $document->obs }}" required>
                                 </div>
                             </div>

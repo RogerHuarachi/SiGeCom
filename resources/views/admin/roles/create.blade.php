@@ -1,4 +1,4 @@
-<div class="modal fade" id="roleCreate">
+<div class="modal fade text-dark" id="roleCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

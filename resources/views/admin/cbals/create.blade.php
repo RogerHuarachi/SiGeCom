@@ -1,4 +1,4 @@
-<div class="modal fade" id="cbalCreate">
+<div class="modal fade text-dark" id="cbalCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -1,4 +1,4 @@
-<div class="modal fade" id="childCreate">
+<div class="modal fade text-dark" id="childCreate">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
