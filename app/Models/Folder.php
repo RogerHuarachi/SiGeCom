@@ -38,4 +38,9 @@ class Folder extends Model
         $guarantor = $this->clients()->where('type', 'Garante')->first();
         return $guarantor;
     }
+
+    public function coguarantor(){
+        $coguarantor = $this->clients()->where('type', 'Cogarante')->first();
+        return $coguarantor;
+    }
 }

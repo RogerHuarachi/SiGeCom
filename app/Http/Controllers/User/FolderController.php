@@ -70,29 +70,37 @@ class FolderController extends Controller
     }
 
 
-    
+
 
     public function indep(Folder $folder)
     {
-        return view('formularios.deudor.independiente.show', compact('folder'));
+        $debtor = $folder->debtor();
+        $codebtor = $folder->codebtor();
+        return view('formularios.deudor.independiente.show', compact('folder', 'debtor', 'codebtor'));
     }
 
     public function asal(Folder $folder)
     {
-        return "asal";
+        $debtor = $folder->debtor();
+        $codebtor = $folder->codebtor();
+        return view('formularios.deudor.asalariado.show', compact('folder', 'debtor', 'codebtor'));
     }
 
     public function indepG(Folder $folder)
     {
-        return "indepG";
+        $debtor = $folder->guarantor();
+        $codebtor = $folder->coguarantor();
+        return view('formularios.garante.asalariado.show', compact('folder', 'debtor', 'codebtor'));
     }
 
     public function asalG(Folder $folder)
     {
-        return "asalG";
+        $debtor = $folder->guarantor();
+        $codebtor = $folder->coguarantor();
+        return view('formularios.garante.asalariado.show', compact('folder', 'debtor', 'codebtor'));
     }
 
-    
+
 
     public function sol(Folder $folder)
     {

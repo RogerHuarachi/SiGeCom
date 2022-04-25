@@ -31,7 +31,7 @@
                                     <form action="{{ route('usrfoldersI.indep', $folder->id) }}" method="GET">
                                         <button class="btn btn-primary btn-lg" type="submit">INDEPENDIENTE</button>
                                     </form>
-        
+
                                     <form action="{{ route('usrfoldersAFI.asal', $folder->id) }}" method="GET">
                                         <button class="btn btn-info btn-lg" type="submit">ASALARIADOS FORMALES E INFORMALES</button>
                                     </form>
@@ -45,7 +45,7 @@
                                     <form action="{{ route('usrfoldersGI.indepG', $folder->id) }}" method="GET">
                                         <button class="btn btn-primary btn-lg" type="submit">INDEPENDIENTE</button>
                                     </form>
-        
+
                                     <form action="{{ route('usrfoldersGAFI.asalG', $folder->id) }}" method="GET">
                                         <button class="btn btn-info btn-lg" type="submit">ASALARIADOS FORMALES E INFORMALES</button>
                                     </form>
