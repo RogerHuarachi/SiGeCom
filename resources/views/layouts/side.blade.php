@@ -500,6 +500,17 @@
                     </li>
                 @endcan
 
+                @can('dges.index')
+                    <li class="nav-item">
+                        <a href="{{ route('dges.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Datos de la empresa
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
 
                 {{-- Users --}}
 

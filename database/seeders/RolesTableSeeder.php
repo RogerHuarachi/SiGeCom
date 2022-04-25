@@ -247,6 +247,11 @@ class RolesTableSeeder extends Seeder
         	'crnas.store',
         	'crnas.update',
         	'crnas.destroy',
+
+            'dges.index',
+        	'dges.store',
+        	'dges.update',
+        	'dges.destroy',
         ]);
 
 		$EN = Role::create(['name' => 'Encargado Nacional']);
@@ -410,6 +415,10 @@ class RolesTableSeeder extends Seeder
         	'crnas.store',
         	'crnas.update',
         	'crnas.destroy',
+			
+        	'dges.store',
+        	'dges.update',
+        	'dges.destroy',
 		]);
 
 		$AS = Role::create(['name' => 'Asesor']);

@@ -90,7 +90,7 @@ class FolderController extends Controller
     {
         $debtor = $folder->guarantor();
         $codebtor = $folder->coguarantor();
-        return view('formularios.garante.asalariado.show', compact('folder', 'debtor', 'codebtor'));
+        return view('formularios.garante.independiente.show', compact('folder', 'debtor', 'codebtor'));
     }
 
     public function asalG(Folder $folder)

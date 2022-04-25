@@ -196,6 +196,11 @@ class Client extends Model
         return $this->hasOne(Crna::class);
     }
 
+    public function dge()
+    {
+        return $this->hasOne(Dge::class);
+    }
+
     public function primary(){
         $primary = $this->businesses()->where('level', 'PRIMARIA')->first();
         return $primary;

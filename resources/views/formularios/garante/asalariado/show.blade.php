@@ -31,31 +31,12 @@
                                 <form class="p-1" action="{{ route('usrdps.show', $debtor->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">D.P.</button>
                                 </form>
-                                <form class="p-1" action="{{ route('usravaluos.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">Aval.</button>
-                                </form>
                             @endif
                         </div>
                         <div class="btn-group" role="group" aria-label="Button group">
                             @if ($debtor)
-                                <form class="p-1" action="{{ route('usrhcs.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">H.C.</button>
-                                </form>
-                                <form class="p-1" action="{{ route('usrinventarios.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">Inv.</button>
-                                </form>
-                                <form class="p-1" action="{{ route('usrdocumentos.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">R.D.</button>
-                                </form>
                                 <form class="p-1" action="{{ route('usrevaluacions.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">E.S.</button>
-                                </form>
-                            @endif
-                        </div>
-                        <div class="btn-group" role="group" aria-label="Button group">
-                            @if ($debtor)
-                                <form class="p-1" action="{{ route('usrresolucions.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">Res</button>
+                                    <button class="btn btn-primary btn-xs" type="submit">E.S.G.</button>
                                 </form>
                             @endif
                         </div>

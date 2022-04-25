@@ -45,6 +45,7 @@ use App\Http\Controllers\Admin\DdgController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\JustificationController;
 use App\Http\Controllers\Admin\CrnaController;
+use App\Http\Controllers\Admin\DgeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -522,6 +523,18 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:crnas.destroy');
 
 
+    // Evaluacion Asalariado
+    // Datos generales empresa
+    Route::get('dges', [DgeController::class, 'index'])->name('dges.index')
+        ->middleware('permission:dges.index');
+    Route::post('dges/store', [DgeController::class, 'store'])->name('dges.store')
+        ->middleware('permission:dges.store');
+    Route::put('dges/{dge}', [DgeController::class, 'update'])->name('dges.update')
+        ->middleware('permission:dges.update');
+    Route::delete('dges/{dge}', [DgeController::class, 'destroy'])->name('dges.destroy')
+        ->middleware('permission:dges.destroy');
+
+
 
     // User Route
 
@@ -551,6 +564,12 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:clients.store');
     // cliente codeudor
     Route::post('usrcodeudor/store', [App\Http\Controllers\User\ClientController::class, 'codeudor'])->name('usrcodeudor.store')
+        ->middleware('permission:clients.store');
+    // cliente garante
+    Route::post('usrgarante/store', [App\Http\Controllers\User\ClientController::class, 'garante'])->name('usrgarante.store')
+        ->middleware('permission:clients.store');
+    // cliente cogarante
+    Route::post('usrcogarante/store', [App\Http\Controllers\User\ClientController::class, 'cogarante'])->name('usrcogarante.store')
         ->middleware('permission:clients.store');
 
     Route::get('usrsolicitudes/{client}', [App\Http\Controllers\User\ClientController::class, 'solicitud'])->name('usrsolicitudes.show')

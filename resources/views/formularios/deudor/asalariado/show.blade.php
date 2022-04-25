@@ -38,17 +38,11 @@
                         </div>
                         <div class="btn-group" role="group" aria-label="Button group">
                             @if ($debtor)
-                                <form class="p-1" action="{{ route('usrhcs.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">H.C.</button>
-                                </form>
-                                <form class="p-1" action="{{ route('usrinventarios.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">Inv.</button>
-                                </form>
                                 <form class="p-1" action="{{ route('usrdocumentos.show', $debtor->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">R.D.</button>
                                 </form>
                                 <form class="p-1" action="{{ route('usrevaluacions.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">E.S.</button>
+                                    <button class="btn btn-primary btn-xs" type="submit">E.A.</button>
                                 </form>
                             @endif
                         </div>

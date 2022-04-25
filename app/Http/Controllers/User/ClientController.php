@@ -71,6 +71,25 @@ class ClientController extends Controller
         Client::create($request->all());
         return back()->with('confirmation','Registrado Correctamente');
     }
+    public function garante(Request $request)
+    {
+        $now = Carbon::now();
+        $birt = new Carbon($request->birth);
+        $request["age"]=$now->diffInYears($birt);
+        $request["type"]="Garante";
+        Client::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
+    }
+
+    public function cogarante(Request $request)
+    {
+        $now = Carbon::now();
+        $birt = new Carbon($request->birth);
+        $request["age"]=$now->diffInYears($birt);
+        $request["type"]="Cogarante";
+        Client::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
+    }
 
     public function solicitud(Client $client)
     {

@@ -49,6 +49,7 @@
     @include('admin.members.create')
     @include('admin.justifications.create')
     @include('admin.crnas.create')
+    @include('admin.dges.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -1812,6 +1813,70 @@
                                 <dl class="row">
                                     <dt class="col-md-2">Aclaración</dt>
                                     <dd class="col-md-10">{{ $client->crna->aclaration }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Datos generales de la empresa
+                        @if (!$client->dge)
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#dgeCreate"><i class="fas fa-plus"></i></button>
+                        @endif
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    @if ($client->dge)
+                        <div class="row">
+                            <div class="col-md-3">
+                                <dl class="row">
+                                    <dt class="col-md-6">Lugar/Empresa de trabajo</dt>
+                                    <dd class="col-md-6">{{ $client->dge->business }}</dd>
+                                    <dt class="col-md-6">Fecha de pago de salario</dt>
+                                    <dd class="col-md-6">{{ $client->dge->payment }}</dd>
+                                    <dt class="col-md-6">Hijos dependientes</dt>
+                                    <dd class="col-md-6">{{ $client->dge->son }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-3">
+                                <dl class="row">
+                                    <dt class="col-md-6">Cargo</dt>
+                                    <dd class="col-md-6">{{ $client->dge->position }}</dd>
+                                    <dt class="col-md-6">Antiguedad Años</dt>
+                                    <dd class="col-md-6">{{ $client->dge->year }}</dd>
+                                    <dt class="col-md-6">Otros dependientes</dt>
+                                    <dd class="col-md-6">{{ $client->dge->other }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-3">
+                                <dl class="row">
+                                    <dt class="col-md-6">Empleador</dt>
+                                    <dd class="col-md-6">{{ $client->dge->employer }}</dd>
+                                    <dt class="col-md-6">Meses</dt>
+                                    <dd class="col-md-6">{{ $client->dge->month }}</dd>
+                                    <dt class="col-md-6">Descripción</dt>
+                                    <dd class="col-md-6">{{ $client->dge->description }}</dd>
+                                </dl>
+                            </div>
+                            <div class="col-md-3">
+                                <dl class="row">
+                                    <dt class="col-md-6">Fecha de conversación</dt>
+                                    <dd class="col-md-6">{{ $client->dge->date }}</dd>
+                                    <dt class="col-md-6">Fecha de conversación</dt>
+                                    <dd class="col-md-6">{{ $client->dge->date }}</dd>
                                 </dl>
                             </div>
                         </div>
