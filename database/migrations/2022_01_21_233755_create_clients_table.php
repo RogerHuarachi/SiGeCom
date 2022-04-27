@@ -33,6 +33,7 @@ class CreateClientsTable extends Migration
             $table->string('landline')->nullable();
             $table->string('mainActivity');
             $table->string('secondaryActivity')->nullable();
+            $table->double('cp', 8, 2)->default(0.4);
             $table->unsignedBigInteger('folder_id');
             $table->timestamps();
 

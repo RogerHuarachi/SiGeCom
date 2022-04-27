@@ -10,6 +10,7 @@ use App\Models\Document;
 use App\Models\Work;
 use App\Models\Inventory;
 use App\Models\Sale;
+use App\Models\Ico;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -246,6 +247,13 @@ class ClientController extends Controller
         return view('hojas.evaluacion.show', compact('client', 'payment', 'cmub', 'cdg', 'cbal'));
     }
 
+    public function evaluaciona(Client $client)
+    {
+        $dge = $client->dge;
+        $cbal = $client->cbal;
+        return view('hojas.evaluaciona.show', compact('client', 'dge', 'cbal'));
+    }
+
     public function dia(Request $request)
     {
         $request["type"]="Diario";
@@ -275,5 +283,21 @@ class ClientController extends Controller
         $garante = $folder->guarantor();
         $crna = $client->crna;
         return view('hojas.resolucion.show', compact('client', 'codeudor', 'garante', 'crna'));
+    }
+    
+    public function ingcliente(Request $request)
+    {
+        $request["type"]="Cliente";
+        $request["ld"]=$request->sb-$request->al-$request->od+$request->oi;
+        Ico::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
+    }
+
+    public function ingconyuge(Request $request)
+    {
+        $request["type"]="Conyuge";
+        $request["ld"]=$request->sb-$request->al-$request->od+$request->oi;
+        Ico::create($request->all());
+        return back()->with('confirmation','Registrado Correctamente');
     }
 }

@@ -511,6 +511,28 @@
                     </li>
                 @endcan
 
+                @can('icos.index')
+                    <li class="nav-item">
+                        <a href="{{ route('icos.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Ingresos Corrientes
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('gcos.index')
+                    <li class="nav-item">
+                        <a href="{{ route('gcos.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Gastos Corrientes
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
 
                 {{-- Users --}}
 

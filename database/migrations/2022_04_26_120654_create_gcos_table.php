@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIcosTable extends Migration
+class CreateGcosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateIcosTable extends Migration
      */
     public function up()
     {
-        Schema::create('icos', function (Blueprint $table) {
+        Schema::create('gcos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
-            $table->double('sb', 8, 2);
-            $table->double('al', 8, 2);
-            $table->double('od', 8, 2)->nullable();
-            $table->double('oi', 8, 2)->nullable();
-            $table->double('ld', 8, 2);
+            $table->string('item');
+            $table->double('money', 8, 2);
 
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
@@ -39,6 +35,6 @@ class CreateIcosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('icos');
+        Schema::dropIfExists('gcos');
     }
 }

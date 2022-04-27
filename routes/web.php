@@ -46,6 +46,8 @@ use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\JustificationController;
 use App\Http\Controllers\Admin\CrnaController;
 use App\Http\Controllers\Admin\DgeController;
+use App\Http\Controllers\Admin\IcoController;
+use App\Http\Controllers\Admin\GcoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -533,6 +535,26 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:dges.update');
     Route::delete('dges/{dge}', [DgeController::class, 'destroy'])->name('dges.destroy')
         ->middleware('permission:dges.destroy');
+        
+    // Ingresos corrientes meses
+    Route::get('icos', [IcoController::class, 'index'])->name('icos.index')
+        ->middleware('permission:icos.index');
+    Route::post('icos/store', [IcoController::class, 'store'])->name('icos.store')
+        ->middleware('permission:icos.store');
+    Route::put('icos/{ico}', [IcoController::class, 'update'])->name('icos.update')
+        ->middleware('permission:icos.update');
+    Route::delete('icos/{ico}', [IcoController::class, 'destroy'])->name('icos.destroy')
+        ->middleware('permission:icos.destroy');
+        
+    // Gastos corrientes meses
+    Route::get('gcos', [GcoController::class, 'index'])->name('gcos.index')
+        ->middleware('permission:gcos.index');
+    Route::post('gcos/store', [GcoController::class, 'store'])->name('gcos.store')
+        ->middleware('permission:gcos.store');
+    Route::put('gcos/{gco}', [GcoController::class, 'update'])->name('gcos.update')
+        ->middleware('permission:gcos.update');
+    Route::delete('gcos/{gco}', [GcoController::class, 'destroy'])->name('gcos.destroy')
+        ->middleware('permission:gcos.destroy');
 
 
 
@@ -588,6 +610,8 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:clients.store');
     Route::get('usrevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluacion'])->name('usrevaluacions.show')
         ->middleware('permission:clients.store');
+    Route::get('usraevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluaciona'])->name('usraevaluacions.show')
+        ->middleware('permission:clients.store');
     Route::get('usrresolucions/{client}', [App\Http\Controllers\User\ClientController::class, 'resolucion'])->name('usrresolucions.show')
         ->middleware('permission:clients.store');
 
@@ -622,4 +646,9 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:sales.store');
     Route::post('messales/store', [App\Http\Controllers\User\ClientController::class, 'mes'])->name('messales.store')
         ->middleware('permission:sales.store');
+        
+    Route::post('icoclientes/store', [App\Http\Controllers\User\ClientController::class, 'ingcliente'])->name('icoclientes.store')
+        ->middleware('permission:icos.store');
+    Route::post('icoconyuges/store', [App\Http\Controllers\User\ClientController::class, 'ingconyuge'])->name('icoconyuges.store')
+        ->middleware('permission:icos.store');
 });

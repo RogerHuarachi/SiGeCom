@@ -50,6 +50,8 @@
     @include('admin.justifications.create')
     @include('admin.crnas.create')
     @include('admin.dges.create')
+    @include('admin.icos.create')
+    @include('admin.gcos.create')
     <div class="row">
         <div class="col-12">
             <div class="card collapsed-card">
@@ -1879,6 +1881,150 @@
                                     <dd class="col-md-6">{{ $client->dge->date }}</dd>
                                 </dl>
                             </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Ingresos corrientes
+                        @if (!$client->ico)
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#icoCreate"><i class="fas fa-plus"></i></button>
+                        @endif
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        @if ($client->iccliente())
+                            <div class="col">
+                                <label for="">Cliente</label>
+                                <table class="table table-sm table-light">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Mes</th>
+                                            <th>Salario Bruto</th>
+                                            <th>Aporte de ley</th>
+                                            <th>Otros descuentos</th>
+                                            <th>Otros ingresos</th>
+                                            <th>Liquido disponibre</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($client->iccliente() as $ico)
+                                            <tr>
+                                                <td>#</td>
+                                                <td>{{ $ico->sb }}</td>
+                                                <td>{{ $ico->al }}</td>
+                                                <td>{{ $ico->od }}</td>
+                                                <td>{{ $ico->oi }}</td>
+                                                <td>{{ $ico->ld }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Promedio</th>
+                                            <th>{{ $client->iccliente()->AVG('sb') }}</th>
+                                            <th>{{ $client->iccliente()->AVG('al') }}</th>
+                                            <th>{{ $client->iccliente()->AVG('od') }}</th>
+                                            <th>{{ $client->iccliente()->AVG('oi') }}</th>
+                                            <th>{{ $client->iccliente()->AVG('sb')-$client->iccliente()->AVG('al')-$client->iccliente()->AVG('od')+$client->iccliente()->AVG('oi') }}</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        @endif
+                        @if ($client->icconyuge())
+                            <div class="col">
+                                <label for="">Conyugue</label>
+                                <table class="table table-sm table-light">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Mes</th>
+                                            <th>Salario Bruto</th>
+                                            <th>Aporte de ley</th>
+                                            <th>Otros descuentos</th>
+                                            <th>Otros ingresos</th>
+                                            <th>Liquido disponibre</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($client->icconyuge() as $ico)
+                                            <tr>
+                                                <td>#</td>
+                                                <td>{{ $ico->sb }}</td>
+                                                <td>{{ $ico->al }}</td>
+                                                <td>{{ $ico->od }}</td>
+                                                <td>{{ $ico->oi }}</td>
+                                                <td>{{ $ico->ld }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Promedio</th>
+                                            <th>{{ $client->icconyuge()->AVG('sb') }}</th>
+                                            <th>{{ $client->icconyuge()->AVG('al') }}</th>
+                                            <th>{{ $client->icconyuge()->AVG('od') }}</th>
+                                            <th>{{ $client->icconyuge()->AVG('oi') }}</th>
+                                            <th>{{ $client->icconyuge()->AVG('sb')-$client->icconyuge()->AVG('al')-$client->icconyuge()->AVG('od')+$client->icconyuge()->AVG('oi') }}</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Gastos Corrintes
+                        @if (!$client->gcos)
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gcoCreate"><i class="fas fa-plus"></i></button>
+                        @endif
+                    </h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    @if ($client->gcos)
+                        <div class="row">
+                            <table class="table table-sm table-light">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Monto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->gcos as $gco)
+                                        <tr>
+                                            <td>{{ $gco->item }}</td>
+                                            <td>{{ $gco->money }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     @endif
                 </div>

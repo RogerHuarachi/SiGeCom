@@ -240,6 +240,16 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'dges.store']);
         Permission::create(['name' => 'dges.update']);
         Permission::create(['name' => 'dges.destroy']);
+        //ico list
+        Permission::create(['name' => 'icos.index']);
+        Permission::create(['name' => 'icos.store']);
+        Permission::create(['name' => 'icos.update']);
+        Permission::create(['name' => 'icos.destroy']);
+        //gco list
+        Permission::create(['name' => 'gcos.index']);
+        Permission::create(['name' => 'gcos.store']);
+        Permission::create(['name' => 'gcos.update']);
+        Permission::create(['name' => 'gcos.destroy']);
 
         // User Permission
         // Folder

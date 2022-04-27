@@ -252,6 +252,16 @@ class RolesTableSeeder extends Seeder
         	'dges.store',
         	'dges.update',
         	'dges.destroy',
+
+            'icos.index',
+        	'icos.store',
+        	'icos.update',
+        	'icos.destroy',
+
+            'gcos.index',
+        	'gcos.store',
+        	'gcos.update',
+        	'gcos.destroy',
         ]);
 
 		$EN = Role::create(['name' => 'Encargado Nacional']);
@@ -419,6 +429,14 @@ class RolesTableSeeder extends Seeder
         	'dges.store',
         	'dges.update',
         	'dges.destroy',
+			
+        	'icos.store',
+        	'icos.update',
+        	'icos.destroy',
+			
+        	'gcos.store',
+        	'gcos.update',
+        	'gcos.destroy',
 		]);
 
 		$AS = Role::create(['name' => 'Asesor']);

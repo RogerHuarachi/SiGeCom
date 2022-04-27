@@ -201,6 +201,16 @@ class Client extends Model
         return $this->hasOne(Dge::class);
     }
 
+    public function icos()
+    {
+        return $this->hasMany(Ico::class);
+    }
+
+    public function gcos()
+    {
+        return $this->hasMany(Gco::class);
+    }
+
     public function primary(){
         $primary = $this->businesses()->where('level', 'PRIMARIA')->first();
         return $primary;
@@ -210,6 +220,18 @@ class Client extends Model
     public function secondary(){
         $secondary = $this->businesses()->where('level', 'SECUNDARIA')->first();
         return $secondary;
+    }
+
+    public function iccliente(){
+        $icos = $this->icos()->where('type', 'Cliente')->get();
+        return $icos;
+
+    }
+
+    public function icconyuge(){
+        $icos = $this->icos()->where('type', 'Conyuge')->get();
+        return $icos;
+
     }
 
     public function frec(){
@@ -409,6 +431,36 @@ class Client extends Model
             $ois = $client->ois->sum('total');
             $utilidadneta = $client->utilidadneta($client->id);
             return $ois/$utilidadneta;
+        } else {
+            return 0;
+        }
+    }
+
+    public function iccl($id){
+        $client = Client::find($id);
+        if ($client->iccliente()) {
+            $res = $client->iccliente()->AVG('sb')-$client->iccliente()->AVG('al')-$client->iccliente()->AVG('od')+$client->iccliente()->AVG('oi');
+            return $res;
+        } else {
+            return 0;
+        }
+    }
+
+    public function icco($id){
+        $client = Client::find($id);
+        if ($client->icconyuge()) {
+            $res = $client->icconyuge()->AVG('sb')-$client->icconyuge()->AVG('al')-$client->icconyuge()->AVG('od')+$client->icconyuge()->AVG('oi');
+            return $res;
+        } else {
+            return 0;
+        }
+    }
+
+    public function gsi($id){
+        $client = Client::find($id);
+        if ($client->icos->count() > 0) {
+            $res = ($client->gcos->sum('money')/(($client->iccl($client->id))+($client->icco($client->id))+($client->ois->sum('total'))))*100;
+            return $res;
         } else {
             return 0;
         }

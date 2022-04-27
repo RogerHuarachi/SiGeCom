@@ -41,7 +41,7 @@
                                 <form class="p-1" action="{{ route('usrdocumentos.show', $debtor->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">R.D.</button>
                                 </form>
-                                <form class="p-1" action="{{ route('usrevaluacions.show', $debtor->id) }}" method="GET">
+                                <form class="p-1" action="{{ route('usraevaluacions.show', $debtor->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">E.A.</button>
                                 </form>
                             @endif

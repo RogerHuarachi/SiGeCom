@@ -22,8 +22,8 @@ class CreateDgesTable extends Migration
             $table->string('payment');
             $table->integer('year');
             $table->integer('month');
-            $table->integer('son');
-            $table->integer('other');
+            $table->integer('son')->nullable();
+            $table->integer('other')->nullable();
             $table->text('description');
 
             $table->unsignedBigInteger('client_id');
