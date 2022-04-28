@@ -48,6 +48,11 @@ use App\Http\Controllers\Admin\CrnaController;
 use App\Http\Controllers\Admin\DgeController;
 use App\Http\Controllers\Admin\IcoController;
 use App\Http\Controllers\Admin\GcoController;
+use App\Http\Controllers\Admin\AssignController;
+use App\Http\Controllers\Admin\ObservedController;
+use App\Http\Controllers\Admin\ApprovedController;
+use App\Http\Controllers\Admin\RejectedController;
+use App\Http\Controllers\Admin\DisbursementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -556,7 +561,55 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('gcos/{gco}', [GcoController::class, 'destroy'])->name('gcos.destroy')
         ->middleware('permission:gcos.destroy');
 
+        // Assign
+    Route::get('assigns', [AssignController::class, 'index'])->name('assigns.index')
+        ->middleware('permission:assigns.index');
+    Route::post('assigns/store', [AssignController::class, 'store'])->name('assigns.store')
+        ->middleware('permission:assigns.store');
+    Route::put('assigns/{assign}', [AssignController::class, 'update'])->name('assigns.update')
+        ->middleware('permission:assigns.update');
+    Route::delete('assigns/{assign}', [AssignController::class, 'destroy'])->name('assigns.destroy')
+        ->middleware('permission:assigns.destroy');
 
+    // Observeds
+    Route::get('observeds', [ObservedController::class, 'index'])->name('observeds.index')
+        ->middleware('permission:observeds.index');
+    Route::get('observeds/store/{folder}', [ObservedController::class, 'store'])->name('observeds.store')
+        ->middleware('permission:observeds.store');
+    Route::put('observeds/{observed}', [ObservedController::class, 'update'])->name('observeds.update')
+        ->middleware('permission:observeds.update');
+    Route::delete('observeds/{observed}', [ObservedController::class, 'destroy'])->name('observeds.destroy')
+        ->middleware('permission:observeds.destroy');
+
+    // Approveds
+    Route::get('approveds', [ApprovedController::class, 'index'])->name('approveds.index')
+        ->middleware('permission:approveds.index');
+    Route::get('approveds/store/{folder}', [ApprovedController::class, 'store'])->name('approveds.store')
+        ->middleware('permission:approveds.store');
+    Route::put('approveds/{approved}', [ApprovedController::class, 'update'])->name('approveds.update')
+        ->middleware('permission:approveds.update');
+    Route::delete('approveds/{approved}', [ApprovedController::class, 'destroy'])->name('approveds.destroy')
+        ->middleware('permission:approveds.destroy');
+
+    // Rejecteds
+    Route::get('rejecteds', [RejectedController::class, 'index'])->name('rejecteds.index')
+        ->middleware('permission:rejecteds.index');
+    Route::get('rejecteds/store/{folder}', [RejectedController::class, 'store'])->name('rejecteds.store')
+        ->middleware('permission:rejecteds.store');
+    Route::put('rejecteds/{rejected}', [RejectedController::class, 'update'])->name('rejecteds.update')
+        ->middleware('permission:rejecteds.update');
+    Route::delete('rejecteds/{rejected}', [RejectedController::class, 'destroy'])->name('rejecteds.destroy')
+        ->middleware('permission:rejecteds.destroy');
+
+    // Disbursement
+    Route::get('disbursements', [DisbursementController::class, 'index'])->name('disbursements.index')
+        ->middleware('permission:disbursements.index');
+    Route::get('disbursements/store/{folder}', [DisbursementController::class, 'store'])->name('disbursements.store')
+        ->middleware('permission:disbursements.store');
+    Route::put('disbursements/{disbursement}', [DisbursementController::class, 'update'])->name('disbursements.update')
+        ->middleware('permission:disbursements.update');
+    Route::delete('disbursements/{disbursement}', [DisbursementController::class, 'destroy'])->name('disbursements.destroy')
+        ->middleware('permission:disbursements.destroy');
 
     // User Route
 
@@ -593,6 +646,9 @@ Route::middleware(['auth'])->group(function () {
     // cliente cogarante
     Route::post('usrcogarante/store', [App\Http\Controllers\User\ClientController::class, 'cogarante'])->name('usrcogarante.store')
         ->middleware('permission:clients.store');
+    // cliente update
+    Route::put('usrclientupdate/{client}', [App\Http\Controllers\User\ClientController::class, 'update'])->name('usrclients.update')
+        ->middleware('permission:clients.update');
 
     Route::get('usrsolicitudes/{client}', [App\Http\Controllers\User\ClientController::class, 'solicitud'])->name('usrsolicitudes.show')
         ->middleware('permission:clients.store');

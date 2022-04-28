@@ -93,6 +93,61 @@
                     </li>
                 @endcan
 
+                @can('assigns.index')
+                    <li class="nav-item">
+                        <a href="{{ route('assigns.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-walking"></i>
+                            <p>
+                                Asignaciones
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('observeds.index')
+                    <li class="nav-item">
+                        <a href="{{ route('observeds.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-search"></i>
+                            <p>
+                                Observadas
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('approveds.index')
+                    <li class="nav-item">
+                        <a href="{{ route('approveds.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-check"></i>
+                            <p>
+                                Aprobadas
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('rejecteds.index')
+                    <li class="nav-item">
+                        <a href="{{ route('rejecteds.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-times"></i>
+                            <p>
+                                Rechazadas
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('disbursements.index')
+                    <li class="nav-item">
+                        <a href="{{ route('disbursements.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-money-bill"></i>
+                            <p>
+                                Desembolsadas
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+
                 @can('clients.index')
                     <li class="nav-item">
                         <a href="{{ route('clients.index') }}" class="nav-link">

@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('clients.update', $client->id) }}" method="POST">
+            <form action="{{ route('usrclients.update', $client->id) }}" method="POST">
                 {{ csrf_field() }}
                 {{ @method_field('PUT') }}
                 <div class="modal-body">

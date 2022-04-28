@@ -35,7 +35,7 @@
                         </div>
                         <div class="btn-group" role="group" aria-label="Button group">
                             @if ($debtor)
-                                <form class="p-1" action="{{ route('usrevaluacions.show', $debtor->id) }}" method="GET">
+                                <form class="p-1" action="{{ route('usraevaluacions.show', $debtor->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">E.S.G.</button>
                                 </form>
                             @endif

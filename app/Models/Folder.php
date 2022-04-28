@@ -23,6 +23,31 @@ class Folder extends Model
         return $this->hasMany(Client::class);
     }
 
+    public function disbursement()
+    {
+        return $this->hasOne(Disbursement::class);
+    }
+
+    public function approved()
+    {
+        return $this->hasOne(Approved::class);
+    }
+
+    public function observed()
+    {
+        return $this->hasOne(Observed::class);
+    }
+
+    public function rejected()
+    {
+        return $this->hasOne(Rejected::class);
+    }
+
+    public function assign()
+    {
+        return $this->hasOne(Assign::class);
+    }
+
     public function debtor(){
         $debtor = $this->clients()->where('type', 'Deudor')->first();
         return $debtor;

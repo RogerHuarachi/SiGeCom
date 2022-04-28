@@ -262,6 +262,31 @@ class RolesTableSeeder extends Seeder
         	'gcos.store',
         	'gcos.update',
         	'gcos.destroy',
+
+        	'assigns.index',
+        	'assigns.store',
+        	'assigns.update',
+        	'assigns.destroy',
+
+        	'observeds.index',
+        	'observeds.store',
+        	'observeds.update',
+        	'observeds.destroy',
+
+        	'approveds.index',
+        	'approveds.store',
+        	'approveds.update',
+        	'approveds.destroy',
+
+        	'rejecteds.index',
+        	'rejecteds.store',
+        	'rejecteds.update',
+        	'rejecteds.destroy',
+
+        	'disbursements.index',
+        	'disbursements.store',
+        	'disbursements.update',
+        	'disbursements.destroy',
         ]);
 
 		$EN = Role::create(['name' => 'Encargado Nacional']);
@@ -437,6 +462,10 @@ class RolesTableSeeder extends Seeder
         	'gcos.store',
         	'gcos.update',
         	'gcos.destroy',
+			
+        	'observeds.store',
+        	'approveds.store',
+        	'rejecteds.store',
 		]);
 
 		$AS = Role::create(['name' => 'Asesor']);

@@ -31,9 +31,6 @@
                                 <form class="p-1" action="{{ route('usrdps.show', $debtor->id) }}" method="GET">
                                     <button class="btn btn-primary btn-xs" type="submit">D.P.</button>
                                 </form>
-                                <form class="p-1" action="{{ route('usravaluos.show', $debtor->id) }}" method="GET">
-                                    <button class="btn btn-primary btn-xs" type="submit">Aval.</button>
-                                </form>
                             @endif
                         </div>
                         <div class="btn-group" role="group" aria-label="Button group">

@@ -13,7 +13,7 @@ class Client extends Model
         'type', 'name', 'lastName', 'gender', 'identification',
         'number', 'extension', 'nit', 'birth', 'age',
         'nacionality', 'dependents', 'civil', 'employment', 'mobile',
-        'landline', 'mainActivity', 'secondaryActivity', 'folder_id',
+        'landline', 'mainActivity', 'secondaryActivity', 'cp', 'folder_id',
     ];
 
     public function folder()
@@ -463,6 +463,28 @@ class Client extends Model
             return $res;
         } else {
             return 0;
+        }
+    }
+
+    public function ecp($id){
+        $client = Client::find($id);
+        if ($client->loan) {
+            $res = (((($client->iccl($client->id))+($client->icco($client->id))+($client->ois->sum('total')))*$client->cp)-($client->passives->sum('value')))-($client->loan->choose);
+            return $res;
+        } else {
+            $res = (((($client->iccl($client->id))+($client->icco($client->id))+($client->ois->sum('total')))*$client->cp)-($client->passives->sum('value')));
+            return $res;
+        }
+    }
+
+    public function eid($id){
+        $client = Client::find($id);
+        if ($client->loan) {
+            $res = (($client->iccl($client->id))+($client->icco($client->id))+($client->ois->sum('total')))-($client->gcos->sum('money'))-($client->passives->sum('value'))-($client->loan->choose);
+            return $res;
+        } else {
+            $res = (($client->iccl($client->id))+($client->icco($client->id))+($client->ois->sum('total')))-($client->gcos->sum('money'))-($client->passives->sum('value'));
+            return $res;
         }
     }
 

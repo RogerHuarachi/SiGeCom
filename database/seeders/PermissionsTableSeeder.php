@@ -250,6 +250,32 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name' => 'gcos.store']);
         Permission::create(['name' => 'gcos.update']);
         Permission::create(['name' => 'gcos.destroy']);
+        
+        //Assign list*
+        Permission::create(['name' => 'assigns.index']);
+        Permission::create(['name' => 'assigns.store']);
+        Permission::create(['name' => 'assigns.update']);
+        Permission::create(['name' => 'assigns.destroy']);
+        //Observed list*
+        Permission::create(['name' => 'observeds.index']);
+        Permission::create(['name' => 'observeds.store']);
+        Permission::create(['name' => 'observeds.update']);
+        Permission::create(['name' => 'observeds.destroy']);
+        //Approved list*
+        Permission::create(['name' => 'approveds.index']);
+        Permission::create(['name' => 'approveds.store']);
+        Permission::create(['name' => 'approveds.update']);
+        Permission::create(['name' => 'approveds.destroy']);
+        //Rejected list*
+        Permission::create(['name' => 'rejecteds.index']);
+        Permission::create(['name' => 'rejecteds.store']);
+        Permission::create(['name' => 'rejecteds.update']);
+        Permission::create(['name' => 'rejecteds.destroy']);
+        //Disbursement list*
+        Permission::create(['name' => 'disbursements.index']);
+        Permission::create(['name' => 'disbursements.store']);
+        Permission::create(['name' => 'disbursements.update']);
+        Permission::create(['name' => 'disbursements.destroy']);
 
         // User Permission
         // Folder

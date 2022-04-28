@@ -98,109 +98,109 @@
 
             <div class="card-body p-2">
                 @if ($client->iccliente())
-                            <div class="row">
-                                <label for="">Cliente</label>
-                                <table class="table table-sm table-light">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Mes</th>
-                                            <th>Salario Bruto</th>
-                                            <th>Aporte de ley</th>
-                                            <th>Otros descuentos</th>
-                                            <th>Otros ingresos</th>
-                                            <th>Liquido disponibre</th>
-                                            <th>Opc</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($client->iccliente() as $ico)
-                                            <tr>
-                                                <td>#</td>
-                                                <td>{{ $ico->sb }}</td>
-                                                <td>{{ $ico->al }}</td>
-                                                <td>{{ $ico->od }}</td>
-                                                <td>{{ $ico->oi }}</td>
-                                                <td>{{ $ico->ld }}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        @can('icos.update')
-                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#icoEdit{{ $ico->id }}"><i class="fas fa-pen"></i></button>
-                                                            @include('admin.icos.edit')
-                                                        @endcan
-                                                        @can('icos.destroy')
-                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#icoDelete{{ $ico->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                            @include('admin.icos.delete')
-                                                        @endcan
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Promedio</th>
-                                            <th>{{ $client->iccliente()->AVG('sb') }}</th>
-                                            <th>{{ $client->iccliente()->AVG('al') }}</th>
-                                            <th>{{ $client->iccliente()->AVG('od') }}</th>
-                                            <th>{{ $client->iccliente()->AVG('oi') }}</th>
-                                            <th>{{ $client->iccliente()->AVG('sb')-$client->iccliente()->AVG('al')-$client->iccliente()->AVG('od')+$client->iccliente()->AVG('oi') }}</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        @endif
-                        @if ($client->icconyuge())
-                            <div class="row">
-                                <label for="">Conyugue</label>
-                                <table class="table table-sm table-light">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Mes</th>
-                                            <th>Salario Bruto</th>
-                                            <th>Aporte de ley</th>
-                                            <th>Otros descuentos</th>
-                                            <th>Otros ingresos</th>
-                                            <th>Liquido disponibre</th>
-                                            <th>Opc</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($client->icconyuge() as $ico)
-                                            <tr>
-                                                <td>#</td>
-                                                <td>{{ $ico->sb }}</td>
-                                                <td>{{ $ico->al }}</td>
-                                                <td>{{ $ico->od }}</td>
-                                                <td>{{ $ico->oi }}</td>
-                                                <td>{{ $ico->ld }}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        @can('icos.update')
-                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#icoEdit{{ $ico->id }}"><i class="fas fa-pen"></i></button>
-                                                            @include('admin.icos.edit')
-                                                        @endcan
-                                                        @can('icos.destroy')
-                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#icoDelete{{ $ico->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                            @include('admin.icos.delete')
-                                                        @endcan
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Promedio</th>
-                                            <th>{{ $client->icconyuge()->AVG('sb') }}</th>
-                                            <th>{{ $client->icconyuge()->AVG('al') }}</th>
-                                            <th>{{ $client->icconyuge()->AVG('od') }}</th>
-                                            <th>{{ $client->icconyuge()->AVG('oi') }}</th>
-                                            <th>{{ $client->icconyuge()->AVG('sb')-$client->icconyuge()->AVG('al')-$client->icconyuge()->AVG('od')+$client->icconyuge()->AVG('oi') }}</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        @endif
+                    <div class="row">
+                        <label for="">Cliente</label>
+                        <table class="table table-sm table-light">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>Mes</th>
+                                    <th>Salario Bruto</th>
+                                    <th>Aporte de ley</th>
+                                    <th>Otros descuentos</th>
+                                    <th>Otros ingresos</th>
+                                    <th>Liquido disponibre</th>
+                                    <th>Opc</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                @foreach ($client->iccliente() as $ico)
+                                    <tr>
+                                        <td>#</td>
+                                        <td>{{ $ico->sb }}</td>
+                                        <td>{{ $ico->al }}</td>
+                                        <td>{{ $ico->od }}</td>
+                                        <td>{{ $ico->oi }}</td>
+                                        <td>{{ $ico->ld }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('icos.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#icoEdit{{ $ico->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.icos.edit')
+                                                @endcan
+                                                @can('icos.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#icoDelete{{ $ico->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.icos.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <tfoot class="text-center">
+                                <tr>
+                                    <th>Promedio</th>
+                                    <th>{{ $client->iccliente()->AVG('sb') }}</th>
+                                    <th>{{ $client->iccliente()->AVG('al') }}</th>
+                                    <th>{{ $client->iccliente()->AVG('od') }}</th>
+                                    <th>{{ $client->iccliente()->AVG('oi') }}</th>
+                                    <th>{{ $client->iccliente()->AVG('sb')-$client->iccliente()->AVG('al')-$client->iccliente()->AVG('od')+$client->iccliente()->AVG('oi') }}</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                @endif
+                @if ($client->icconyuge())
+                    <div class="row">
+                        <label for="">Conyugue</label>
+                        <table class="table table-sm table-light">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>Mes</th>
+                                    <th>Salario Bruto</th>
+                                    <th>Aporte de ley</th>
+                                    <th>Otros descuentos</th>
+                                    <th>Otros ingresos</th>
+                                    <th>Liquido disponibre</th>
+                                    <th>Opc</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                @foreach ($client->icconyuge() as $ico)
+                                    <tr>
+                                        <td>#</td>
+                                        <td>{{ $ico->sb }}</td>
+                                        <td>{{ $ico->al }}</td>
+                                        <td>{{ $ico->od }}</td>
+                                        <td>{{ $ico->oi }}</td>
+                                        <td>{{ $ico->ld }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                @can('icos.update')
+                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#icoEdit{{ $ico->id }}"><i class="fas fa-pen"></i></button>
+                                                    @include('admin.icos.edit')
+                                                @endcan
+                                                @can('icos.destroy')
+                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#icoDelete{{ $ico->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                    @include('admin.icos.delete')
+                                                @endcan
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <tfoot class="text-center">
+                                <tr>
+                                    <th>Promedio</th>
+                                    <th>{{ $client->icconyuge()->AVG('sb') }}</th>
+                                    <th>{{ $client->icconyuge()->AVG('al') }}</th>
+                                    <th>{{ $client->icconyuge()->AVG('od') }}</th>
+                                    <th>{{ $client->icconyuge()->AVG('oi') }}</th>
+                                    <th>{{ $client->icconyuge()->AVG('sb')-$client->icconyuge()->AVG('al')-$client->icconyuge()->AVG('od')+$client->icconyuge()->AVG('oi') }}</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -222,14 +222,14 @@
                 <div class="card-body p-2">
                     <div class="row">
                         <table class="table table-sm table-light">
-                            <thead class="thead-light">
+                            <thead class="text-center">
                                 <tr>
                                     <th>Item</th>
                                     <th>Monto</th>
                                     <th>Opc</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="text-center">
                                 @foreach ($client->gcos as $gco)
                                     <tr>
                                         <td>{{ $gco->item }}</td>
@@ -249,7 +249,7 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                            <tfoot>
+                            <tfoot class="text-center">
                                 <tr>
                                     <th>Total</th>
                                     <th>{{ $client->gcos->sum('money') }}</th>
@@ -405,7 +405,7 @@
             <div class="card-header bg-info p-1 pl-2 pr-2">
                 <h4 class="card-title">
                     Estado de Resultados
-                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cpEdit{{ $client->id }}"><i class="fas fa-plus"></i></button>
+                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#cpEdit{{ $client->id }}">Capacidad de pago</button>
                 </h4>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -487,19 +487,21 @@
                             <tr>
                                 <td>Cuota Proeza</td>
                                 <td class="text-right">
-                                    {{ $client->loan->choose }}
+                                    @if ($client->loan)
+                                        {{ $client->loan->choose }}
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
                                 <td>Excedente en Capacidad de Pago</td>
                                 <td class="text-right">
-                                    {{ number_format((((($client->iccl($client->id))+($client->icco($client->id))+($client->ois->sum('total')))*$client->cp)-($client->passives->sum('value')))-($client->loan->choose), 2, ',', '.') }}
+                                    {{ number_format($client->ecp($client->id), 2, ',', '.') }}
                                 </td>
                             </tr>
                             <tr class="bg-secondary">
                                 <td>Excedente Ingresos Disponibles</td>
                                 <td class="text-right">
-                                    {{ number_format((($client->iccl($client->id))+($client->icco($client->id))+($client->ois->sum('total')))-($client->gcos->sum('money'))-($client->passives->sum('value'))-($client->loan->choose), 2, ',', '.') }}
+                                    {{ number_format($client->eid($client->id), 2, ',', '.') }}
                                 </td>
                             </tr>
                         </tbody>
