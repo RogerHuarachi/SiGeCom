@@ -293,7 +293,7 @@ class RolesTableSeeder extends Seeder
 		$EN->givePermissionTo([
 		]);
 
-		$EA = Role::create(['name' => 'Encargado Agencia']);
+		$EA = Role::create(['name' => 'Encargado Sucursal']);
 		$EA->givePermissionTo([
         	'usrfolders.index',
 

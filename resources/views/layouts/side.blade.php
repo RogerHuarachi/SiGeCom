@@ -592,15 +592,137 @@
                 {{-- Users --}}
 
                 @can('usrfolders.index')
-                <li class="nav-item">
-                    <a href="{{ route('usrfolders.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-globe"></i>
-                        <p>
-                            Carpetas
-                        </p>
-                    </a>
-                </li>
-            @endcan
+                    <li class="nav-item">
+                        <a href="{{ route('usrfolders.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>
+                                Carpetas
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                
+                @hasrole('Comercial')
+                    <li class="nav-item">
+                        <a href="{{ route('assign.assign') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Asignaciones Comercial
+                            </p>
+                        </a>
+                    </li>
+                @endrole
+                @hasrole('Encargado Nacional')
+                    <li class="nav-item">
+                        <a href="{{ route('assign.assignEN') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Asignaciones Enc Nacional
+                            </p>
+                        </a>
+                    </li>
+                @endrole
+                @hasrole('Comercial|Encargado Sucursal|Encargado Nacional')
+                    <li class="nav-item">
+                        <a href="{{ route('folders.assign') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Carpetas Asignadas
+                            </p>
+                        </a>
+                    </li>
+                @endrole
+                {{-- @hasrole('Encargado Sucursal|Asesor')
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Jefes De Agencia
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        @if ( Auth::user()->id != 12)
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('folders.carla') }}" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Carla</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        @endif
+                        @if ( Auth::user()->id != 9)
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('folders.alex') }}" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Alex</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        @endif
+                        @if ( Auth::user()->id != 10)
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('folders.roxana') }}" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Roxana</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        @endif
+                        @if ( Auth::user()->id != 18)
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('folders.mariela') }}" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Mariela</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        @endif
+                        @if ( Auth::user()->id != 11)
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('folders.veronica') }}" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Veronica</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        @endif
+                    </li>
+                @endrole --}}
+                {{-- @hasrole('Encargado Sucursal|Asesor')
+                    <li class="nav-item">
+                        <a href="{{ route('folders.regist') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Carpetas Registradas
+                            </p>
+                        </a>
+                    </li>
+                @endrole --}}
+                {{-- @hasrole('Encargado Sucursal|Asesor')
+                    <li class="nav-item">
+                        <a href="{{ route('folders.comercial') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Carpetas de Comercial
+                            </p>
+                        </a>
+                    </li>
+                @endrole
+                @hasrole('Encargado Sucursal|Asesor')
+                    <li class="nav-item">
+                        <a href="{{ route('folders.nacional') }}" class="nav-link">
+                            <i class="nav-icon fas fa-folder"></i>
+                            <p>
+                                Carpetas de Nacional
+                            </p>
+                        </a>
+                    </li>
+                @endrole --}}
             </ul>
         </nav>
     </div>

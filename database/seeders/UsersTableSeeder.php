@@ -93,7 +93,7 @@ class UsersTableSeeder extends Seeder
                 'password'       => $EA['password'],
                 'agency_id'       => $EA['agency_id'],
             ]);
-            $userG->assignRole('Encargado Agencia');
+            $userG->assignRole('Encargado Sucursal');
         }
 
 

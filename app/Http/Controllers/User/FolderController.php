@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Folder;
 use App\Models\Client;
+use App\Models\User;
+use App\Models\Assign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -105,5 +107,40 @@ class FolderController extends Controller
     public function sol(Folder $folder)
     {
         return view('hojas.solicitud.show', compact('folder'));
+    }
+    
+
+    public function assignCom()
+    {        
+        $com = User::role('Comercial')->get();
+        $jn = User::role('Encargado Nacional')->get();
+        $jas = User::role('Encargado Sucursal')->get();
+        $ass = User::role('Asesor')->get();
+        $users = $com->merge( $jn->merge($jas->merge($ass)));
+        $folders = Folder::orderBy('id', 'DESC')->get();
+        $user = User::role('Comercial')->first();
+        $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.assigns.index', compact('assigns', 'users', 'folders'));
+    }
+
+    public function assignEN()
+    {        
+        $com = User::role('Comercial')->get();
+        $jn = User::role('Encargado Nacional')->get();
+        $jas = User::role('Encargado Sucursal')->get();
+        $ass = User::role('Asesor')->get();
+        $users = $com->merge( $jn->merge($jas->merge($ass)));
+        $folders = Folder::orderBy('id', 'DESC')->get();
+        $user = User::role('Encargado Nacional')->first();
+        $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.assigns.index', compact('assigns', 'users', 'folders'));
+    }
+
+    public function assign()
+    {
+        $user = Auth::user();
+        $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.assigns.index', compact('assigns'));
+        // return $user;
     }
 }

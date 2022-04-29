@@ -15,7 +15,7 @@ class AssignController extends Controller
 
         $com = User::role('Comercial')->get();
         $jn = User::role('Encargado Nacional')->get();
-        $jas = User::role('Encargado Agencia')->get();
+        $jas = User::role('Encargado Sucursal')->get();
         $ass = User::role('Asesor')->get();
         $users = $com->merge( $jn->merge($jas->merge($ass)));
         $folders = Folder::orderBy('id', 'DESC')->get();

@@ -707,4 +707,19 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:icos.store');
     Route::post('icoconyuges/store', [App\Http\Controllers\User\ClientController::class, 'ingconyuge'])->name('icoconyuges.store')
         ->middleware('permission:icos.store');
+
+
+        
+    // Assigns
+    Route::get('assignsAssign', [App\Http\Controllers\User\FolderController::class, 'assignCom'])->name('assign.assign');
+        // ->middleware('permission:folders.index');
+
+    // Assigns
+    Route::get('assignsAssignEN', [App\Http\Controllers\User\FolderController::class, 'assignEN'])->name('assign.assignEN');
+    // ->middleware('permission:folders.index');
+
+    Route::get('foldersAssign', [App\Http\Controllers\User\FolderController::class, 'assign'])->name('folders.assign');
+    // ->middleware('permission:folders.index');
+
+
 });
