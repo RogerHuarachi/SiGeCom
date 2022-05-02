@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Folder;
 use App\Models\Observed;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ObservedController extends Controller
@@ -19,7 +21,7 @@ class ObservedController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store($id)
     {
         $folder = Folder::where('id','=', $id)->firstOrFail();
 

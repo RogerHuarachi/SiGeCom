@@ -59,7 +59,7 @@ class FolderController extends Controller
     public function deudor(Request $request)
     {
         $folder = new Folder();
-        $folder->user_id = Auth::user()->id;;
+        $folder->user_id = Auth::user()->id;
         $folder->save();
 
         $now = Carbon::now();
@@ -108,39 +108,71 @@ class FolderController extends Controller
     {
         return view('hojas.solicitud.show', compact('folder'));
     }
-    
 
-    public function assignCom()
-    {        
-        $com = User::role('Comercial')->get();
-        $jn = User::role('Encargado Nacional')->get();
-        $jas = User::role('Encargado Sucursal')->get();
-        $ass = User::role('Asesor')->get();
-        $users = $com->merge( $jn->merge($jas->merge($ass)));
-        $folders = Folder::orderBy('id', 'DESC')->get();
-        $user = User::role('Comercial')->first();
-        $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
-        return view('user.assigns.index', compact('assigns', 'users', 'folders'));
-    }
-
-    public function assignEN()
-    {        
-        $com = User::role('Comercial')->get();
-        $jn = User::role('Encargado Nacional')->get();
-        $jas = User::role('Encargado Sucursal')->get();
-        $ass = User::role('Asesor')->get();
-        $users = $com->merge( $jn->merge($jas->merge($ass)));
-        $folders = Folder::orderBy('id', 'DESC')->get();
-        $user = User::role('Encargado Nacional')->first();
-        $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
-        return view('user.assigns.index', compact('assigns', 'users', 'folders'));
-    }
 
     public function assign()
     {
+        $com = User::role('Comercial')->get();
+        $jn = User::role('Encargado Nacional')->get();
+        $jas = User::role('Encargado Sucursal')->get();
+        $ass = User::role('Asesor')->get();
+        $users = $com->merge( $jn->merge($jas->merge($ass)));
         $user = Auth::user();
         $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
-        return view('user.folders.assigns.index', compact('assigns'));
-        // return $user;
+        return view('user.assigns.index', compact('assigns', 'users'));
+        // return $assigns;
+    }
+
+    public function carla()
+    {
+        $assigns = Assign::where('user_id', 6)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.encargados.carla', compact('assigns'));
+        // return $assigns;
+    }
+    public function alex()
+    {
+        $assigns = Assign::where('user_id', 7)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.encargados.alex', compact('assigns'));
+        // return $assigns;
+    }
+    public function roxana()
+    {
+        $assigns = Assign::where('user_id', 8)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.encargados.roxana', compact('assigns'));
+        // return $assigns;
+    }
+    public function mariela()
+    {
+        $assigns = Assign::where('user_id', 9)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.encargados.mariela', compact('assigns'));
+        // return $assigns;
+    }
+    public function veronica()
+    {
+        $assigns = Assign::where('user_id', 10)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.encargados.veronica', compact('assigns'));
+        // return $assigns;
+    }
+
+    //CArpetas registradas
+    public function regist()
+    {
+        $user = Auth::user();
+        $folders = Folder::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.registrados.index', compact('folders'));
+    }
+
+    public function comercial()
+    {
+        $user = User::role('Comercial')->first();
+        $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.reviews.index', compact('assigns'));
+    }
+
+    public function nacional()
+    {
+        $user = User::role('Encargado Nacional')->first();
+        $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.reviews.index', compact('assigns'));
     }
 }

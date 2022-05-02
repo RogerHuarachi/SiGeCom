@@ -17,6 +17,7 @@ class CreateAgenciesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('codigo');
+            $table->integer('autonomy');
 
             $table->unsignedBigInteger('city_id');
 

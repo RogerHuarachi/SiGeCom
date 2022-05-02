@@ -5,8 +5,11 @@
     </div>
 @endsection
 @section('content')
-    @include('admin.assets.create')
-    @include('admin.passives.create')
+    @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+        @include('admin.assets.create')
+        @include('admin.passives.create')
+    @endif
+
     <div class="row">
         <h5 class="p-1">Patrimonio Neto: {{ $client->assets->sum('value') - $client->passives->sum('balace') }}</h5>
     </div>
@@ -16,7 +19,11 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Activos
-                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#assetCreate"><i class="fas fa-plus"></i></button>
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#assetCreate">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        @endif
                     </h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -34,7 +41,9 @@
                                         <th>Tipo de Bien</th>
                                         <th>En Garantia</th>
                                         <th>Valor</th>
-                                        <th>Opc</th>
+                                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                                            <th>Opc</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,18 +52,20 @@
                                             <td>{{ $asset->type }}</td>
                                             <td>{{ $asset->warranty }}</td>
                                             <td>{{ $asset->value }}</td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    @can('assets.update')
-                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#assetEdit{{ $asset->id }}"><i class="fas fa-pen"></i></button>
-                                                        @include('admin.assets.edit')
-                                                    @endcan
-                                                    @can('assets.destroy')
-                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#assetDelete{{ $asset->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                        @include('admin.assets.delete')
-                                                    @endcan
-                                                </div>
-                                            </td>
+                                            @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                                                <td>
+                                                    <div class="btn-group">
+                                                        @can('assets.update')
+                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#assetEdit{{ $asset->id }}"><i class="fas fa-pen"></i></button>
+                                                            @include('admin.assets.edit')
+                                                        @endcan
+                                                        @can('assets.destroy')
+                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#assetDelete{{ $asset->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                            @include('admin.assets.delete')
+                                                        @endcan
+                                                    </div>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -76,7 +87,11 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Pasivos
-                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#passiveCreate"><i class="fas fa-plus"></i></button>
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#passiveCreate">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        @endif
                     </h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -95,7 +110,9 @@
                                         <th>Cuota Mensual</th>
                                         <th>Saldo Deudor</th>
                                         <th>Estado</th>
-                                        <th>Opc</th>
+                                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                                            <th>Opc</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -105,18 +122,20 @@
                                             <td>{{ $passive->share }}</td>
                                             <td>{{ $passive->balace }}</td>
                                             <td>{{ $passive->state }}</td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    @can('passives.update')
-                                                        <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#passiveEdit{{ $passive->id }}"><i class="fas fa-pen"></i></button>
-                                                        @include('admin.passives.edit')
-                                                    @endcan
-                                                    @can('passives.destroy')
-                                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#passiveDelete{{ $passive->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                        @include('admin.passives.delete')
-                                                    @endcan
-                                                </div>
-                                            </td>
+                                            @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                                                <td>
+                                                    <div class="btn-group">
+                                                        @can('passives.update')
+                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#passiveEdit{{ $passive->id }}"><i class="fas fa-pen"></i></button>
+                                                            @include('admin.passives.edit')
+                                                        @endcan
+                                                        @can('passives.destroy')
+                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#passiveDelete{{ $passive->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                            @include('admin.passives.delete')
+                                                        @endcan
+                                                    </div>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>

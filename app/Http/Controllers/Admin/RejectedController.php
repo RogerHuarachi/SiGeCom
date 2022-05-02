@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Folder;
 use App\Models\Rejected;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RejectedController extends Controller
@@ -19,7 +21,7 @@ class RejectedController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store($id)
     {
         $folder = Folder::where('id','=', $id)->firstOrFail();
 
@@ -28,6 +30,10 @@ class RejectedController extends Controller
         } elseif ($folder->rejected) {
             return back()->with('validation','Carpeta ya Rechazada');
         } else {
+
+            $folder->state = true;
+            $folder->save();
+
             $user = Auth::user();
 
             $rejected = new Rejected();
@@ -56,6 +62,10 @@ class RejectedController extends Controller
 
     public function destroy(Rejected $rejected)
     {
+        $folder = $approved->folder;
+        $folder->state = false;
+        $folder->save();
+
         $rejected->delete();
         return back()->with('confirmation','Eliminado Correctamente');
     }

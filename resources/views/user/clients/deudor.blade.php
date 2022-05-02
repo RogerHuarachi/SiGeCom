@@ -1,4 +1,4 @@
-<div class="modal fade text-dark" id="deudorCreate">
+ <div class="modal fade text-dark" id="deudorCreate">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">

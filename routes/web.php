@@ -540,7 +540,7 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:dges.update');
     Route::delete('dges/{dge}', [DgeController::class, 'destroy'])->name('dges.destroy')
         ->middleware('permission:dges.destroy');
-        
+
     // Ingresos corrientes meses
     Route::get('icos', [IcoController::class, 'index'])->name('icos.index')
         ->middleware('permission:icos.index');
@@ -550,7 +550,7 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:icos.update');
     Route::delete('icos/{ico}', [IcoController::class, 'destroy'])->name('icos.destroy')
         ->middleware('permission:icos.destroy');
-        
+
     // Gastos corrientes meses
     Route::get('gcos', [GcoController::class, 'index'])->name('gcos.index')
         ->middleware('permission:gcos.index');
@@ -618,21 +618,26 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:usrfolders.index');
     Route::post('usrfolders/store', [App\Http\Controllers\User\FolderController::class, 'store'])->name('usrfolders.store')
         ->middleware('permission:folders.store');
-    Route::get('usrfolders/{folder}', [App\Http\Controllers\User\FolderController::class, 'show'])->name('usrfolders.show')
-        ->middleware('permission:usrfolders.index');
+    Route::get('usrfolders/{folder}', [App\Http\Controllers\User\FolderController::class, 'show'])->name('usrfolders.show');
+        // ->middleware('permission:usrfolders.index');
+
+
+    // Assign
+    Route::get('usrassigns/store/{folder}', [App\Http\Controllers\User\AssignController::class, 'store'])->name('usrassigns.store')
+    ->middleware('permission:usrfolders.index');
 
     // INDEPENDIENTE
-    Route::get('usrfoldersI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indep'])->name('usrfoldersI.indep')
-        ->middleware('permission:usrfolders.index');
+    Route::get('usrfoldersI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indep'])->name('usrfoldersI.indep');
+        // ->middleware('permission:usrfolders.index');
     // ASALARIADOS FORMALES E INFORMALES
-    Route::get('usrfoldersAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asal'])->name('usrfoldersAFI.asal')
-        ->middleware('permission:usrfolders.index');
+    Route::get('usrfoldersAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asal'])->name('usrfoldersAFI.asal');
+        // ->middleware('permission:usrfolders.index');
     // GARANTES INDEPENDIENTE
-    Route::get('usrfoldersGI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indepG'])->name('usrfoldersGI.indepG')
-        ->middleware('permission:usrfolders.index');
+    Route::get('usrfoldersGI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indepG'])->name('usrfoldersGI.indepG');
+        // ->middleware('permission:usrfolders.index');
     // GARANTES ASALARIADOS FORMALES E INFORMALES
-    Route::get('usrfoldersGAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asalG'])->name('usrfoldersGAFI.asalG')
-        ->middleware('permission:usrfolders.index');
+    Route::get('usrfoldersGAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asalG'])->name('usrfoldersGAFI.asalG');
+        // ->middleware('permission:usrfolders.index');
 
     // cliente deudor
     Route::post('usrdeudor/store', [App\Http\Controllers\User\ClientController::class, 'deudor'])->name('usrdeudor.store')
@@ -650,26 +655,26 @@ Route::middleware(['auth'])->group(function () {
     Route::put('usrclientupdate/{client}', [App\Http\Controllers\User\ClientController::class, 'update'])->name('usrclients.update')
         ->middleware('permission:clients.update');
 
-    Route::get('usrsolicitudes/{client}', [App\Http\Controllers\User\ClientController::class, 'solicitud'])->name('usrsolicitudes.show')
-        ->middleware('permission:clients.store');
-    Route::get('usrcroquis/{client}', [App\Http\Controllers\User\ClientController::class, 'croqui'])->name('usrcroquis.show')
-        ->middleware('permission:clients.store');
-    Route::get('usrdps/{client}', [App\Http\Controllers\User\ClientController::class, 'dp'])->name('usrdps.show')
-        ->middleware('permission:clients.store');
-    Route::get('usravaluos/{client}', [App\Http\Controllers\User\ClientController::class, 'avaluo'])->name('usravaluos.show')
-        ->middleware('permission:clients.store');
-    Route::get('usrhcs/{client}', [App\Http\Controllers\User\ClientController::class, 'hc'])->name('usrhcs.show')
-        ->middleware('permission:clients.store');
-    Route::get('usrinventarios/{client}', [App\Http\Controllers\User\ClientController::class, 'inventario'])->name('usrinventarios.show')
-        ->middleware('permission:clients.store');
-    Route::get('usrdocumentos/{client}', [App\Http\Controllers\User\ClientController::class, 'documento'])->name('usrdocumentos.show')
-        ->middleware('permission:clients.store');
-    Route::get('usrevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluacion'])->name('usrevaluacions.show')
-        ->middleware('permission:clients.store');
-    Route::get('usraevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluaciona'])->name('usraevaluacions.show')
-        ->middleware('permission:clients.store');
-    Route::get('usrresolucions/{client}', [App\Http\Controllers\User\ClientController::class, 'resolucion'])->name('usrresolucions.show')
-        ->middleware('permission:clients.store');
+    Route::get('usrsolicitudes/{client}', [App\Http\Controllers\User\ClientController::class, 'solicitud'])->name('usrsolicitudes.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usrcroquis/{client}', [App\Http\Controllers\User\ClientController::class, 'croqui'])->name('usrcroquis.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usrdps/{client}', [App\Http\Controllers\User\ClientController::class, 'dp'])->name('usrdps.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usravaluos/{client}', [App\Http\Controllers\User\ClientController::class, 'avaluo'])->name('usravaluos.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usrhcs/{client}', [App\Http\Controllers\User\ClientController::class, 'hc'])->name('usrhcs.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usrinventarios/{client}', [App\Http\Controllers\User\ClientController::class, 'inventario'])->name('usrinventarios.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usrdocumentos/{client}', [App\Http\Controllers\User\ClientController::class, 'documento'])->name('usrdocumentos.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usrevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluacion'])->name('usrevaluacions.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usraevaluacions/{client}', [App\Http\Controllers\User\ClientController::class, 'evaluaciona'])->name('usraevaluacions.show');
+        // ->middleware('permission:clients.store');
+    Route::get('usrresolucions/{client}', [App\Http\Controllers\User\ClientController::class, 'resolucion'])->name('usrresolucions.show');
+        // ->middleware('permission:clients.store');
 
 
     Route::get('usrconyegue/{client}', [App\Http\Controllers\User\ClientController::class, 'conyegue'])->name('usrconyegue.show')
@@ -702,23 +707,42 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('permission:sales.store');
     Route::post('messales/store', [App\Http\Controllers\User\ClientController::class, 'mes'])->name('messales.store')
         ->middleware('permission:sales.store');
-        
+
     Route::post('icoclientes/store', [App\Http\Controllers\User\ClientController::class, 'ingcliente'])->name('icoclientes.store')
         ->middleware('permission:icos.store');
     Route::post('icoconyuges/store', [App\Http\Controllers\User\ClientController::class, 'ingconyuge'])->name('icoconyuges.store')
         ->middleware('permission:icos.store');
 
 
-        
+
     // Assigns
-    Route::get('assignsAssign', [App\Http\Controllers\User\FolderController::class, 'assignCom'])->name('assign.assign');
+    Route::get('folder/usrAssign', [App\Http\Controllers\User\FolderController::class, 'assign'])->name('folder.assign');
         // ->middleware('permission:folders.index');
 
-    // Assigns
-    Route::get('assignsAssignEN', [App\Http\Controllers\User\FolderController::class, 'assignEN'])->name('assign.assignEN');
+
+    //folders EA
+    //Carla
+    Route::get('foldersCarla', [App\Http\Controllers\User\FolderController::class, 'carla'])->name('folders.carla');
+    // ->middleware('permission:folders.index');
+    // alex
+    Route::get('foldersAlex', [App\Http\Controllers\User\FolderController::class, 'alex'])->name('folders.alex');
+    // ->middleware('permission:folders.index');
+    // roxana
+    Route::get('foldersRoxana', [App\Http\Controllers\User\FolderController::class, 'roxana'])->name('folders.roxana');
+    // ->middleware('permission:folders.index');
+    // Mariela
+    Route::get('foldersMariela', [App\Http\Controllers\User\FolderController::class, 'mariela'])->name('folders.mariela');
+    // ->middleware('permission:folders.index');
+    // Vero
+    Route::get('foldersVeronica', [App\Http\Controllers\User\FolderController::class, 'veronica'])->name('folders.veronica');
     // ->middleware('permission:folders.index');
 
-    Route::get('foldersAssign', [App\Http\Controllers\User\FolderController::class, 'assign'])->name('folders.assign');
+    // Folders
+    Route::get('foldersRegistrados', [App\Http\Controllers\User\FolderController::class, 'regist'])->name('folders.regist');
+    // ->middleware('permission:folders.index');
+    Route::get('foldersComercial', [App\Http\Controllers\User\FolderController::class, 'comercial'])->name('folders.comercial');
+    // ->middleware('permission:folders.index');
+    Route::get('foldersNacional', [App\Http\Controllers\User\FolderController::class, 'nacional'])->name('folders.nacional');
     // ->middleware('permission:folders.index');
 
 

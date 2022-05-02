@@ -5,8 +5,10 @@
     </div>
 @endsection
 @section('content')
-    @include('admin.residences.create')
-    @include('admin.jobs.create')
+    @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+        @include('admin.residences.create')
+        @include('admin.jobs.create')
+    @endif
 
     <div class="row">
         <div class="col-md-12">
@@ -14,13 +16,18 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Croquis de Domicilio
-                        @if (!$residence)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal"
-                            data-target="#residenceCreate"><i class="fas fa-plus"></i></button>
-                        @endif
-                        @if ($residence)
-                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#residenceEdit{{ $residence->id }}"><i class="fas fa-pen"></i></button>
-                            @include('admin.residences.edit')
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$residence)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#residenceCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
+                            @if ($residence)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#residenceEdit{{ $residence->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('admin.residences.edit')
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">
@@ -72,12 +79,18 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Croquis de Negocio
-                        @if (!$job)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#jobCreate"><i class="fas fa-plus"></i></button>
-                        @endif
-                        @if ($job)
-                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#jobEdit{{ $job->id }}"><i class="fas fa-pen"></i></button>
-                            @include('admin.jobs.edit')
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$job)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#jobCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
+                            @if ($job)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#jobEdit{{ $job->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('admin.jobs.edit')
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">

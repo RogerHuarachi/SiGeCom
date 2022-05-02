@@ -102,8 +102,12 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         Referencia Personal
-                        @if (!$client->personal)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#personalCreate"><i class="fas fa-plus"></i></button>
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$client->personal)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#personalCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">
@@ -143,8 +147,12 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         Referencia Comercial
-                        @if (!$client->commercial)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#commercialCreate"><i class="fas fa-plus"></i></button>
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$client->commercial)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#commercialCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">

@@ -20,10 +20,15 @@ class RolesTableSeeder extends Seeder
 
 		$DEC = Role::create(['name' => 'Comercial']);
 		$DEC->givePermissionTo([
+        	'assigns.update',
+        	'observeds.store',
+        	'approveds.store',
+        	'rejecteds.store',
 		]);
 
 		$OP = Role::create(['name' => 'Operaciones']);
 		$OP->givePermissionTo([
+        	'disbursements.store',
         ]);
 
 		$TID = Role::create(['name' => 'TID']);
@@ -291,6 +296,9 @@ class RolesTableSeeder extends Seeder
 
 		$EN = Role::create(['name' => 'Encargado Nacional']);
 		$EN->givePermissionTo([
+            'observeds.store',
+            'approveds.store',
+            'rejecteds.store'
 		]);
 
 		$EA = Role::create(['name' => 'Encargado Sucursal']);
@@ -298,6 +306,10 @@ class RolesTableSeeder extends Seeder
         	'usrfolders.index',
 
         	'folders.store',
+
+        	'observeds.store',
+        	'approveds.store',
+        	'rejecteds.store',
 
         	'clients.store',
         	'clients.update',
@@ -438,7 +450,7 @@ class RolesTableSeeder extends Seeder
         	'ddgs.store',
         	'ddgs.update',
         	'ddgs.destroy',
-			
+
         	'members.store',
         	'members.update',
         	'members.destroy',
@@ -446,23 +458,23 @@ class RolesTableSeeder extends Seeder
         	'justifications.store',
         	'justifications.update',
         	'justifications.destroy',
-			
+
         	'crnas.store',
         	'crnas.update',
         	'crnas.destroy',
-			
+
         	'dges.store',
         	'dges.update',
         	'dges.destroy',
-			
+
         	'icos.store',
         	'icos.update',
         	'icos.destroy',
-			
+
         	'gcos.store',
         	'gcos.update',
         	'gcos.destroy',
-			
+
         	'observeds.store',
         	'approveds.store',
         	'rejecteds.store',
@@ -470,6 +482,7 @@ class RolesTableSeeder extends Seeder
 
 		$AS = Role::create(['name' => 'Asesor']);
 		$AS->givePermissionTo([
+        	'folders.store',
         	'usrfolders.index',
 		]);
 

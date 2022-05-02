@@ -18,9 +18,8 @@ class AssignController extends Controller
         $jas = User::role('Encargado Sucursal')->get();
         $ass = User::role('Asesor')->get();
         $users = $com->merge( $jn->merge($jas->merge($ass)));
-        $folders = Folder::orderBy('id', 'DESC')->get();
         $assigns = Assign::orderBy('id', 'DESC')->paginate(10);
-        return view('admin.assigns.index', compact('assigns', 'users', 'folders'));
+        return view('admin.assigns.index', compact('assigns', 'users'));
         // return $folders;
     }
 

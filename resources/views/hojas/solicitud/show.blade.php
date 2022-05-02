@@ -6,12 +6,13 @@
 @endsection
 @section('content')
 
-    @include('option.confirmation')
-    @include('admin.personals.create')
-    @include('admin.commercials.create')
-    @include('admin.businesses.create')
-    @include('admin.loans.create')
-
+    @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+        @include('option.confirmation')
+        @include('admin.personals.create')
+        @include('admin.commercials.create')
+        @include('admin.businesses.create')
+        @include('admin.loans.create')
+    @endif
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -103,12 +104,18 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Referencia Personal
-                        @if (!$personal)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#personalCreate"><i class="fas fa-plus"></i></button>
-                        @endif
-                        @if ($personal)
-                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#personalEdit{{ $personal->id }}"><i class="fas fa-pen"></i></button>
-                            @include('admin.personals.edit')
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$personal)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#personalCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
+                            @if ($personal)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#personalEdit{{ $personal->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('admin.personals.edit')
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">
@@ -146,12 +153,18 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Referencia Comercial
-                        @if (!$client->commercial)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#commercialCreate"><i class="fas fa-plus"></i></button>
-                        @endif
-                        @if ($client->commercial)
-                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#commercialEdit{{ $commercial->id }}"><i class="fas fa-pen"></i></button>
-                            @include('admin.commercials.edit')
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$client->commercial)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#commercialCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
+                            @if ($client->commercial)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#commercialEdit{{ $commercial->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('admin.commercials.edit')
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">
@@ -192,12 +205,18 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Actividad Primaria
-                        @if (!$primary)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#businessCreate"><i class="fas fa-plus"></i></button>
-                        @endif
-                        @if ($primary)
-                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#businessEdit{{ $primary->id }}"><i class="fas fa-pen"></i></button>
-                            @include('user.primary.edit')
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$primary)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#businessCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
+                            @if ($primary)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#businessEdit{{ $primary->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('user.primary.edit')
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">
@@ -238,12 +257,18 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Actividad Secundaria
-                        @if (!$secondary)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#businessCreate"><i class="fas fa-plus"></i></button>
-                        @endif
-                        @if ($secondary)
-                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#businessEdit{{ $secondary->id }}"><i class="fas fa-pen"></i></button>
-                            @include('user.secondary.edit')
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$secondary)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#businessCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
+                            @if ($secondary)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#businessEdit{{ $secondary->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('user.secondary.edit')
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">
@@ -286,12 +311,18 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Datos del Prestamo
-                        @if (!$loan)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#loanCreate"><i class="fas fa-plus"></i></button>
-                        @endif
-                        @if ($loan)
-                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#loanEdit{{ $loan->id }}"><i class="fas fa-pen"></i></button>
-                            @include('admin.loans.edit')
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if (!$loan)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#loanCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
+                            @if ($loan)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#loanEdit{{ $loan->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('admin.loans.edit')
+                            @endif
                         @endif
                     </h3>
                     <div class="card-tools">

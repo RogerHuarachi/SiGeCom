@@ -31,12 +31,8 @@
                                     <label>Carpeta</label>
                                     <div class="select2-primary">
                                       <select class="select2" data-placeholder="Select a State" data-dropdown-css-class="select2-primary" style="width: 100%;" name="folder_id" required>
-                                        @foreach ($folders as $folder)
-                                            <option value="{{ $folder->id }}">{{ $folder->id }}
-                                            @if ($folder->debtor())
-                                                {{ $folder->debtor()->name }}
-                                            @endif
-                                            </option>
+                                        @foreach ($assigns as $assign)
+                                            <option value="{{ $assign->folder->id }}">{{ $assign->folder->debtor()->name }}</option>
                                         @endforeach
                                       </select>
                                     </div>

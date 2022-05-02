@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('title')
     <div class="row">
@@ -9,8 +10,11 @@
     <li class="breadcrumb-item">Capeta</li>
 @endsection
 @section('content')
-@include('user.clients.deudor')
-@include('user.clients.codeudor')
+    @if (Auth::user()->id ==  $debtor->folder->user->id && ! $debtor->folder->state)
+        @include('user.clients.deudor')
+        @include('user.clients.codeudor')
+    @endif
+
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -18,8 +22,10 @@
                     <h3 class="card-title">
                         Datos del solicitante
                         <div class="btn-group" role="group" aria-label="Button group">
-                            @if (!$debtor)
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#deudorCreate"><i class="fas fa-plus"></i></button>
+                            @if (Auth::user()->id ==  $debtor->folder->user->id && ! $debtor->folder->state)
+                                @if (!$debtor)
+                                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#deudorCreate"><i class="fas fa-plus"></i></button>
+                                @endif
                             @endif
                             @if ($debtor)
                                 <form class="p-1" action="{{ route('usrsolicitudes.show', $debtor->id) }}" method="GET">
@@ -147,8 +153,10 @@
                     <h3 class="card-title">
                         Datos del conyegue y/o codeudor
                         <div class="btn-group" role="group" aria-label="Button group">
-                            @if (!$codebtor)
-                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#codeudorCreate"><i class="fas fa-plus"></i></button>
+                            @if (Auth::user()->id ==  $debtor->folder->user->id && ! $debtor->folder->state)
+                                @if (!$codebtor)
+                                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#codeudorCreate"><i class="fas fa-plus"></i></button>
+                                @endif
                             @endif
                             @if ($codebtor)
                                 <form class="p-1" action="{{ route('usrconyegue.show', $codebtor->id) }}" method="GET">
