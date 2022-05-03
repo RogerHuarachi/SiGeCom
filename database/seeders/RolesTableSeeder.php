@@ -482,8 +482,176 @@ class RolesTableSeeder extends Seeder
 
 		$AS = Role::create(['name' => 'Asesor']);
 		$AS->givePermissionTo([
+
         	'folders.store',
-        	'usrfolders.index',
+
+        	'observeds.store',
+        	'approveds.store',
+        	'rejecteds.store',
+
+        	'clients.store',
+        	'clients.update',
+
+
+        	'personals.store',
+        	'personals.update',
+        	'personals.destroy',
+
+        	'commercials.store',
+        	'commercials.update',
+        	'commercials.destroy',
+
+        	'caedecs.store',
+        	'caedecs.update',
+        	'caedecs.destroy',
+
+        	'businesses.store',
+        	'businesses.update',
+        	'businesses.destroy',
+
+        	'loans.store',
+        	'loans.update',
+        	'loans.destroy',
+
+        	'assets.store',
+        	'assets.update',
+        	'assets.destroy',
+
+        	'passives.store',
+        	'passives.update',
+        	'passives.destroy',
+
+        	'residences.store',
+        	'residences.update',
+        	'residences.destroy',
+
+        	'jobs.store',
+        	'jobs.update',
+        	'jobs.destroy',
+
+        	'works.store',
+        	'works.update',
+        	'works.destroy',
+
+        	'families.store',
+        	'families.update',
+        	'families.destroy',
+
+        	'products.store',
+        	'products.update',
+        	'products.destroy',
+
+        	'items.store',
+        	'items.update',
+        	'items.destroy',
+
+        	'inventories.store',
+        	'inventories.update',
+        	'inventories.destroy',
+
+        	'documents.store',
+        	'documents.update',
+        	'documents.destroy',
+
+        	'children.store',
+        	'children.update',
+        	'children.destroy',
+
+        	'payments.store',
+        	'payments.update',
+        	'payments.destroy',
+
+        	'debts.store',
+        	'debts.update',
+        	'debts.destroy',
+
+        	'sales.store',
+        	'sales.update',
+        	'sales.destroy',
+
+        	'mubs.store',
+        	'mubs.update',
+        	'mubs.destroy',
+
+        	'cmubs.store',
+        	'cmubs.update',
+        	'cmubs.destroy',
+
+        	'gmvs.store',
+        	'gmvs.update',
+        	'gmvs.destroy',
+
+        	'ppsifs.store',
+        	'ppsifs.update',
+        	'ppsifs.destroy',
+
+        	'gfos.store',
+        	'gfos.update',
+        	'gfos.destroy',
+
+        	'gfs.store',
+        	'gfs.update',
+        	'gfs.destroy',
+
+        	'cdgs.store',
+        	'cdgs.update',
+        	'cdgs.destroy',
+
+        	'ois.store',
+        	'ois.update',
+        	'ois.destroy',
+
+        	'acns.store',
+        	'acns.update',
+        	'acns.destroy',
+
+        	'afns.store',
+        	'afns.update',
+        	'afns.destroy',
+
+        	'oans.store',
+        	'oans.update',
+        	'oans.destroy',
+
+        	'afs.store',
+        	'afs.update',
+        	'afs.destroy',
+
+        	'oafs.store',
+        	'oafs.update',
+        	'oafs.destroy',
+
+        	'cbals.store',
+        	'cbals.update',
+        	'cbals.destroy',
+
+        	'ddgs.store',
+        	'ddgs.update',
+        	'ddgs.destroy',
+
+        	'members.store',
+        	'members.update',
+        	'members.destroy',
+
+        	'justifications.store',
+        	'justifications.update',
+        	'justifications.destroy',
+
+        	'crnas.store',
+        	'crnas.update',
+        	'crnas.destroy',
+
+        	'dges.store',
+        	'dges.update',
+        	'dges.destroy',
+
+        	'icos.store',
+        	'icos.update',
+        	'icos.destroy',
+
+        	'gcos.store',
+        	'gcos.update',
+        	'gcos.destroy',
 		]);
 
 		$PAS = Role::create(['name' => 'Pasante']);

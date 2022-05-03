@@ -9,7 +9,7 @@
     <li class="breadcrumb-item">Capeta</li>
 @endsection
 @section('content')
-    @if (Auth::user()->id ==  $debtor->folder->user->id && ! $debtor->folder->state)
+    @if (Auth::user()->id ==  $folder->user->id && ! $folder->state)
         @include('user.clients.garante')
         @include('user.clients.cogarante')
     @endif
@@ -20,7 +20,7 @@
                     <h3 class="card-title">
                         Datos del solicitante
                         <div class="btn-group" role="group" aria-label="Button group">
-                            @if (Auth::user()->id ==  $debtor->folder->user->id && ! $debtor->folder->state)
+                            @if (Auth::user()->id ==  $folder->user->id && ! $folder->state)
                                 @if (!$debtor)
                                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#deudorCreate"><i class="fas fa-plus"></i></button>
                                 @endif
@@ -138,7 +138,7 @@
                     <h3 class="card-title">
                         Datos del conyegue y/o codeudor
                         <div class="btn-group" role="group" aria-label="Button group">
-                            @if (Auth::user()->id ==  $debtor->folder->user->id && ! $debtor->folder->state)
+                            @if (Auth::user()->id ==  $folder->user->id && ! $folder->state)
                                 @if (!$codebtor)
                                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#codeudorCreate"><i class="fas fa-plus"></i></button>
                                 @endif
