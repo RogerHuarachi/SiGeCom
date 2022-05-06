@@ -307,7 +307,7 @@
 
                 <div class="card-body p-2">
                     @if ($client->mubs)
-                        <div class="row">
+                        <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead class="text-center">
                                     <tr>

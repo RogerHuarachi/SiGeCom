@@ -2,6 +2,13 @@
 @section('title')
     <div class="row">
         <h1 class="m-0 pr-1">Solicitud de Préstamo</h1>
+        {{-- @can('agencies.store') --}}
+            <ol class="breadcrumb float-sm-right pl-1">
+                <form class="p-1" action="{{ route('print.solicitud', $client->id) }}" method="GET">
+                    <button class="btn btn-primary btn-xs" type="submit"><i class="fa fa-print" aria-hidden="true"></i></button>
+                </form>
+            </ol>
+        {{-- @endcan --}}
     </div>
 @endsection
 @section('content')

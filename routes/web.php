@@ -745,5 +745,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('foldersNacional', [App\Http\Controllers\User\FolderController::class, 'nacional'])->name('folders.nacional');
     // ->middleware('permission:folders.index');
 
-
+    // print
+    Route::get('solprint/{client}', [App\Http\Controllers\User\PrintController::class, 'solprint'])->name('print.solicitud');
 });
