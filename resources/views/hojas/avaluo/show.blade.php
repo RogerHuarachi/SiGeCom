@@ -32,7 +32,7 @@
 
                 @if ($client->mueble())
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
                                     <tr>
@@ -106,7 +106,7 @@
 
                 @if ($client->maquinaria())
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
                                     <tr>
@@ -182,7 +182,7 @@
 
                 @if ($client->mercaderia())
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
                                     <tr>
@@ -256,7 +256,7 @@
 
                 @if ($client->families)
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
                                     <tr>

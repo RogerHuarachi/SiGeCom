@@ -879,7 +879,7 @@
 
                         @if ($client->ois)
                             <div class="card-body p-2">
-                                <div class="row">
+                                <div class="row table-responsive">
                                     <table class="table table-sm table-light">
                                         <thead class="text-center">
                                             <tr>
@@ -950,7 +950,7 @@
 
                         @if ($client->passives)
                         <div class="card-body p-2">
-                            <div class="row">
+                            <div class="row table-responsive">
                                 <table class="table table-sm table-light">
                                     <thead class="text-center">
                                         <tr>

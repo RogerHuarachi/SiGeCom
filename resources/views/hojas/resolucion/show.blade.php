@@ -124,7 +124,7 @@
                     <div class="row">
                         @if ($client->ddgs)
                             <div class="col-6">
-                                <div class="row">
+                                <div class="row table-responsive">
                                     <table class="table table-sm table-light">
                                         <thead>
                                             <th>Garantia</th>
@@ -163,7 +163,7 @@
                         @endif
                         @if ($client->members)
                             <div class="col-6">
-                                <div class="row">
+                                <div class="row table-responsive">
                                     <table class="table table-sm table-light">
                                         <thead>
                                             <th>Tipo</th>
@@ -227,7 +227,7 @@
 
                 <div class="card-body p-2">
                     @if ($client->justifications)
-                        <div class="row">
+                        <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
                                     <th>Excepción</th>
