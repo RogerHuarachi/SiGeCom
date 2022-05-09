@@ -2,6 +2,11 @@
 @section('title')
     <div class="row">
         <h1 class="m-0 pr-1">Resolución</h1>
+        <ol class="breadcrumb float-sm-right pl-1">
+            <form class="p-1" action="{{ route('print.resolucion', $client->id) }}" method="GET">
+                <button class="btn btn-primary btn-xs" type="submit"><i class="fa fa-print" aria-hidden="true"></i></button>
+            </form>
+        </ol>
     </div>
 @endsection
 @section('content')
@@ -33,7 +38,7 @@
                                 <dt class="col-md-2">Cliente</dt>
                                 <dd class="col-md-10">{{ $client->name }} {{ $client->lastName }}</dd>
                                 @if ($codeudor)
-                                    <dt class="col-md-2">Cliente</dt>
+                                    <dt class="col-md-2">Conyuge</dt>
                                     <dd class="col-md-10">{{ $codeudor->name }} {{ $codeudor->lastName }}</dd>
                                 @endif
                             </dl>
@@ -171,7 +176,9 @@
                                             <th>CI</th>
                                             <th>Patrimonio total</th>
                                             <th>Covertura</th>
-                                            <th>Opc</th>
+                                            @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                                                <th>Opc</th>
+                                            @endif
                                         </thead>
                                         <tbody>
                                             @foreach ($client->members as $member)
@@ -181,18 +188,20 @@
                                                     <td>{{ $member->ci }}</td>
                                                     <td>{{ number_format($member->pt, 2, ',', '.') }}</td>
                                                     <td>{{ number_format($member->mc, 2, ',', '.') }}</td>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            @can('members.update')
-                                                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#memberEdit{{ $member->id }}"><i class="fas fa-pen"></i></button>
-                                                                @include('admin.members.edit')
-                                                            @endcan
-                                                            @can('members.destroy')
-                                                                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#memberDelete{{ $member->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                                @include('admin.members.delete')
-                                                            @endcan
-                                                        </div>
-                                                    </td>
+                                                    @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                                                        <td>
+                                                            <div class="btn-group">
+                                                                @can('members.update')
+                                                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#memberEdit{{ $member->id }}"><i class="fas fa-pen"></i></button>
+                                                                    @include('admin.members.edit')
+                                                                @endcan
+                                                                @can('members.destroy')
+                                                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#memberDelete{{ $member->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                                    @include('admin.members.delete')
+                                                                @endcan
+                                                            </div>
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                         </tbody>

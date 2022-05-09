@@ -746,5 +746,11 @@ Route::middleware(['auth'])->group(function () {
     // ->middleware('permission:folders.index');
 
     // print
+    Route::get('resprint/{client}', [App\Http\Controllers\User\PrintController::class, 'resprint'])->name('print.resolucion');
     Route::get('solprint/{client}', [App\Http\Controllers\User\PrintController::class, 'solprint'])->name('print.solicitud');
+    Route::get('croprint/{client}', [App\Http\Controllers\User\PrintController::class, 'croprint'])->name('print.croqui');
+    Route::get('dpprint/{client}', [App\Http\Controllers\User\PrintController::class, 'dpprint'])->name('print.declaracion');
+    Route::get('avalbprint/{client}', [App\Http\Controllers\User\PrintController::class, 'avalbprint'])->name('print.avaluaob');
+    Route::get('avalgprint/{client}', [App\Http\Controllers\User\PrintController::class, 'avalgprint'])->name('print.avaluaog');
+    Route::get('rdprint/{client}', [App\Http\Controllers\User\PrintController::class, 'rdprint'])->name('print.recepcion');
 });
