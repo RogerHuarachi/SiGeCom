@@ -2,6 +2,11 @@
 @section('title')
     <div class="row">
         <h1 class="m-0 pr-1">Recepción de Documentos</h1>
+        <ol class="breadcrumb float-sm-right pl-1">
+            <form class="p-1" action="{{ route('print.recepcion', $client->id) }}" method="GET">
+                <button class="btn btn-primary btn-xs" type="submit"><i class="fa fa-print" aria-hidden="true"></i></button>
+            </form>
+        </ol>
     </div>
 @endsection
 @section('content')

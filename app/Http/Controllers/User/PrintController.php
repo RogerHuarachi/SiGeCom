@@ -47,16 +47,11 @@ class PrintController extends Controller
 
     public function avalbprint(Client $client)
     {
-        return $client;
-    }
-
-    public function avalgprint(Client $client)
-    {
-        return $client;
+        return view('hojas.avaluo.prinit', compact('client'));
     }
 
     public function rdprint(Client $client)
     {
-        return $client;
+        return view('hojas.documento.print', compact('client'));
     }
 }
