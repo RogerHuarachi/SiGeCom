@@ -8,14 +8,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>PROEZA | SiGeCCO</title>
-    
+
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 </head>
 <body>
     <div class="row justify-content-center pb-3">
         {{-- <label>PLANILLA CONSOLIDADA DE CAJA</label> --}}
-        
+
         <h1>FORMULARIO DE RECEPCIÓN DE DOCUMENTOS</h1>
     </div>
     <div class="row justify-content-center m-0">
@@ -53,8 +53,84 @@
             </dl>
         </div>
     </div>
-    
-    
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header border border-dark p-2">
+                    <h3 class="card-title">
+                        Recepcion de Documentos
+                    </h3>
+                </div>
+
+                @if ($client->inmueble())
+                    <div class="card-body border border-dark p-1">
+                        <div class="row table-responsive">
+                            <table class="table table-sm table-light">
+                                <thead>
+                                    <tr>
+                                        <th>Descripcion</th>
+                                        <th>N° Doc</th>
+                                        <th>N° FOjas</th>
+                                        <th>Observacion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->inmueble() as $document)
+                                        <tr>
+                                            <td>{{ $document->description }}</td>
+                                            <td>{{ $document->doc }}</td>
+                                            <td>{{ $document->fojas }}</td>
+                                            <td>{{ $document->obs }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header border border-dark p-2">
+                    <h3 class="card-title">
+                        Recepcion de Documentos
+                    </h3>
+                </div>
+
+                @if ($client->vehiculo())
+                    <div class="card-body border border-dark p-1">
+                        <div class="row table-responsive">
+                            <table class="table table-sm table-light">
+                                <thead>
+                                    <tr>
+                                        <th>Descripcion</th>
+                                        <th>N° Doc</th>
+                                        <th>N° FOjas</th>
+                                        <th>Observacion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->vehiculo() as $document)
+                                        <tr>
+                                            <td>{{ $document->description }}</td>
+                                            <td>{{ $document->doc }}</td>
+                                            <td>{{ $document->fojas }}</td>
+                                            <td>{{ $document->obs }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
 
 
 

@@ -8,14 +8,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>PROEZA | SiGeCCO</title>
-    
+
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 </head>
 <body>
     <div class="row justify-content-center pb-3">
         {{-- <label>PLANILLA CONSOLIDADA DE CAJA</label> --}}
-        
+
         <h1>AVALUO BIENES NEGOCIO/FAMILIA</h1>
     </div>
     <div class="row justify-content-center m-0">
@@ -53,8 +53,197 @@
             </dl>
         </div>
     </div>
-    
-    
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header border border-dark p-2">
+                    <h3 class="card-title">
+                        (Negocio) Muebles y Enseres
+                    </h3>
+                </div>
+
+                @if ($client->mueble())
+                    <div class="card-body border border-dark p-1">
+                        <div class="row table-responsive">
+                            <table class="table table-sm table-light">
+                                <thead>
+                                    <tr>
+                                        <th>Cantidad</th>
+                                        <th>Descripción de Activo</th>
+                                        <th>Valor Comercial</th>
+                                        <th>Actividad</th>
+                                        <th>En Garantia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->mueble() as $work)
+                                        <tr>
+                                            <td>{{ $work->amount }}</td>
+                                            <td>{{ $work->description }}</td>
+                                            <td>{{ $work->value }}</td>
+                                            <td>{{ $work->exercise }}</td>
+                                            <td>{{ $work->state }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th>{{ $client->mueble()->sum('value') }}</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header border border-dark p-2">
+                    <h3 class="card-title">
+                        (Negocio) Maquinaria y Equipos
+                    </h3>
+                </div>
+
+                @if ($client->maquinaria())
+                    <div class="card-body border border-dark p-1">
+                        <div class="row table-responsive">
+                            <table class="table table-sm table-light">
+                                <thead>
+                                    <tr>
+                                        <th>Cantidad</th>
+                                        <th>Descripción de Activo</th>
+                                        <th>Valor Comercial</th>
+                                        <th>Actividad</th>
+                                        <th>En Garantia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->maquinaria() as $work)
+                                        <tr>
+                                            <td>{{ $work->amount }}</td>
+                                            <td>{{ $work->description }}</td>
+                                            <td>{{ $work->value }}</td>
+                                            <td>{{ $work->exercise }}</td>
+                                            <td>{{ $work->state }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th>{{ $client->maquinaria()->sum('value') }}</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header border border-dark p-2">
+                    <h3 class="card-title">
+                        (Negocio) Mercaderia
+                    </h3>
+                </div>
+
+                @if ($client->mercaderia())
+                    <div class="card-body border border-dark p-1">
+                        <div class="row table-responsive">
+                            <table class="table table-sm table-light">
+                                <thead>
+                                    <tr>
+                                        <th>Cantidad</th>
+                                        <th>Descripción de Activo</th>
+                                        <th>Valor Comercial</th>
+                                        <th>Actividad</th>
+                                        <th>En Garantia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->mercaderia() as $work)
+                                        <tr>
+                                            <td>{{ $work->amount }}</td>
+                                            <td>{{ $work->description }}</td>
+                                            <td>{{ $work->value }}</td>
+                                            <td>{{ $work->exercise }}</td>
+                                            <td>{{ $work->state }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th>{{ $client->mercaderia()->sum('value') }}</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header border border-dark p-2">
+                    <h3 class="card-title">
+                        (Familia) Muebles y Enseres
+                    </h3>
+                </div>
+
+                @if ($client->families)
+                    <div class="card-body border border-dark p-1">
+                        <div class="row table-responsive">
+                            <table class="table table-sm table-light">
+                                <thead>
+                                    <tr>
+                                        <th>Cantidad</th>
+                                        <th>Descripción de Activo</th>
+                                        <th>Valor Comercial</th>
+                                        <th>En Garantia</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($client->families as $family)
+                                        <tr>
+                                            <td>{{ $family->amount }}</td>
+                                            <td>{{ $family->description }}</td>
+                                            <td>{{ $family->value }}</td>
+                                            <td>{{ $family->state }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th>{{ $client->families->sum('value') }}</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
 
 
 
