@@ -58,14 +58,14 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
                         <strong>Croquis de Domicilio</strong>
                     </h3>
                 </div>
 
                 @if ($residence)
-                    <div class="card-body border border-dark p-1">
+                    <div class="card-body border border-dark">
                         <div class="row">
                             <div class="col-md-6">
                                 <dl class="row">
@@ -104,14 +104,14 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
                         <strong>Croquis de Negocio</strong>
                     </h3>
                 </div>
 
                 @if ($job)
-                    <div class="card-body border border-dark p-1">
+                    <div class="card-body border border-dark">
                         <div class="row">
                             <div class="col-md-6">
                                 <dl class="row">

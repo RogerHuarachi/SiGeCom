@@ -56,16 +56,16 @@
 
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
-                        (Negocio) Muebles y Enseres
+                        <strong>(Negocio) Muebles y Enseres</strong>
                     </h3>
                 </div>
 
                 @if ($client->mueble())
-                    <div class="card-body border border-dark p-1">
+                    <div class="card-body border border-dark">
                         <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
@@ -103,16 +103,19 @@
                 @endif
             </div>
         </div>
-        <div class="col-md-6">
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
-                        (Negocio) Maquinaria y Equipos
+                        <strong>(Negocio) Maquinaria y Equipos</strong>
                     </h3>
                 </div>
 
                 @if ($client->maquinaria())
-                    <div class="card-body border border-dark p-1">
+                    <div class="card-body border border-dark">
                         <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
@@ -151,17 +154,18 @@
             </div>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
-                        (Negocio) Mercaderia
+                        <strong>(Negocio) Mercaderia</strong>
                     </h3>
                 </div>
 
                 @if ($client->mercaderia())
-                    <div class="card-body border border-dark p-1">
+                    <div class="card-body border border-dark">
                         <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
@@ -199,16 +203,19 @@
                 @endif
             </div>
         </div>
-        <div class="col-md-6">
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
-                        (Familia) Muebles y Enseres
+                        <strong>(Familia) Muebles y Enseres</strong>
                     </h3>
                 </div>
 
                 @if ($client->families)
-                    <div class="card-body border border-dark p-1">
+                    <div class="card-body border border-dark">
                         <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
@@ -245,6 +252,11 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            {{ $client->folder->user->agency->city->name }} a los {{ date('d') }} días del mes de {{ date('M') }} de {{ date('Y') }}
+        </div>
+    </div>
 
 
     <br>
@@ -253,36 +265,20 @@
     <br>
     <div class="row text-center">
         <div class="col">
-            <label>_________________________</label>
         </div>
         <div class="col">
-            <label>_________________________</label>
+            <label>__________________________________________</label>
         </div>
         <div class="col">
-            <label>_________________________</label>
         </div>
     </div>
     <div class="row text-center">
         <div class="col">
-            <label>Asesor de Créditos/Pasante</label>
         </div>
         <div class="col">
-            <label>Aprobación Agencia</label>
+            <label>Firma y Sello del Asesor</label>
         </div>
         <div class="col">
-            <label>Aprobación Nacional</label>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div class="col">
-        {{ date('d-M-Y') }}
-        </div>
-        <div class="col">
-            {{ date('d-M-Y') }}
-        </div>
-        <div class="col">
-            {{ date('d-M-Y') }}
-            {{-- <label>{{ $client->folder->user->name }}</label> --}}
         </div>
     </div>
 </body>

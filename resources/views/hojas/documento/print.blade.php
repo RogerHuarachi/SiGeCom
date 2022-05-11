@@ -54,25 +54,39 @@
         </div>
     </div>
 
-
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header border border-dark p-2">
-                    <h3 class="card-title">
-                        Recepcion de Documentos
-                    </h3>
-                </div>
+            He recibido los documentos originales del 
+            @if ($client->inmueble()->count())
+                <strong>Inmueble</strong>
+            @else
+                <strong>Vehiculo</strong>
+            @endif
+            de propiedad de (los) señor (es): <strong>{{ $client->name }} {{ $client->lastName }}</strong> 
+            que son entregados de forma voluntaria para garantiar el credito solicitado en la Institución Proeza SRL.
+            <br>
+            La documentacion entregada se encuentra detallada a continuación:
+        </div>
+    </div>
 
-                @if ($client->inmueble())
-                    <div class="card-body border border-dark p-1">
+    @if ($client->inmueble()->count())
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header border border-dark">
+                        <h3 class="card-title">
+                            <strong>DETALLE DE LA DOCUMENTACION  DE INMUEBLE</strong>
+                        </h3>
+                    </div>
+
+                    <div class="card-body border border-dark">
                         <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
                                     <tr>
                                         <th>Descripcion</th>
                                         <th>N° Doc</th>
-                                        <th>N° FOjas</th>
+                                        <th>N° Fojas</th>
                                         <th>Observacion</th>
                                     </tr>
                                 </thead>
@@ -89,28 +103,29 @@
                             </table>
                         </div>
                     </div>
-                @endif
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header border border-dark p-2">
-                    <h3 class="card-title">
-                        Recepcion de Documentos
-                    </h3>
-                </div>
+    @endif
+    
+    @if ($client->vehiculo()->count())
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header border border-dark">
+                        <h3 class="card-title">
+                            <strong>DETALLE DE LA DOCUMENTACION  DE VEHICULO</strong>
+                        </h3>
+                    </div>
 
-                @if ($client->vehiculo())
-                    <div class="card-body border border-dark p-1">
+                    <div class="card-body border border-dark">
                         <div class="row table-responsive">
                             <table class="table table-sm table-light">
                                 <thead>
                                     <tr>
                                         <th>Descripcion</th>
                                         <th>N° Doc</th>
-                                        <th>N° FOjas</th>
+                                        <th>N° Fojas</th>
                                         <th>Observacion</th>
                                     </tr>
                                 </thead>
@@ -127,49 +142,106 @@
                             </table>
                         </div>
                     </div>
-                @endif
+                </div>
+            </div>
+        </div>
+    @endif
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header border border-dark">
+                    <h3 class="card-title">
+                        <strong>RECEPCIÓN DE DOCUMENTOS</strong>
+                    </h3>
+                </div>
+
+                <div class="card-body border border-dark">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row text-center">
+                        <div class="col">
+                            <label>_________________________</label>
+                        </div>
+                        <div class="col">
+                            <label>_________________________</label>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col">
+                            <label>{{ $client->name }} {{ $client->lastName }}</label>
+                        </div>
+                        <div class="col">
+                            <label>{{ $client->folder->user->name }}</label>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col">
+                            Entregué Conforme
+                        </div>
+                        <div class="col">
+                            Recibí Conforme
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header border border-dark">
+                    <h3 class="card-title">
+                        <strong>DEVOLUCIÓN DE DOCUMENTOS</strong>
+                    </h3>
+                </div>
 
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="row text-center">
-        <div class="col">
-            <label>_________________________</label>
-        </div>
-        <div class="col">
-            <label>_________________________</label>
-        </div>
-        <div class="col">
-            <label>_________________________</label>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div class="col">
-            <label>Asesor de Créditos/Pasante</label>
-        </div>
-        <div class="col">
-            <label>Aprobación Agencia</label>
-        </div>
-        <div class="col">
-            <label>Aprobación Nacional</label>
-        </div>
-    </div>
-    <div class="row text-center">
-        <div class="col">
-        {{ date('d-M-Y') }}
-        </div>
-        <div class="col">
-            {{ date('d-M-Y') }}
-        </div>
-        <div class="col">
-            {{ date('d-M-Y') }}
-            {{-- <label>{{ $client->folder->user->name }}</label> --}}
+                <div class="card-body border border-dark">
+                    <div class="row">
+                        En {{ $client->folder->user->agency->city->name }} en fecha _______  de ________________ del ___________ he  recibido 
+                        toda la documentación a mi entera conformidad sin ninguna observación.
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row text-center">
+                        <div class="col">
+                            <label>_________________________</label>
+                        </div>
+                        <div class="col">
+                            <label>_________________________</label>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col">
+                            <label>{{ $client->name }} {{ $client->lastName }}</label>
+                        </div>
+                        <div class="col">
+                            <label>{{ $client->folder->user->name }}</label>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col">
+                            Recibí Conforme
+                        </div>
+                        <div class="col">
+                            Entregué Conforme
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

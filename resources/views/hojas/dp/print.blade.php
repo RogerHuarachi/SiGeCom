@@ -54,7 +54,23 @@
         </div>
     </div>
     
-    
+    <div class="row">
+        <div class="col">
+            Nombre(s) y Apellido(s) Cliente: {{ $client->name }} {{ $client->lastName }}
+        </div>
+        <div class="col">
+            CI: {{ $client->number }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            Nombre(s) y Apellido(s) Cliente: {{ $codeudor->name }} {{ $codeudor->lastName }}
+        </div>
+        <div class="col">
+            CI: {{ $codeudor->number }}
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">

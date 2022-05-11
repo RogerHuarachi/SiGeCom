@@ -58,13 +58,13 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
                         <strong>Condiciones del prestamo</strong>
                     </h3>
                 </div>
 
-                <div class="card-body border border-dark p-1">
+                <div class="card-body border border-dark">
                     <div class="row">
                         <div class="col-md-6">
                             <dl class="row">
@@ -143,13 +143,13 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
                         <strong>Detalle de Garantia</strong>
                     </h3>
                 </div>
 
-                <div class="card-body border border-dark p-1">
+                <div class="card-body border border-dark">
                     <div class="row">
                         @if ($client->ddgs)
                             <div class="col-12">
@@ -220,13 +220,13 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
                         <strong>Excepciones/Autorizaciones/Justificaciones</strong>
                     </h3>
                 </div>
 
-                <div class="card-body border border-dark p-1">
+                <div class="card-body border border-dark">
                     @if ($client->justifications)
                         <div class="row table-responsive">
                             <table class="table table-sm table-light">
@@ -253,13 +253,13 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header border border-dark p-2">
+                <div class="card-header border border-dark">
                     <h3 class="card-title">
                         <strong>Comentarios y recomendaciones nivel de aprobación</strong>
                     </h3>
                 </div>
 
-                <div class="card-body border border-dark p-1">
+                <div class="card-body border border-dark">
                     @if ($crna)
                         <div class="row">
                             <div class="col-md-12">

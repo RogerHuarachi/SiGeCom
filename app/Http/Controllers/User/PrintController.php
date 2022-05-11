@@ -42,12 +42,13 @@ class PrintController extends Controller
 
     public function dpprint(Client $client)
     {
-        return view('hojas.dp.print', compact('client'));
+        $codeudor = $client->folder->codebtor();
+        return view('hojas.dp.print', compact('client', 'codeudor'));
     }
 
-    public function avalbprint(Client $client)
+    public function avalprint(Client $client)
     {
-        return view('hojas.avaluo.prinit', compact('client'));
+        return view('hojas.avaluo.print', compact('client'));
     }
 
     public function rdprint(Client $client)
