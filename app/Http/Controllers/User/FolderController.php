@@ -125,31 +125,31 @@ class FolderController extends Controller
 
     public function carla()
     {
-        $assigns = Assign::where('user_id', 6)->orderBy('id', 'DESC')->paginate(10);
+        $assigns = Assign::where('user_id', 5)->orderBy('id', 'DESC')->paginate(10);
         return view('user.folders.encargados.carla', compact('assigns'));
         // return $assigns;
     }
     public function alex()
     {
-        $assigns = Assign::where('user_id', 7)->orderBy('id', 'DESC')->paginate(10);
+        $assigns = Assign::where('user_id', 6)->orderBy('id', 'DESC')->paginate(10);
         return view('user.folders.encargados.alex', compact('assigns'));
         // return $assigns;
     }
     public function roxana()
     {
-        $assigns = Assign::where('user_id', 8)->orderBy('id', 'DESC')->paginate(10);
+        $assigns = Assign::where('user_id', 7)->orderBy('id', 'DESC')->paginate(10);
         return view('user.folders.encargados.roxana', compact('assigns'));
         // return $assigns;
     }
     public function mariela()
     {
-        $assigns = Assign::where('user_id', 9)->orderBy('id', 'DESC')->paginate(10);
+        $assigns = Assign::where('user_id', 8)->orderBy('id', 'DESC')->paginate(10);
         return view('user.folders.encargados.mariela', compact('assigns'));
         // return $assigns;
     }
     public function veronica()
     {
-        $assigns = Assign::where('user_id', 10)->orderBy('id', 'DESC')->paginate(10);
+        $assigns = Assign::where('user_id', 9)->orderBy('id', 'DESC')->paginate(10);
         return view('user.folders.encargados.veronica', compact('assigns'));
         // return $assigns;
     }
@@ -174,5 +174,11 @@ class FolderController extends Controller
         $user = User::role('Encargado Nacional')->first();
         $assigns = Assign::where('user_id', $user->id)->orderBy('id', 'DESC')->paginate(10);
         return view('user.folders.reviews.index', compact('assigns'));
+    }
+    public function disbursement()
+    {
+        $folders = Folder::orderBy('id', 'DESC')->get();
+        // $folders = Folder::orderBy('id', 'DESC')->paginate(10);
+        return view('user.folders.disbursements.index', compact('folders'));
     }
 }

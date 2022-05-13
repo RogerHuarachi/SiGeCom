@@ -703,6 +703,17 @@
                         @endif
                     </li>
                 @endrole
+
+                @hasrole('Operaciones')
+                    <li class="nav-item">
+                        <a href="{{ route('folders.disbursement') }}" class="nav-link">
+                            <i class="nav-icon fas fa-money-bill"></i>
+                            <p>
+                                Carpetas Desembolsadas
+                            </p>
+                        </a>
+                    </li>
+                @endrole
             </ul>
         </nav>
     </div>

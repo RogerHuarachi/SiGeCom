@@ -24,31 +24,31 @@ class AgenciesTableSeeder extends Seeder
             'name'       => 'Cala Cala',
             'codigo'       => 'C00',
             'city_id'      => '1',
-            'autonomy'      => 6000
+            'autonomy'      => 7000
         ]);
         Agency::create([
             'name'       => 'El Paso',
             'codigo'       => 'C01',
             'city_id'      => '1',
-            'autonomy'      => 6000
+            'autonomy'      => 7000
         ]);
         Agency::create([
             'name'       => 'Punata',
             'codigo'       => 'C02',
             'city_id'      => '1',
-            'autonomy'      => 6000
+            'autonomy'      => 7000
         ]);
         Agency::create([
             'name'       => 'Casco Viejo',
             'codigo'       => 'G00',
             'city_id'      => '2',
-            'autonomy'      => 5000
+            'autonomy'      => 4000
         ]);
         Agency::create([
             'name'       => 'Rio Seco',
             'codigo'       => 'B00',
             'city_id'      => '3',
-            'autonomy'      => 6000
+            'autonomy'      => 5000
         ]);
     }
 }

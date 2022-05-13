@@ -474,10 +474,6 @@ class RolesTableSeeder extends Seeder
         	'gcos.store',
         	'gcos.update',
         	'gcos.destroy',
-
-        	'observeds.store',
-        	'approveds.store',
-        	'rejecteds.store',
 		]);
 
 		$AS = Role::create(['name' => 'Asesor']);

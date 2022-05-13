@@ -623,8 +623,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     // Assign
-    Route::get('usrassigns/store/{folder}', [App\Http\Controllers\User\AssignController::class, 'store'])->name('usrassigns.store')
-    ->middleware('permission:usrfolders.index');
+    Route::get('usrassigns/store/{folder}', [App\Http\Controllers\User\AssignController::class, 'store'])->name('usrassigns.store');
+    // ->middleware('permission:usrfolders.index');
 
     // INDEPENDIENTE
     Route::get('usrfoldersI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indep'])->name('usrfoldersI.indep');
@@ -722,19 +722,19 @@ Route::middleware(['auth'])->group(function () {
 
     //folders EA
     //Carla
-    Route::get('foldersCarla', [App\Http\Controllers\User\FolderController::class, 'carla'])->name('folders.carla');
+    Route::get('foldersCC', [App\Http\Controllers\User\FolderController::class, 'carla'])->name('folders.carla');
     // ->middleware('permission:folders.index');
     // alex
-    Route::get('foldersAlex', [App\Http\Controllers\User\FolderController::class, 'alex'])->name('folders.alex');
+    Route::get('foldersTP', [App\Http\Controllers\User\FolderController::class, 'alex'])->name('folders.alex');
     // ->middleware('permission:folders.index');
     // roxana
-    Route::get('foldersRoxana', [App\Http\Controllers\User\FolderController::class, 'roxana'])->name('folders.roxana');
+    Route::get('foldersPP', [App\Http\Controllers\User\FolderController::class, 'roxana'])->name('folders.roxana');
     // ->middleware('permission:folders.index');
     // Mariela
-    Route::get('foldersMariela', [App\Http\Controllers\User\FolderController::class, 'mariela'])->name('folders.mariela');
+    Route::get('foldersCV', [App\Http\Controllers\User\FolderController::class, 'mariela'])->name('folders.mariela');
     // ->middleware('permission:folders.index');
     // Vero
-    Route::get('foldersVeronica', [App\Http\Controllers\User\FolderController::class, 'veronica'])->name('folders.veronica');
+    Route::get('foldersRS', [App\Http\Controllers\User\FolderController::class, 'veronica'])->name('folders.veronica');
     // ->middleware('permission:folders.index');
 
     // Folders
@@ -743,6 +743,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('foldersComercial', [App\Http\Controllers\User\FolderController::class, 'comercial'])->name('folders.comercial');
     // ->middleware('permission:folders.index');
     Route::get('foldersNacional', [App\Http\Controllers\User\FolderController::class, 'nacional'])->name('folders.nacional');
+    // ->middleware('permission:folders.index');
+    Route::get('foldersDisbursement', [App\Http\Controllers\User\FolderController::class, 'disbursement'])->name('folders.disbursement');
     // ->middleware('permission:folders.index');
 
     // print
