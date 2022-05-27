@@ -125,6 +125,11 @@
                                     <label>Garantia Ofrecida</label>
                                     <select class="custom-select form-control-border" name="warrantyOne" required>
                                         <option>{{ $loan->warrantyOne }}</option>
+                                        <option>GARANTIA PRENDARIA SIN INMUEBLE PROPIO O CASA DE FAMILIAR</option>
+                                        <option>GARANTIA PRENDARIA CON INMUEBLE PROPIO SIN RESPALDO</option>
+                                        <option>GARANTIA PRENDARIA CON INMUEBLE PROPIO NO PERFECCIONADO (MINUTA)</option>
+                                        <option>GARANTIA PRENDARIA CON INMUEBLE PROPIO PERFECCIONADO (DDRR)</option>
+                                        <option>GARANTIA PRENDARIA CON PUESTO Y/O CASETA PROPIA (ADJUNTAR PATENTE)</option>
                                         <option>PRENDA DE DOCUMENTOS NO PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
                                         <option>PRENDA DE DOCUMENTOS PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
                                         <option>PRENDA DE DOCUMENTOS PERFECCIONADOS AGRÍCOLAS (INRA)</option>
@@ -147,6 +152,11 @@
                                     <select class="custom-select form-control-border" name="warrantyTwo">
                                         <option>{{ $loan->warrantyTwo }}</option>
                                         <option></option>
+                                        <option>GARANTIA PRENDARIA SIN INMUEBLE PROPIO O CASA DE FAMILIAR</option>
+                                        <option>GARANTIA PRENDARIA CON INMUEBLE PROPIO SIN RESPALDO</option>
+                                        <option>GARANTIA PRENDARIA CON INMUEBLE PROPIO NO PERFECCIONADO (MINUTA)</option>
+                                        <option>GARANTIA PRENDARIA CON INMUEBLE PROPIO PERFECCIONADO (DDRR)</option>
+                                        <option>GARANTIA PRENDARIA CON PUESTO Y/O CASETA PROPIA (ADJUNTAR PATENTE)</option>
                                         <option>PRENDA DE DOCUMENTOS NO PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
                                         <option>PRENDA DE DOCUMENTOS PERFECCIONADO DE VEHÍCULO O INMUEBLE</option>
                                         <option>PRENDA DE DOCUMENTOS PERFECCIONADOS AGRÍCOLAS (INRA)</option>

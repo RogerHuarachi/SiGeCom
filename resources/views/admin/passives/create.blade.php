@@ -84,6 +84,8 @@
                                             <option>IDEPRO IFD</option>
                                             <option>IMPRO IFD</option>
                                             <option>Sembrar Sartawi IFD</option>
+                                            <option>CREDVA</option>
+                                            <option>FIMIRAP SRL</option>
                                         </select>
                                     </div>
                                 </div>
