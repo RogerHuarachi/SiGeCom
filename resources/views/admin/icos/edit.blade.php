@@ -31,7 +31,7 @@
                                     name="type" required>
                                         <option>{{ $ico->type }}</option>
                                         <option>Cliente</option>
-                                        <option>Conyugue</option>
+                                        <option>Conyuge</option>
                                     </select>
                                 </div>
                             </div>

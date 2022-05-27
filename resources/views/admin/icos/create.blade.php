@@ -29,7 +29,7 @@
                                     <select class="custom-select form-control-border"
                                     name="type" required>
                                         <option>Cliente</option>
-                                        <option>Conyugue</option>
+                                        <option>Conyuge</option>
                                     </select>
                                 </div>
                             </div>

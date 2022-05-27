@@ -25,8 +25,8 @@ class CreateJobsTable extends Migration
             $table->string('mobile')->nullable();
             $table->string('province');
             $table->text('description');
-            $table->string('neglat');
-            $table->string('neglon');
+            $table->string('neglat')->nullable();
+            $table->string('neglon')->nullable();
             $table->string('file');
             $table->unsignedBigInteger('client_id');
             $table->timestamps();

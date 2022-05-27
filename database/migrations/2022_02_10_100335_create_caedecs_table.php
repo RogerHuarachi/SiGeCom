@@ -18,7 +18,7 @@ class CreateCaedecsTable extends Migration
             $table->string('category');
             $table->string('heading');
             $table->string('code');
-            $table->string('description');
+            $table->text('description');
             $table->text('note');
             $table->timestamps();
         });

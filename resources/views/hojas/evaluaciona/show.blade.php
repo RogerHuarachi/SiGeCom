@@ -165,7 +165,7 @@
                     @endif
                     @if ($client->icconyuge())
                         <div class="row">
-                            <label for="">Conyugue</label>
+                            <label for="">Conyuge</label>
                             <table class="table table-sm table-light">
                                 <thead class="text-center">
                                     <tr>
@@ -457,7 +457,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Ingresos Corrientes Conyugue</td>
+                                    <td>Ingresos Corrientes Conyuge</td>
                                     <td class="text-right">
                                         {{ number_format($client->icco($client->id), 2, ',', '.') }}
                                     </td>

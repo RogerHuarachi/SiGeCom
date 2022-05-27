@@ -284,13 +284,13 @@
                                             @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
                                                 <td>
                                                     <div class="btn-group">
-                                                        @can('works.update')
-                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#workEdit{{ $work->id }}"><i class="fas fa-pen"></i></button>
-                                                            @include('admin.works.edit')
+                                                        @can('families.update')
+                                                            <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#familyEdit{{ $family->id }}"><i class="fas fa-pen"></i></button>
+                                                            @include('admin.families.edit')
                                                         @endcan
-                                                        @can('works.destroy')
-                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#workDelete{{ $work->id }}"><i class="fas fa-trash-alt"></i></button>
-                                                            @include('admin.works.delete')
+                                                        @can('families.destroy')
+                                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#familyDelete{{ $family->id }}"><i class="fas fa-trash-alt"></i></button>
+                                                            @include('admin.families.delete')
                                                         @endcan
                                                     </div>
                                                 </td>

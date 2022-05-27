@@ -62,7 +62,7 @@ class RejectedController extends Controller
 
     public function destroy(Rejected $rejected)
     {
-        $folder = $approved->folder;
+        $folder = $rejected->folder;
         $folder->state = false;
         $folder->save();
 

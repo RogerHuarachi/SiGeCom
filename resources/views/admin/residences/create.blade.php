@@ -11,7 +11,7 @@
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="card-body">
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="name">Latitud</label>
@@ -29,7 +29,7 @@
                             <div class="col-md-2">
                                 <button class="btn btn-primary" onclick="domicilio()">obtener</button>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">

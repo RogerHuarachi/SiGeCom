@@ -24,7 +24,7 @@
                                     <label>Producto</label>
                                     <select class="custom-select form-control-border"
                                     name="product" required>
-                                        <option>INDIVIDUAL PROEZA PREFERENCIAL</option>
+                                        <option>INDIVIDUAL PROEZA EFECTIVO</option>
                                         <option>INDIVIDUAL PROEZA PREFERENCIAL</option>
                                         <option>INDIVIDUAL PROEZA MICRO</option>
                                         <option>INDIVIDUAL PROEZA MICRO PEQUEÑO</option>
@@ -49,7 +49,7 @@
                                         <option value="Nuevo">Nuevo</option>
                                         <option value="Paralelo">Paralelo</option>
                                         <option value="Represtamo">Represtamo</option>
-                                        <option value="Financiamiento">Financiamiento</option>
+                                        <option value="Financiamiento">Refinanciamiento</option>
                                         <option value="Reprogramación">Reprogramación</option>
                                     </select>
                                 </div>

@@ -1947,7 +1947,7 @@
                         @endif
                         @if ($client->icconyuge())
                             <div class="col">
-                                <label for="">Conyugue</label>
+                                <label for="">Conyuge</label>
                                 <table class="table table-sm table-light">
                                     <thead class="thead-light">
                                         <tr>

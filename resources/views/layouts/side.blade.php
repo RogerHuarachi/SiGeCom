@@ -9,7 +9,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 {{-- @hasrole('TIC') --}}
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -19,13 +19,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                {{-- <a href="{{ route('dashboard') }}" class="nav-link active">
+                                <a href="{{ route('dashboard') }}" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Dashboard</p>
-                                </a> --}}
+                                </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 {{-- @endrole --}}
 
                 @can('permissions.index')
@@ -591,7 +591,7 @@
 
                 {{-- Users --}}
 
-                @can('usrfolders.index')
+                {{-- @can('usrfolders.index')
                     <li class="nav-item">
                         <a href="{{ route('usrfolders.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-globe"></i>
@@ -600,7 +600,7 @@
                             </p>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
 
                 @hasrole('Encargado Sucursal|Asesor')
                     <li class="nav-item">
@@ -632,7 +632,7 @@
                         </a>
                     </li>
                 @endrole
-                @hasrole('Encargado Sucursal|Asesor')
+                {{-- @hasrole('Encargado Sucursal|Asesor')
                     <li class="nav-item">
                         <a href="{{ route('folders.nacional') }}" class="nav-link">
                             <i class="nav-icon fas fa-folder"></i>
@@ -641,7 +641,7 @@
                             </p>
                         </a>
                     </li>
-                @endrole
+                @endrole --}}
                 @hasrole('Encargado Sucursal|Asesor')
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -651,17 +651,17 @@
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        @if ( Auth::user()->id != 6)
+                        @if ( Auth::user()->id != 5)
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('folders.carla') }}" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Carla</p>
+                                        <p>Ely</p>
                                     </a>
                                 </li>
                             </ul>
                         @endif
-                        @if ( Auth::user()->id != 7)
+                        @if ( Auth::user()->id != 6)
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('folders.alex') }}" class="nav-link active">
@@ -671,7 +671,7 @@
                                 </li>
                             </ul>
                         @endif
-                        @if ( Auth::user()->id != 8)
+                        @if ( Auth::user()->id != 7)
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('folders.roxana') }}" class="nav-link active">
@@ -681,7 +681,7 @@
                                 </li>
                             </ul>
                         @endif
-                        @if ( Auth::user()->id != 9)
+                        @if ( Auth::user()->id != 8)
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('folders.mariela') }}" class="nav-link active">
@@ -691,7 +691,7 @@
                                 </li>
                             </ul>
                         @endif
-                        @if ( Auth::user()->id != 10)
+                        @if ( Auth::user()->id != 9)
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ route('folders.veronica') }}" class="nav-link active">

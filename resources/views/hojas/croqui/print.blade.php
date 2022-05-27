@@ -7,15 +7,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>PROEZA | SiGeCCO</title>
-    
+    <title>PROEZA | SiGeCom</title>
+
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 </head>
 <body>
     <div class="row justify-content-center pb-3">
         {{-- <label>PLANILLA CONSOLIDADA DE CAJA</label> --}}
-        
+
         <h1>DIRECCIÓN Y CROQUIS</h1>
     </div>
     <div class="row justify-content-center m-0">
@@ -53,8 +53,8 @@
             </dl>
         </div>
     </div>
-    
-    
+
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -89,6 +89,9 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="row justify-content-center">
+                                    <div class="row justify-content-center m-0">
+                                        <img class="" src="{{ asset('$residence->file') }}"  width="120">
+                                    </div>
                                     <div class="img-fluid fa-border">
                                         <img src="{{ $residence->file }}" height="300">
                                     </div>
