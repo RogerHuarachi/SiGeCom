@@ -16,9 +16,9 @@ class CreateOisTable extends Migration
         Schema::create('ois', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item');
-            $table->double('ib', 8, 2);
-            $table->double('dg', 8, 2);
-            $table->double('total', 8, 2);
+            $table->double('ib', 10, 2);
+            $table->double('dg', 10, 2);
+            $table->double('total', 10, 2);
             $table->text('description');
             $table->unsignedBigInteger('client_id');
             $table->timestamps();

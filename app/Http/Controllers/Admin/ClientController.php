@@ -21,8 +21,7 @@ class ClientController extends Controller
 
     public function create()
     {
-        $users = User::get();
-        return view('admin.clients.create', compact('users'));
+        //
     }
 
     public function store(Request $request)
@@ -43,8 +42,7 @@ class ClientController extends Controller
 
     public function edit(Client $client)
     {
-        $users = User::get();
-        return view('admin.clients.edit', compact('users', 'client'));
+        //
     }
 
     public function update(Request $request, Client $client)

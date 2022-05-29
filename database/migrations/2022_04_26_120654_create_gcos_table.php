@@ -16,7 +16,7 @@ class CreateGcosTable extends Migration
         Schema::create('gcos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item');
-            $table->double('money', 8, 2);
+            $table->double('money', 10, 2);
 
             $table->unsignedBigInteger('client_id');
             $table->timestamps();

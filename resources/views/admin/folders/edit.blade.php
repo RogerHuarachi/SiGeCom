@@ -40,7 +40,7 @@
                                     <label>Producto</label>
                                     <select class="custom-select form-control-border"
                                         name="product" required>
-                                        <option>{{ $folder->operation }}</option>
+                                        <option>{{ $folder->product }}</option>
                                         <option>INDIVIDUAL PROEZA PREFERENCIAL</option>
                                         <option>INDIVIDUAL PROEZA EFECTIVO</option>
                                         <option>INDIVIDUAL PROEZA MICRO</option>

@@ -181,7 +181,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary" onclick="this.onclick=function(){return false}">Guardar</button>
                 </div>
             </form>
         </div>

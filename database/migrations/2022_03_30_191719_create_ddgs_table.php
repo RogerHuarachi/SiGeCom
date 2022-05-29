@@ -16,9 +16,9 @@ class CreateDdgsTable extends Migration
         Schema::create('ddgs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('garanty');
-            $table->double('vc', 8, 2);
-            $table->double('mc', 8, 2);
-            
+            $table->double('vc', 10, 2);
+            $table->double('mc', 10, 2);
+
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -21,8 +22,14 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        Product::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        $product = $client->products->where('name', $request->name);
+        if ($product->count() == 0) {
+            Product::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Product $product)

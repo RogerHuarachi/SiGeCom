@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Loan;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class LoanController extends Controller
@@ -21,8 +22,13 @@ class LoanController extends Controller
 
     public function store(Request $request)
     {
-        loan::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        if (!$client->loan) {
+            loan::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
 

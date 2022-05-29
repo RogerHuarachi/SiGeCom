@@ -17,7 +17,7 @@ class CreateSalesTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->string('item');
-            $table->double('money', 8, 2);
+            $table->double('money', 10, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

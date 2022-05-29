@@ -16,7 +16,7 @@ class CreateGfosTable extends Migration
         Schema::create('gfos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item');
-            $table->double('total', 8, 2);
+            $table->double('total', 10, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

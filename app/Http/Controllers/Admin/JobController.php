@@ -23,15 +23,17 @@ class JobController extends Controller
 
     public function store(Request $request)
     {
-        $job = Job::create($request->all());
-
         $client = Client::find($request->client_id);
-        $nombre = $client->id.".".$client->lastName." ".$client->name;
+        if (!$client->job) {
+            $job = Job::create($request->all());
+            $nombre = $client->id.".".$client->lastName." ".$client->name;
+            $path = Storage::disk('public')->put($nombre,  $request->file('file'));
+            $job->fill(['file' => asset($path)])->save();
 
-        $path = Storage::disk('public')->put($nombre,  $request->file('file'));
-        $job->fill(['file' => asset($path)])->save();
-
-        return back()->with('confirmation','Registrado Correctamente');
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Job $job)

@@ -16,7 +16,7 @@ class CreateGfsTable extends Migration
         Schema::create('gfs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item');
-            $table->double('total', 8, 2);
+            $table->double('total', 10, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

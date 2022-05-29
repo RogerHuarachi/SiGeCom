@@ -12,7 +12,7 @@
                 <div class="modal-body">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Identificador de carpeta</label>
                                     <div class="select2-primary">
@@ -25,7 +25,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Tipo de Sector</label>
+                                    <select class="custom-select form-control-border" name="sector" required>
+                                        <option>Independiente</option>
+                                        <option>Asalariado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Tipo de Cliente</label>
                                     <select class="custom-select form-control-border" name="type" required>

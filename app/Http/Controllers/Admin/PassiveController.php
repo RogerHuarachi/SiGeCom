@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Passive;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class PassiveController extends Controller
@@ -21,20 +22,26 @@ class PassiveController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->state == "MANTIENE") {
-            $request["value"]=$request->share;
+        $client = Client::find($request->client_id);
+        $passive = $client->passives->where('creditor', $request->creditor);
+        if ($passive->count() == 0) {
+            if ($request->state == "MANTIENE") {
+                $request["value"]=$request->share;
+            }
+            if ($request->state == "PARALELO") {
+                $request["value"]=$request->share;
+            }
+            if ($request->state == "REFINANCIAMIENTO") {
+                $request["value"]=0;
+            }
+            if ($request->state == "LIQUIDACION") {
+                $request["value"]=0;
+            }
+            Passive::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
         }
-        if ($request->state == "PARALELO") {
-            $request["value"]=$request->share;
-        }
-        if ($request->state == "REFINANCIAMIENTO") {
-            $request["value"]=0;
-        }
-        if ($request->state == "LIQUIDACION") {
-            $request["value"]=0;
-        }
-        Passive::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
     }
 
     public function show(Passive $passive)

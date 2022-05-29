@@ -18,9 +18,9 @@ class CreateMembersTable extends Migration
             $table->string('type');
             $table->string('name');
             $table->string('ci');
-            $table->double('pt', 8, 2);
-            $table->double('mc', 8, 2);
-            
+            $table->double('pt', 10, 2);
+            $table->double('mc', 10, 2);
+
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

@@ -16,11 +16,11 @@ class CreateGmvsTable extends Migration
         Schema::create('gmvs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item');
-            $table->double('amount', 8, 2);
-            $table->double('price', 8, 2);
-            $table->double('total', 8, 2);
+            $table->double('amount', 10, 2);
+            $table->double('price', 10, 2);
+            $table->double('total', 10, 2);
             $table->string('frequency');
-            $table->double('totalmes', 8, 2);
+            $table->double('totalmes', 10, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

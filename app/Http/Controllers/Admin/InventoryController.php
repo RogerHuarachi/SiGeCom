@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inventory;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -21,32 +22,38 @@ class InventoryController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->sale) {
-            $request["mb"]=($request->sale-$request->buys)/$request->sale;
+        $client = Client::find($request->client_id);
+        $inventory = $client->inventories->where('activity', $request->activity)->where('name', $request->name);
+        if ($inventory->count() == 0) {
+            if ($request->sale) {
+                $request["mb"]=($request->sale-$request->buys)/$request->sale;
+            } else {
+                $request["mb"]=0;
+            }
+
+            if ($request->type == "MP") {
+                $request["vimp"]=$request->amount*$request->buys;
+            }  else {
+                $request["vimp"]=0;
+            }
+
+            if ($request->type == 'pp') {
+                $request["vipp"]=$request->amount*$request->buys*$request->advance;
+            } else {
+                $request["vipp"]=0;
+            }
+
+            if ($request->type == 'PT') {
+                $request["vipt"]=$request->amount*$request->buys;
+            } else {
+                $request["vipt"]=0;
+            }
+
+            Inventory::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
         } else {
-            $request["mb"]=0;
+            return back();
         }
-
-        if ($request->type == "MP") {
-            $request["vimp"]=$request->amount*$request->buys;
-        }  else {
-            $request["vimp"]=0;
-        }
-
-        if ($request->type == 'pp') {
-            $request["vipp"]=$request->amount*$request->buys*$request->advance;
-        } else {
-            $request["vipp"]=0;
-        }
-
-        if ($request->type == 'PT') {
-            $request["vipt"]=$request->amount*$request->buys;
-        } else {
-            $request["vipt"]=0;
-        }
-
-        Inventory::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
     }
 
     public function show(Inventory $inventory)

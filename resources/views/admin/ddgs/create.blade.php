@@ -29,11 +29,11 @@
                                     <select class="custom-select form-control-border"
                                     name="garanty" required>
                                             <option></option>
-                                        @if ($client->loan->warrantyOne)
+                                        @if ($client->loan)
                                             <option>{{ $client->loan->warrantyOne }}</option>
-                                        @endif
-                                        @if ($client->loan->warrantyOtwo)
-                                            <option>{{ $client->loan->warrantyOtwo }}</option>
+                                            @if ($client->loan->warrantyOtwo)
+                                                <option>{{ $client->loan->warrantyOtwo }}</option>
+                                            @endif
                                         @endif
                                     </select>
                                 </div>

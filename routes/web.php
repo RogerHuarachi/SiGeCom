@@ -626,18 +626,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('usrassigns/store/{folder}', [App\Http\Controllers\User\AssignController::class, 'store'])->name('usrassigns.store');
     // ->middleware('permission:usrfolders.index');
 
-    // INDEPENDIENTE
-    Route::get('usrfoldersI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indep'])->name('usrfoldersI.indep');
-        // ->middleware('permission:usrfolders.index');
-    // ASALARIADOS FORMALES E INFORMALES
-    Route::get('usrfoldersAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asal'])->name('usrfoldersAFI.asal');
-        // ->middleware('permission:usrfolders.index');
-    // GARANTES INDEPENDIENTE
-    Route::get('usrfoldersGI/{folder}', [App\Http\Controllers\User\FolderController::class, 'indepG'])->name('usrfoldersGI.indepG');
-        // ->middleware('permission:usrfolders.index');
-    // GARANTES ASALARIADOS FORMALES E INFORMALES
-    Route::get('usrfoldersGAFI/{folder}', [App\Http\Controllers\User\FolderController::class, 'asalG'])->name('usrfoldersGAFI.asalG');
-        // ->middleware('permission:usrfolders.index');
 
     // cliente deudor
     Route::post('usrdeudor/store', [App\Http\Controllers\User\ClientController::class, 'deudor'])->name('usrdeudor.store')

@@ -16,7 +16,7 @@ class CreateAcnsTable extends Migration
         Schema::create('acns', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item');
-            $table->double('value', 8, 2);
+            $table->double('value', 10, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

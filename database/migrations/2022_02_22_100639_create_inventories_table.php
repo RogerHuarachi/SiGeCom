@@ -17,16 +17,16 @@ class CreateInventoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('activity');
             $table->string('type');
-            $table->double('amount', 8, 2);
+            $table->double('amount', 10, 2);
             $table->string('unit');
             $table->string('name');
-            $table->double('buys', 8, 2)->nullable();
-            $table->double('sale', 8, 2)->nullable();
-            $table->double('mb', 8, 2)->nullable();
-            $table->double('advance', 8, 2)->nullable();
-            $table->double('vimp', 8, 2)->nullable();
-            $table->double('vipp', 8, 2)->nullable();
-            $table->double('vipt', 8, 2)->nullable();
+            $table->double('buys', 10, 2)->nullable();
+            $table->double('sale', 10, 2)->nullable();
+            $table->double('mb', 10, 2)->nullable();
+            $table->double('advance', 10, 2)->nullable();
+            $table->double('vimp', 10, 2)->nullable();
+            $table->double('vipp', 10, 2)->nullable();
+            $table->double('vipt', 10, 2)->nullable();
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

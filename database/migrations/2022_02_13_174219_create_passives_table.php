@@ -16,10 +16,10 @@ class CreatePassivesTable extends Migration
         Schema::create('passives', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('creditor');
-            $table->double('share', 8, 2);
-            $table->double('balace', 8, 2);
+            $table->double('share', 10, 2);
+            $table->double('balace', 10, 2);
             $table->string('state');
-            $table->double('value', 8, 2);
+            $table->double('value', 10, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

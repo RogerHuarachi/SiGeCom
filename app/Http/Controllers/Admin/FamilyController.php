@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Family;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class FamilyController extends Controller
@@ -21,8 +22,14 @@ class FamilyController extends Controller
 
     public function store(Request $request)
     {
-        Family::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        $family = $client->families->where('description', $request->description);
+        if ($family->count() == 0) {
+            Family::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Family $family)

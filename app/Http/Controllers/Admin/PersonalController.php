@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Personal;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class PersonalController extends Controller
@@ -13,7 +14,7 @@ class PersonalController extends Controller
         $personals = Personal::orderBy('id')->paginate(10);
         return view('admin.personals.index', compact('personals'));
     }
-    
+
     public function create()
     {
         //
@@ -21,8 +22,13 @@ class PersonalController extends Controller
 
     public function store(Request $request)
     {
-        Personal::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        if (!$client->personal) {
+            Personal::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Personal $personal)

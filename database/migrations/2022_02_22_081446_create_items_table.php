@@ -16,11 +16,11 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->double('amount', 8, 2);
+            $table->double('amount', 10, 2);
             $table->string('unit');
-            $table->double('performance', 8, 2);
-            $table->double('price', 8, 2);
-            $table->double('total', 8, 2);
+            $table->double('performance', 10, 2);
+            $table->double('price', 10, 2);
+            $table->double('total', 10, 2);
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 

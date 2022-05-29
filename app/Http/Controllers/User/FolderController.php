@@ -36,7 +36,11 @@ class FolderController extends Controller
 
     public function show(Folder $folder)
     {
-        return view('user.folders.show', compact('folder'));
+        $debtor = $folder->debtor();
+        $codebtor = $folder->codebtor();
+        $guarantor = $folder->guarantor();
+        $coguarantor = $folder->coguarantor();
+        return view('user.folders.show', compact('folder', 'debtor', 'codebtor', 'guarantor', 'coguarantor'));
     }
 
     public function edit(Folder $folder)
@@ -69,30 +73,6 @@ class FolderController extends Controller
         $request["folder_id"]=$folder->id;
         Client::create($request->all());
         return back()->with('confirmation', 'Registrado Correctamente');
-    }
-
-
-
-
-    public function indep(Folder $folder)
-    {
-        $debtor = $folder->debtor();
-        $codebtor = $folder->codebtor();
-        return view('formularios.deudor.independiente.show', compact('folder', 'debtor', 'codebtor'));
-    }
-
-    public function asal(Folder $folder)
-    {
-        $debtor = $folder->debtor();
-        $codebtor = $folder->codebtor();
-        return view('formularios.deudor.asalariado.show', compact('folder', 'debtor', 'codebtor'));
-    }
-
-    public function indepG(Folder $folder)
-    {
-        $debtor = $folder->guarantor();
-        $codebtor = $folder->coguarantor();
-        return view('formularios.garante.independiente.show', compact('folder', 'debtor', 'codebtor'));
     }
 
     public function asalG(Folder $folder)
@@ -154,7 +134,7 @@ class FolderController extends Controller
         // return $assigns;
     }
 
-    //CArpetas registradas
+    //Carpetas registradas
     public function regist()
     {
         $user = Auth::user();

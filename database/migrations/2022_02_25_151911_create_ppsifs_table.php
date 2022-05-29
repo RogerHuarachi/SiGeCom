@@ -16,9 +16,9 @@ class CreatePpsifsTable extends Migration
         Schema::create('ppsifs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('item');
-            $table->double('amount', 8, 2);
-            $table->double('salary', 8, 2);
-            $table->double('total', 8, 2);
+            $table->double('amount', 10, 2);
+            $table->double('salary', 10, 2);
+            $table->double('total', 10, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 

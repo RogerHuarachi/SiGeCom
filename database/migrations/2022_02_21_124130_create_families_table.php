@@ -17,7 +17,7 @@ class CreateFamiliesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('amount');
             $table->string('description');
-            $table->double('value', 8, 2);
+            $table->double('value', 10, 2);
             $table->string('state');
             $table->unsignedBigInteger('client_id');
             $table->timestamps();

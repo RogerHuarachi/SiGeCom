@@ -160,64 +160,76 @@ class ClientController extends Controller
 
     public function primary(Request $request)
     {
+        $client = Client::find($request->client_id);
         $request["activity"]="Primaria";
-        if ($request->sale) {
-            $request["mb"]=($request->sale-$request->buys)/$request->sale;
+        $inventory = $client->inventories->where('activity', $request->activity)->where('name', $request->name);
+        if ($inventory->count() == 0) {
+            if ($request->sale) {
+                $request["mb"]=($request->sale-$request->buys)/$request->sale;
+            } else {
+                $request["mb"]=0;
+            }
+
+            if ($request->type == "MP") {
+                $request["vimp"]=$request->amount*$request->buys;
+            }  else {
+                $request["vimp"]=0;
+            }
+
+            if ($request->type == 'pp') {
+                $request["vipp"]=$request->amount*$request->buys*$request->advance;
+            } else {
+                $request["vipp"]=0;
+            }
+
+            if ($request->type == 'PT') {
+                $request["vipt"]=$request->amount*$request->buys;
+            } else {
+                $request["vipt"]=0;
+            }
+
+            Inventory::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
         } else {
-            $request["mb"]=0;
+            return back();
         }
-
-        if ($request->type == "MP") {
-            $request["vimp"]=$request->amount*$request->buys;
-        }  else {
-            $request["vimp"]=0;
-        }
-
-        if ($request->type == 'pp') {
-            $request["vipp"]=$request->amount*$request->buys*$request->advance;
-        } else {
-            $request["vipp"]=0;
-        }
-
-        if ($request->type == 'PT') {
-            $request["vipt"]=$request->amount*$request->buys;
-        } else {
-            $request["vipt"]=0;
-        }
-
-        Inventory::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
     }
 
     public function secondary(Request $request)
     {
+        $client = Client::find($request->client_id);
         $request["activity"]="Secundaria";
-        if ($request->sale) {
-            $request["mb"]=($request->sale-$request->buys)/$request->sale;
+        $inventory = $client->inventories->where('activity', $request->activity)->where('name', $request->name);
+        if ($inventory->count() == 0) {
+            if ($request->sale) {
+                $request["mb"]=($request->sale-$request->buys)/$request->sale;
+            } else {
+                $request["mb"]=0;
+            }
+
+            if ($request->type == "MP") {
+                $request["vimp"]=$request->amount*$request->buys;
+            }  else {
+                $request["vimp"]=0;
+            }
+
+            if ($request->type == 'pp') {
+                $request["vipp"]=$request->amount*$request->buys*$request->advance;
+            } else {
+                $request["vipp"]=0;
+            }
+
+            if ($request->type == 'PT') {
+                $request["vipt"]=$request->amount*$request->buys;
+            } else {
+                $request["vipt"]=0;
+            }
+
+            Inventory::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
         } else {
-            $request["mb"]=0;
+            return back();
         }
-
-        if ($request->type == "MP") {
-            $request["vimp"]=$request->amount*$request->buys;
-        }  else {
-            $request["vimp"]=0;
-        }
-
-        if ($request->type == 'pp') {
-            $request["vipp"]=$request->amount*$request->buys*$request->advance;
-        } else {
-            $request["vipp"]=0;
-        }
-
-        if ($request->type == 'PT') {
-            $request["vipt"]=$request->amount*$request->buys;
-        } else {
-            $request["vipt"]=0;
-        }
-
-        Inventory::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
     }
 
     public function documento(Client $client)
@@ -285,7 +297,7 @@ class ClientController extends Controller
         $crna = $client->crna;
         return view('hojas.resolucion.show', compact('client', 'codeudor', 'garante', 'crna'));
     }
-    
+
     public function ingcliente(Request $request)
     {
         $request["type"]="Cliente";

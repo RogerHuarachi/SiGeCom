@@ -1,4 +1,4 @@
-<div class="modal fade text-dark" id="deudorCreate">
+<div class="modal fade text-dark" id="garanteCreate">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,14 +12,23 @@
                 <div class="modal-body">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <div class="form-group">
-                                    <label>Identificador de carpeta</label>
+                                    <label>Id</label>
                                     <div class="select2-primary">
                                         <select class="select2 form-control-border" data-placeholder="Select a State" data-dropdown-css-class="select2-primary" style="width: 100%;" name="folder_id" required>
                                             <option value="{{ $folder->id }}">{{ $folder->id }}</option>
                                         </select>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Sector</label>
+                                    <select class="custom-select form-control-border" name="sector" required>
+                                        <option>Independiente</option>
+                                        <option>Asalariado</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -38,12 +47,12 @@
                                     placeholder="Apellido" name="lastName" required>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-1">
                                 <div class="form-group">
                                     <label>Sexo</label>
                                     <select class="custom-select form-control-border" name="gender" required>
-                                        <option>MASCULINO</option>
-                                        <option>FEMENINO</option>
+                                        <option value="MASCULINO">M</option>
+                                        <option value="FEMENINO">F</option>
                                     </select>
                                 </div>
                             </div>
@@ -86,7 +95,7 @@
                                 <div class="form-group">
                                     <label>Extensión</label>
                                     <select class="custom-select form-control-border" name="extension" required>
-                                        <option></option>
+                                        <option>--</option>
                                         <option>CB</option>
                                         <option>CH</option>
                                         <option>TR</option>

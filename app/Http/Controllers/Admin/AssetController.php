@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Asset;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class AssetController extends Controller
@@ -21,8 +22,14 @@ class AssetController extends Controller
 
     public function store(Request $request)
     {
-        Asset::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        $asset = $client->assets->where('type', $request->type);
+        if ($asset->count() == 0) {
+            Asset::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Asset $asset)

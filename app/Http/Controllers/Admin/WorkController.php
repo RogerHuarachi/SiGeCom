@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Work;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class WorkController extends Controller
@@ -21,8 +22,14 @@ class WorkController extends Controller
 
     public function store(Request $request)
     {
-        Work::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        $work = $client->works->where('type', $request->type)->where('description', $request->description);
+        if ($work->count() == 0) {
+            Work::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Work $work)

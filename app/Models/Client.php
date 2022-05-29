@@ -10,7 +10,7 @@ class Client extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type', 'name', 'lastName', 'gender', 'identification',
+        'sector', 'type', 'name', 'lastName', 'gender', 'identification',
         'number', 'extension', 'nit', 'birth', 'age',
         'nacionality', 'dependents', 'civil', 'employment', 'mobile',
         'landline', 'mainActivity', 'secondaryActivity', 'cp', 'folder_id',
@@ -31,24 +31,14 @@ class Client extends Model
         return $this->hasOne(Commercial::class);
     }
 
-    public function businesses()
-    {
-        return $this->hasMany(Business::class);
-    }
-
     public function loan()
     {
         return $this->hasOne(Loan::class);
     }
 
-    public function assets()
+    public function businesses()
     {
-        return $this->hasMany(Asset::class);
-    }
-
-    public function passives()
-    {
-        return $this->hasMany(Passive::class);
+        return $this->hasMany(Business::class);
     }
 
     public function residence()
@@ -59,6 +49,16 @@ class Client extends Model
     public function job()
     {
         return $this->hasOne(Job::class);
+    }
+
+    public function assets()
+    {
+        return $this->hasMany(Asset::class);
+    }
+
+    public function passives()
+    {
+        return $this->hasMany(Passive::class);
     }
 
     public function works()

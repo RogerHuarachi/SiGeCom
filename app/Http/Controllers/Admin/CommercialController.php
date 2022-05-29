@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Commercial;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class CommercialController extends Controller
@@ -21,8 +22,14 @@ class CommercialController extends Controller
 
     public function store(Request $request)
     {
-        Commercial::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        if (!$client->commercial) {
+            Commercial::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
+
     }
 
     public function show(Commercial $commercial)

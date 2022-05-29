@@ -25,16 +25,19 @@ class BusinessController extends Controller
     public function store(Request $request)
     {
         $client = Client::find($request->client_id);
-        if ($client->businesses->count() == 0) {
+        if (!$client->primary()) {
             $request["level"]="PRIMARIA";
             Business::create($request->all());
             return back()->with('confirmation','Registrado Correctamente');
-        } elseif ($client->businesses->count() == 1) {
-            $request["level"]="SECUNDARIA";
-            Business::create($request->all());
-            return back()->with('confirmation','Registrado Correctamente');
         } else {
-            return back()->with('confirmation','Registrado Correctamente');
+            if (!$client->secondary()) {
+                $request["level"]="SECUNDARIA";
+                Business::create($request->all());
+                return back()->with('confirmation','Registrado Correctamente');
+            } else {
+                return back();
+            }
+
         }
     }
 

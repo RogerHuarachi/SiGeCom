@@ -16,11 +16,11 @@ class CreateIcosTable extends Migration
         Schema::create('icos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type');
-            $table->double('sb', 8, 2);
-            $table->double('al', 8, 2);
-            $table->double('od', 8, 2)->nullable();
-            $table->double('oi', 8, 2)->nullable();
-            $table->double('ld', 8, 2);
+            $table->double('sb', 10, 2);
+            $table->double('al', 10, 2);
+            $table->double('od', 10, 2)->nullable();
+            $table->double('oi', 10, 2)->nullable();
+            $table->double('ld', 10, 2);
 
             $table->unsignedBigInteger('client_id');
             $table->timestamps();

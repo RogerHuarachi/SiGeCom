@@ -19,10 +19,10 @@ class CreateMubsTable extends Migration
             $table->integer('amount');
             $table->string('unity');
             $table->string('frequency');
-            $table->double('buy', 8, 2);
-            $table->double('sale', 8, 2);
-            $table->double('buysMonth', 8, 2);
-            $table->double('saleMonth', 8, 2);
+            $table->double('buy', 10, 2);
+            $table->double('sale', 10, 2);
+            $table->double('buysMonth', 10, 2);
+            $table->double('saleMonth', 10, 2);
             $table->unsignedBigInteger('client_id');
             $table->timestamps();
 
