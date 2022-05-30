@@ -21,8 +21,14 @@ class DebtController extends Controller
 
     public function store(Request $request)
     {
-        Debt::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        $debt = $client->debts->where('type', $request->type);
+        if ($document->count() == 0) {
+            Debt::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Debt $debt)

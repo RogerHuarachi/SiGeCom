@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -21,8 +22,13 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
-        Payment::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        if (!$client->payment) {
+            Payment::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Payment $payment)

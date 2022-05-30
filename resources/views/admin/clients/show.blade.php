@@ -23,7 +23,6 @@
     @include('admin.families.create')
     @include('admin.products.create')
     @include('admin.inventories.create')
-    {{-- de aqui falta --}}
     @include('admin.propertys.create')
     @include('admin.vehicles.create')
     @include('admin.children.create')

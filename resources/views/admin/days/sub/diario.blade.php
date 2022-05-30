@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Dia</label>
@@ -43,6 +43,57 @@
                                     <label for="name">Monto</label>
                                     <input type="text" class="form-control form-control-border"
                                     placeholder="Monto" name="money" required>
+                                </div>
+                            </div>
+                        </div> --}}
+                        
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Text</label>
+                                    <input class="form-control form-control-border" type="text" name="">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Text</label>
+                                    <input class="form-control form-control-border" type="text" name="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Text</label>
+                                    <input class="form-control form-control-border" type="text" name="">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Text</label>
+                                    <input class="form-control form-control-border" type="text" name="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Text</label>
+                                    <input class="form-control form-control-border" type="text" name="">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Text</label>
+                                    <input class="form-control form-control-border" type="text" name="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Text</label>
+                                    <input class="form-control form-control-border" type="text" name="">
                                 </div>
                             </div>
                         </div>

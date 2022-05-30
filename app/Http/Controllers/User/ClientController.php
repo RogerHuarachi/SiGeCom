@@ -240,15 +240,27 @@ class ClientController extends Controller
     public function inmueble(Request $request)
     {
         $request["type"]="Bien Inmueble";
-        Document::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        $document = $client->documents->where('type', $request->type)->where('description', $request->description);
+        if ($document->count() == 0) {
+            Document::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function vehiculo(Request $request)
     {
         $request["type"]="Vehiculo";
-        Document::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        $document = $client->documents->where('type', $request->type)->where('description', $request->description);
+        if ($document->count() == 0) {
+            Document::create($request->all());
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function evaluacion(Client $client)
@@ -269,9 +281,10 @@ class ClientController extends Controller
 
     public function dia(Request $request)
     {
-        $request["type"]="Diario";
-        Sale::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        // $request["type"]="Diario";
+        // Sale::create($request->all());
+        // return back()->with('confirmation','Registrado Correctamente');
+        return $request;
     }
 
     public function semana(Request $request)
