@@ -23,34 +23,178 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-9">
                                 <div class="form-group">
-                                    <label>Item</label>
                                     <select class="custom-select form-control-border"
-                                    name="item" required>
-                                        <option>Gastos en empleados</option>
+                                    name="item[]" required>
                                         <option>Alimentación y/o refrigerios</option>
-                                        <option>Servicios básicos (luz,agua,telefono y otros)</option>
-                                        <option>Alquileres</option>
-                                        <option>Mantenimiento de Activos</option>
-                                        <option>Transporte personal</option>
-                                        <option>Transporte de mercadería / insumos</option>
-                                        <option>Impuestos y sentajes (IVA, IT, Patente y otros)</option>
-                                        <option>Mantenimiento y gastos de vehículos</option>
-                                        <option>Seguridad, Estibador y otros</option>
-                                        <option>Provisión de aguinaldos</option>
-                                        <option>Imprevistos</option>
-                                        <option>Otros</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-9">
                                 <div class="form-group">
-                                    <label for="name">Monto</label>
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Servicios básicos (luz,agua,telefono y otros)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Monto " name="total" required>
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Alquileres</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Mantenimiento de Activos</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Transporte personal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Transporte de mercadería / insumos</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Impuestos y sentajes (IVA, IT, Patente y otros)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Seguridad, Estibador y otros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Provisión de aguinaldos</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Imprevistos</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Otros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
                                 </div>
                             </div>
                         </div>

@@ -42,13 +42,6 @@
                                         <select class="custom-select form-control-border"
                                         name="item" required>
                                             <option>{{ $sale->item }}</option>
-                                            <option>Lunes</option>
-                                            <option>Martes</option>
-                                            <option>Miercoles</option>
-                                            <option>Jueves</option>
-                                            <option>Viernes</option>
-                                            <option>Sabado</option>
-                                            <option>Domingo</option>
                                         </select>
                                     </div>
                                 @endif
@@ -58,10 +51,6 @@
                                         <select class="custom-select form-control-border"
                                         name="item" required>
                                             <option>{{ $sale->item }}</option>
-                                            <option>Semana 1</option>
-                                            <option>Semana 2</option>
-                                            <option>Semana 3</option>
-                                            <option>Semana 4</option>
                                         </select>
                                     </div>
                                 @endif

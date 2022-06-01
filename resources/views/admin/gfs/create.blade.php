@@ -23,35 +23,226 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-9">
                                 <div class="form-group">
-                                    <label>Item</label>
                                     <select class="custom-select form-control-border"
-                                    name="item" required>
+                                    name="item[]" required>
                                         <option>Alimentación</option>
-                                        <option>Transporte familiar</option>
-                                        <option>Servicios básicos (luz, agua, teléfono y otros)</option>
-                                        <option>Serv. De Internet - TV cable -Teléfonos Cel.</option>
-                                        <option>Educación (material, recreos, pasajes y otros)</option>
-                                        <option>Vestimenta</option>
-                                        <option>Salud</option>
-                                        <option>Insumos de limpieza y Aseo</option>
-                                        <option>Alquileres</option>
-                                        <option>Impuestos Inmuebles familia</option>
-                                        <option>Gastos y mantenimiento de vehículos familia</option>
-                                        <option>Recreación</option>
-                                        <option>Imprevistos</option>
-                                        <option>Otros</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-9">
                                 <div class="form-group">
-                                    <label for="name">Monto</label>
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Transporte familiar</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Monto " name="total" required>
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Servicios básicos (luz, agua, teléfono y otros)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Serv. De Internet - TV cable -Teléfonos Cel.</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Educación (material, recreos, pasajes y otros)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Vestimenta</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Salud</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Insumos de limpieza y Aseo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Alquileres</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Impuestos Inmuebles familia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Gastos y mantenimiento de vehículos familia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Recreación</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Imprevistos</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select class="custom-select form-control-border"
+                                    name="item[]" required>
+                                        <option>Otros</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Monto" name="total[]" step=".01" required>
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gfo;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class GfoController extends Controller
@@ -21,8 +22,19 @@ class GfoController extends Controller
 
     public function store(Request $request)
     {
-        Gfo::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+        $client = Client::find($request->client_id);
+        if ($client->gfos->count() == 0) {
+            for ($i=0; $i < 11; $i++) { 
+                Gfo::create([
+                    'item' => $request->item[$i],
+                    'total' => $request->total[$i],
+                    'client_id' => $request->client_id
+                ]);
+            }
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function show(Gfo $gfo)

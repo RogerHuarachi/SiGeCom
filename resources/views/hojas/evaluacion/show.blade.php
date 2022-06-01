@@ -218,12 +218,6 @@
                                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#weekCreate">Semanal</button>
                                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#monthCreate">Mensual</button>
                             @else
-                                @if ($client->dia())
-                                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#dayCreate">Diario</button>
-                                @endif
-                                @if ($client->semana())
-                                    <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#weekCreate">Semanal</button>
-                                @endif
                                 @if ($client->mes())
                                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#monthCreate">Mensual</button>
                                 @endif
@@ -417,9 +411,11 @@
                     <h4 class="card-title">
                         Gastos y Mantenimiento de Vehiculos
                         @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gmvCreate">
-                                <i class="fas fa-plus"></i>
-                            </button>
+                            @if (!$client->gmvs)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gmvCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
                         @endif
                     </h4>
                     <div class="card-tools">
@@ -567,9 +563,11 @@
                     <h4 class="card-title">
                         Detalle de Gastos Fijos Operativos
                         @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gfoCreate">
-                                <i class="fas fa-plus"></i>
-                            </button>
+                            @if (!$client->gfos)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gfoCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
                         @endif
                     </h4>
                     <div class="card-tools">
@@ -640,9 +638,11 @@
                     <h4 class="card-title">
                         Detalle de Gastos Familiares
                         @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
-                            <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gfCreate">
-                                <i class="fas fa-plus"></i>
-                            </button>
+                            @if (!$client->gfs)
+                                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gfCreate">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            @endif
                         @endif
                     </h4>
                     <div class="card-tools">

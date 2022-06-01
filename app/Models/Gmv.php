@@ -18,4 +18,28 @@ class Gmv extends Model
     {
         return $this->belongsTo(Client::class);
     }
+
+    
+
+    public function totalmes($frequency, $total){
+        if ($frequency == "DIARIO") {
+            return $total*26;
+        }  elseif ($frequency == "SEMANAL") {
+            return $total*4;
+        } elseif ($frequency == "QUINCENAL") {
+            return $total*2;
+        } elseif ($frequency == "MENSUAL") {
+            return $total*1;
+        } elseif ($frequency == "BIMESTRAL") {
+            return $total/2;
+        } elseif ($frequency == "TRIMESTRAL") {
+            return $total/3;
+        } elseif ($frequency == "SEMESTRAL") {
+            return $total/6;
+        } elseif ($frequency == "ANUAL") {
+            return $total/12;
+        } else {
+            return 0;
+        }
+    }
 }

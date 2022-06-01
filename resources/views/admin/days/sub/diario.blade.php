@@ -21,79 +21,47 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        {{-- <div class="row">
+                        </div>                        
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Dia</label>
-                                    <select class="custom-select form-control-border"
-                                    name="item" required>
-                                        <option>Lunes</option>
-                                        <option>Martes</option>
-                                        <option>Miercoles</option>
-                                        <option>Jueves</option>
-                                        <option>Viernes</option>
-                                        <option>Sabado</option>
-                                        <option>Domingo</option>
-                                    </select>
+                                    <input class="form-control form-control-border" placeholder="Lunes" type="Lunes" name="lunes" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">Monto</label>
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Monto" name="money" required>
-                                </div>
-                            </div>
-                        </div> --}}
-                        
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Text</label>
-                                    <input class="form-control form-control-border" type="text" name="">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Text</label>
-                                    <input class="form-control form-control-border" type="text" name="">
+                                    <input class="form-control form-control-border" placeholder="Martes" type="Martes" name="martes" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Text</label>
-                                    <input class="form-control form-control-border" type="text" name="">
+                                    <input class="form-control form-control-border" placeholder="Miercoles" type="Miercoles" name="miercoles" required>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Text</label>
-                                    <input class="form-control form-control-border" type="text" name="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Text</label>
-                                    <input class="form-control form-control-border" type="text" name="">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Text</label>
-                                    <input class="form-control form-control-border" type="text" name="">
+                                    <input class="form-control form-control-border" placeholder="Jueves" type="Jueves" name="jueves" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Text</label>
-                                    <input class="form-control form-control-border" type="text" name="">
+                                    <input class="form-control form-control-border" placeholder="Viernes" type="Viernes" name="viernes" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control form-control-border" placeholder="Sabado" type="Sabado" name="sabado" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control form-control-border" placeholder="Domingo" type="Domingo" name="domingo" required>
                                 </div>
                             </div>
                         </div>

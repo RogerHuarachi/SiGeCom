@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Semana</label>
@@ -40,6 +40,30 @@
                                     <label for="name">Monto</label>
                                     <input type="text" class="form-control form-control-border"
                                     placeholder="Monto" name="money" required>
+                                </div>
+                            </div>
+                        </div> --}}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control form-control-border" placeholder="Semana 1" type="text" name="s1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control form-control-border" placeholder="Semana 2" type="text" name="s2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control form-control-border" placeholder="Semana 3" type="text" name="s3">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control form-control-border" placeholder="Semana 4" type="text" name="s4">
                                 </div>
                             </div>
                         </div>

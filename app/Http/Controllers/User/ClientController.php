@@ -281,17 +281,90 @@ class ClientController extends Controller
 
     public function dia(Request $request)
     {
-        // $request["type"]="Diario";
-        // Sale::create($request->all());
-        // return back()->with('confirmation','Registrado Correctamente');
-        return $request;
+        $client = Client::find($request->client_id);
+        $sales = $client->sales->where('type', "Diario");
+        if ($sales->count() == 0) {
+            $lunes = Sale::create([
+                'type' => "Diario",
+                'item' => "Lunes",
+                'money' => $request->lunes,
+                'client_id' => $request->client_id
+            ]);
+            $martes = Sale::create([
+                'type' => "Diario",
+                'item' => "Martes",
+                'money' => $request->martes,
+                'client_id' => $request->client_id
+            ]);
+            $miercoles = Sale::create([
+                'type' => "Diario",
+                'item' => "Miercoles",
+                'money' => $request->miercoles,
+                'client_id' => $request->client_id
+            ]);
+            $jueves = Sale::create([
+                'type' => "Diario",
+                'item' => "Jueves",
+                'money' => $request->jueves,
+                'client_id' => $request->client_id
+            ]);
+            $viernes = Sale::create([
+                'type' => "Diario",
+                'item' => "Viernes",
+                'money' => $request->viernes,
+                'client_id' => $request->client_id
+            ]);
+            $sabado = Sale::create([
+                'type' => "Diario",
+                'item' => "Sabado",
+                'money' => $request->sabado,
+                'client_id' => $request->client_id
+            ]);
+            $domingo = Sale::create([
+                'type' => "Diario",
+                'item' => "Domingo",
+                'money' => $request->domingo,
+                'client_id' => $request->client_id
+            ]);
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function semana(Request $request)
-    {
-        $request["type"]="Semanal";
-        Sale::create($request->all());
-        return back()->with('confirmation','Registrado Correctamente');
+    {        
+        $client = Client::find($request->client_id);
+        $sales = $client->sales->where('type', "Semanal");
+        if ($sales->count() == 0) {
+            $s1 = Sale::create([
+                'type' => "Semanal",
+                'item' => "Semana 1",
+                'money' => $request->s1,
+                'client_id' => $request->client_id
+            ]);
+            $s2 = Sale::create([
+                'type' => "Semanal",
+                'item' => "Semana 2",
+                'money' => $request->s2,
+                'client_id' => $request->client_id
+            ]);
+            $s3 = Sale::create([
+                'type' => "Semanal",
+                'item' => "Semana 3",
+                'money' => $request->s3,
+                'client_id' => $request->client_id
+            ]);
+            $s4 = Sale::create([
+                'type' => "Semanal",
+                'item' => "Semana 4",
+                'money' => $request->s4,
+                'client_id' => $request->client_id
+            ]);
+            return back()->with('confirmation','Registrado Correctamente');
+        } else {
+            return back();
+        }
     }
 
     public function mes(Request $request)
