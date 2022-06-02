@@ -16,7 +16,7 @@ class CreateFamiliesTable extends Migration
         Schema::create('families', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('amount');
-            $table->string('description');
+            $table->text('description');
             $table->double('value', 10, 2);
             $table->string('state');
             $table->unsignedBigInteger('client_id');

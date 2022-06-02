@@ -22,7 +22,7 @@ class CreateResidencesTable extends Migration
             $table->string('zone');
             $table->string('mobile')->nullable();
             $table->string('province');
-            $table->string('description');
+            $table->text('description');
             $table->string('domlat')->nullable();
             $table->string('domlon')->nullable();
             $table->string('file', 128);

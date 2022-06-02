@@ -17,7 +17,7 @@ class CreateWorksTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->integer('amount');
-            $table->string('description');
+            $table->text('description');
             $table->double('value', 10, 2);
             $table->string('exercise');
             $table->string('state');
