@@ -26,6 +26,14 @@
                 <div class="card-header bg-info p-2">
                     <h3 class="card-title">
                         Datos del {{ $client->type }}
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if ($client)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#clientEdit{{ $client->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('user.clients.edit')
+                            @endif
+                        @endif
                     </h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -299,9 +307,9 @@
                                     <dt class="col-md-5">Realizada por</dt>
                                     <dd class="col-md-7">{{ $secondary->responsable }}</dd>
                                     <dt class="col-md-5">Experiencia en el Rubro</dt>
-                                    <dd class="col-md-7">{{ $secondary->experience }}</dd>
+                                    <dd class="col-md-7">{{ $secondary->experience }} meses</dd>
                                     <dt class="col-md-5">Antiguedad del Negocio</dt>
-                                    <dd class="col-md-7">{{ $secondary->antiquity }}</dd>
+                                    <dd class="col-md-7">{{ $secondary->antiquity }} meses</dd>
                                     <dt class="col-md-5">Propiedad del puesto y/o Lugar</dt>
                                     <dd class="col-md-7">{{ $secondary->property }}</dd>
                                 </dl>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gmv;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class GmvController extends Controller
@@ -23,7 +24,7 @@ class GmvController extends Controller
     {
         $client = Client::find($request->client_id);
         if ($client->gmvs->count() == 0) {
-            for ($i=0; $i < 13; $i++) { 
+            for ($i=0; $i < 13; $i++) {
                 Gmv::create([
                     'item' => $request->item[$i],
                     'amount' => $request->amount[$i],

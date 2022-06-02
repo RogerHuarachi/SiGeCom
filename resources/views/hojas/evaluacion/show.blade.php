@@ -411,7 +411,7 @@
                     <h4 class="card-title">
                         Gastos y Mantenimiento de Vehiculos
                         @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
-                            @if (!$client->gmvs)
+                            @if ($client->gmvs->count() == 0)
                                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gmvCreate">
                                     <i class="fas fa-plus"></i>
                                 </button>
@@ -563,7 +563,7 @@
                     <h4 class="card-title">
                         Detalle de Gastos Fijos Operativos
                         @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
-                            @if (!$client->gfos)
+                            @if ($client->gfos->count() == 0)
                                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gfoCreate">
                                     <i class="fas fa-plus"></i>
                                 </button>
@@ -638,7 +638,7 @@
                     <h4 class="card-title">
                         Detalle de Gastos Familiares
                         @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
-                            @if (!$client->gfs)
+                            @if ($client->gfs->count() == 0)
                                 <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#gfCreate">
                                     <i class="fas fa-plus"></i>
                                 </button>

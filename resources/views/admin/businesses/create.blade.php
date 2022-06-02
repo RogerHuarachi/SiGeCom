@@ -71,7 +71,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name">Experiencia en el Rubro</label>
+                                    <label for="name">Experiencia en el Rubro (meses)</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Experiencia en el Rubr" name="experience" required>
                                 </div>
@@ -80,7 +80,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name">Antiguedad del Negocio</label>
+                                    <label for="name">Antiguedad del Negocio (meses)</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Antiguedad del Negocio" name="antiquity" required>
                                 </div>

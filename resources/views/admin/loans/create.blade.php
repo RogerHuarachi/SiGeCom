@@ -89,7 +89,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">Vencimiento fecha Fija cada</label>
+                                    <label for="name">Vencimiento fecha Fija cada ... del mes </label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Vencimiento fecha Fija cada" name="expiration" required>
                                 </div>

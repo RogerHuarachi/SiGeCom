@@ -17,9 +17,17 @@
                 <div class="card-header">
                     <h3 class="card-title">
                         Datos del {{ $client->type }}
+                        @if (Auth::user()->id == $client->folder->user->id && !$client->folder->state)
+                            @if ($client)
+                                <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#clientEdit{{ $client->id }}">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                @include('user.clients.edit')
+                            @endif
+                        @endif
                     </h3>
                     <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <button tyzpe="button" class="btn btn-tool" data-card-widget="collapse">
                         <i class="fas fa-minus"></i>
                         </button>
                     </div>

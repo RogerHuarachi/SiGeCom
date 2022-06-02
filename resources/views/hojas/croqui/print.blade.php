@@ -71,7 +71,7 @@
                                 <dl class="row">
                                     <dt class="col-md-5">Tipo de Propiedad</dt>
                                     <dd class="col-md-7">{{ $residence->property }}</dd>
-                                    <dt class="col-md-5">Tiempo que reside en el lugar</dt>
+                                    <dt class="col-md-5">Tiempo que reside en el lugar meses</dt>
                                     <dd class="col-md-7">{{ $residence->time }}</dd>
                                     <dt class="col-md-5">Dir. Domicilio</dt>
                                     <dd class="col-md-7">{{ $residence->direction }}</dd>
@@ -120,7 +120,7 @@
                                 <dl class="row">
                                     <dt class="col-md-5">Tipo de Propiedad</dt>
                                     <dd class="col-md-7">{{ $job->property }}</dd>
-                                    <dt class="col-md-5">Tiempo que reside en el lugar</dt>
+                                    <dt class="col-md-5">Tiempo que reside en el lugar meses</dt>
                                     <dd class="col-md-7">{{ $job->time }}</dd>
                                     <dt class="col-md-5">Tipo de Negocio</dt>
                                     <dd class="col-md-7">{{ $job->business }}</dd>

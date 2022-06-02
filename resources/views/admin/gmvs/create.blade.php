@@ -1,4 +1,4 @@
-<div class="modal fade text-dark" id="gmvCreate">
+<div class="modal fade number-dark" id="gmvCreate">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -34,13 +34,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -71,13 +71,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -108,13 +108,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -145,13 +145,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -182,13 +182,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -219,13 +219,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -256,13 +256,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -293,13 +293,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -330,13 +330,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -367,13 +367,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -404,13 +404,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -441,13 +441,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -478,13 +478,13 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-border"
-                                    placeholder="Cantidad " name="amount[]" required>
+                                    placeholder="Cantidad " name="amount[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-border"
-                                    placeholder="Precio Unitario" name="price[]" required>
+                                    <input type="number" class="form-control form-control-border"
+                                    placeholder="Precio Unitario" name="price[]" step=".01" required>
                                 </div>
                             </div>
                             <div class="col-md-3">

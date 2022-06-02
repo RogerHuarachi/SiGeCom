@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">Tiempo que Reside</label>
+                                    <label for="name">Tiempo que Reside (meses)</label>
                                     <input type="number" class="form-control form-control-border"
                                     placeholder="Tiempo que Reside" name="time" value="{{ $residence->time }}" required>
                                 </div>
